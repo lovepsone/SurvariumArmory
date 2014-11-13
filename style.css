@@ -1,0 +1,180 @@
+#draggable
+{
+	font-size: x-large;
+	border: thin solid black;
+	width: 5em; 
+	text-align: center;
+	padding: 10px
+}
+
+table {border-collapse:collapse;}
+
+.b1
+{
+	background-image:url(images/1.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 115px;
+	top: -27px;
+	cursor: pointer;
+}
+
+.b2
+{
+	background-image:url(images/2.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 117px;
+	top: -27px;
+	cursor: pointer;
+}
+
+.b3
+{
+	background-image:url(images/3.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 117px;
+	top: -27px;
+	cursor: pointer;
+}
+
+.b4
+{
+	background-image:url(images/4.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 118px;
+	top: -27px;
+	cursor: pointer;
+}
+
+.b5
+{
+	background-image:url(images/5.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 119px;
+	top: -27px;
+	cursor: pointer;
+}
+
+.bArmoryTrue
+{
+	background-image:url(images/ArmTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: -194px;
+	top: 27px;
+	cursor: pointer;
+}
+
+.bArmoryFalse
+{
+	background-image:url(images/ArmFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: -190px;
+	top: 27px;
+	cursor: pointer;
+}
+
+.bWeaponTrue
+{
+	background-image:url(images/WeapTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: -188px;
+	top: 27px;
+	cursor: pointer;
+}
+
+.bWeaponFalse
+{
+	background-image:url(images/WeapFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: -194px;
+	top: 27px;
+	cursor: pointer;
+}
+
+.invhead
+{
+	background-image:url(images/InvHead.png);
+	background-repeat: no-repeat;
+	border: 0px;
+}
+
+.invbody
+{
+	background-image:url(images/InvBody.png);
+	background-repeat: repeat-y;
+	border: 0px;
+}
+
+#easyTooltip
+{
+	//background-image:url(images/tooltip.png);
+	//background-repeat: no-repeat;
+	padding: 5px;
+	border: 0px;
+	width: 168px;
+	height: 133px;
+	font-size: 11px;
+}
+
+.basketW
+{
+    position: relative;
+}
+
+.ToolTipHead
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipHead.png);
+}
+
+.ToolTipBody
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipBody.png);
+}
+
+.ToolTipFooter
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipFooter.png);
+}
+
+.ToolTipMod
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipMod.png);
+}

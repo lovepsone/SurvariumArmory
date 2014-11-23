@@ -130,7 +130,7 @@
 
 	function GetPlusMinus($m)
 	{
-		if ($m == 'p' || $m == 'c' || $m == 'r' || $m == 'b' || $m == 'g' || $m == 't' || $m == 'v')
+		if ($m == 'p' || $m == 'c' || $m == 'r' || $m == 'b' || $m == 'g' || $m == 't' || $m == 'v' || $m == 'q')
 			return '+';
 		return '-';
 	}

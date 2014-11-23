@@ -9,6 +9,15 @@
 
 table {border-collapse:collapse;}
 
+.b0
+{
+	border: 0px;
+	position: relative;
+	left: 17px;
+	top: -19px;
+	cursor: pointer;
+}
+
 .b1
 {
 	background-image:url(images/1.png);
@@ -16,8 +25,8 @@ table {border-collapse:collapse;}
 	height: 51px; 
 	border: 0px;
 	position: relative;
-	left: 115px;
-	top: -27px;
+	left: 95px;
+	top: -4px;
 	cursor: pointer;
 }
 
@@ -28,8 +37,8 @@ table {border-collapse:collapse;}
 	height: 51px; 
 	border: 0px;
 	position: relative;
-	left: 117px;
-	top: -27px;
+	left: 97px;
+	top: -4px;
 	cursor: pointer;
 }
 
@@ -40,8 +49,8 @@ table {border-collapse:collapse;}
 	height: 51px; 
 	border: 0px;
 	position: relative;
-	left: 117px;
-	top: -27px;
+	left: 98px;
+	top: -4px;
 	cursor: pointer;
 }
 
@@ -52,8 +61,8 @@ table {border-collapse:collapse;}
 	height: 51px; 
 	border: 0px;
 	position: relative;
-	left: 118px;
-	top: -27px;
+	left: 99px;
+	top: -4px;
 	cursor: pointer;
 }
 
@@ -64,56 +73,104 @@ table {border-collapse:collapse;}
 	height: 51px; 
 	border: 0px;
 	position: relative;
-	left: 119px;
-	top: -27px;
+	left: 100px;
+	top: -4px;
 	cursor: pointer;
 }
 
-.bArmoryTrue
+.bAllTrueAA
+{
+	background-image:url(images/AllTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 2px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bAllFalseAA
+{
+	background-image:url(images/AllFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bAllFalseAAW
+{
+	background-image:url(images/AllFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bArmoryTrueAA
 {
 	background-image:url(images/ArmTrue.png);
 	width: 64px;
 	height: 46px; 
 	border: 0px;
 	position: relative;
-	left: -194px;
-	top: 27px;
+	left: 12px;
+	top: 4px;
 	cursor: pointer;
 }
 
-.bArmoryFalse
+.bArmoryFalseAA
 {
 	background-image:url(images/ArmFalse.png);
 	width: 54px;
 	height: 46px; 
 	border: 0px;
 	position: relative;
-	left: -190px;
-	top: 27px;
+	left: 7px;
+	top: 4px;
 	cursor: pointer;
 }
 
-.bWeaponTrue
+.bArmoryFalseAAW
+{
+	background-image:url(images/ArmFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 17px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bWeaponTrueAAW
 {
 	background-image:url(images/WeapTrue.png);
 	width: 64px;
 	height: 46px; 
 	border: 0px;
 	position: relative;
-	left: -188px;
-	top: 27px;
+	left: 20px;
+	top: 4px;
 	cursor: pointer;
 }
 
-.bWeaponFalse
+.bWeaponFalseAA
 {
 	background-image:url(images/WeapFalse.png);
 	width: 54px;
 	height: 46px; 
 	border: 0px;
 	position: relative;
-	left: -194px;
-	top: 27px;
+	left: 13px;
+	top: 4px;
 	cursor: pointer;
 }
 
@@ -128,6 +185,13 @@ table {border-collapse:collapse;}
 {
 	background-image:url(images/InvBody.png);
 	background-repeat: repeat-y;
+	border: 0px;
+}
+
+.invfooter
+{
+	background-image:url(images/InvFooter.png);
+	background-repeat: no-repeat;
 	border: 0px;
 }
 
@@ -177,4 +241,11 @@ table {border-collapse:collapse;}
 	position: relative;
 	top: -5px;
 	background-image: url(images/tooltip/tooltipMod.png);
+}
+
+.scroll-pane
+{
+	overflow: auto;
+	height: 356px;
+	width: 390px;
 }

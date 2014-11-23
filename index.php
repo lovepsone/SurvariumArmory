@@ -26,36 +26,43 @@
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 	echo '<title>Survarium Armory</title>';
 	echo '<link rel="stylesheet" href="style.css">';
+	echo '<link type="text/css" href="jquery.jscrollpane.css" rel="stylesheet" media="all" />';
 	echo '<script type="text/javascript" src="include/js/jquery-2.1.1.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
 	echo '<script type="text/javascript" src="include/js/ajax.js"></script>';
 	echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
-
 	echo '<script type="text/javascript" src="include/js/jquery-ui-1.9.2.custom.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.jscrollpane.js"></script>';
+	echo '<script type="text/javascript" src="include/js/scroll.js"></script>';
 
 	echo '</head><body onload="StartLoadIitem();"><div align="center"><table>';
 	//скрытые чекбоксы
-	echo '<div><input id="weapon" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/><input id="armory" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/></div>';
+	echo '<div><input id="all" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/>';
+	echo '<input id="weapon" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/>';
+	echo '<input id="armory" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/></div>';
 	//
 	echo '<tr><td width="386px" border="0px">';// основная таблица
 	echo '<form action="">';
 	echo '<table width="386px" border="0px">';
 
 	echo '<tr width="386px" height="163px" class="invhead"><td>';
+	echo '<input type="checkbox" id="TF0" class="b0" name="0"/>';
 	echo '<input type="button" id="TF1" class="b1" name="1" />';
 	echo '<input type="button" id="TF2" class="b2" name="2" />';
 	echo '<input type="button" id="TF3" class="b3" name="3" />';
 	echo '<input type="button" id="TF4" class="b4" name="4" />';
-	echo '<input type="button" id="TF5" class="b5" name="5" />';
-	echo '<input type="button" id="TFArmory" class="bArmoryTrue" />';
+	echo '<input type="button" id="TF5" class="b5" name="5" /><br>';
+	echo '<input type="button" id="TFAll" class="bAllTrue" />';
+	echo '<input type="button" id="TFArmory" class="bArmoryFalse" />';
 	echo '<input type="button" id="TFWeapon" class="bWeaponFalse" />';
 	echo '</td></tr>';
 
-	echo '<tr width="386px" height="420px" class="invbody" valign="top"><td>';
-	echo '<table width="386px" style="position: relative; left: 0px; top: -10px;"><div id="ItemOutput"></div></table>';
-
+	echo '<tr width="386px" height="356px" class="invbody" valign="top"><td>';
+	echo '<div class="scroll-pane"><table width="386px" style="position: relative; left: 0px; top: -10px;"><div id="ItemOutput"></div></table></div>';
 	echo '</td></tr>';
+	echo '<tr width="386px" height="81px" class="invfooter"><td></td></tr>';
 	echo '</table>';
 	echo '</form>';
 	echo '</td>'; // закрываем калонку
@@ -91,5 +98,6 @@
 
 	echo '</td></tr>';
 
-	echo '</table></div></body></html>';
+	echo '</table></div>';
+	echo '</body></html>';
 ?>

@@ -24,7 +24,7 @@
 	include('locale.php');
 	include('functions.php');
 	/*
-	* $F 1 - независимые/2 - бродяги/3 - черный рынок/4 - армия возражденных/5 - поселение край
+	* $F 1 - независимые/2 - бродяги/3 - черный рынок/4 - армия возражденных/5 - поселение край/0 - все
 	* $T 1 - броня/2 - оружие
 	*/
 	// обработка переданных данных
@@ -39,7 +39,7 @@
 		$html .= "<font align='left' style='position: relative; left: -2px; top: 4px;'>".GetSmallImgFaction($items, $id)."</font>";
 		$html .= $txt[$items[$id]['l']]."</div>";
 		$html .= "<div align='right' style='position: relative; left: -5px; top: -13px;'>".$items[$id]['lvl']."</div></th>";
-		if ($T == 1)
+		if ($items[$id]['selector'] != 'iw')
 		{
 			if ($items[$id]['selector'] != 'ib')
 			{ 
@@ -66,7 +66,7 @@
 			}
 			$html .= "<tr><td class='ToolTipFooter' width='165px' height='3px'></td></tr>";
 		}
-		else if ($T == 2)
+		else if ($items[$id]['selector'] == 'iw')
 		{
 			$html .= "<tr><td class='ToolTipBody' width='165px'>";
 			$html .= "<font style='color:#ffffff; position: relative; left: 10px; top: 0px;'>".$txt['dmg']."</font>";
@@ -102,14 +102,14 @@
 		{
 			echo '<tr height="85"><td>';
 			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:6px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/'.$SItem[$i]['TypeImg'].$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
 			echo '</td>';
 		}
 		else if ($position == 2)
 		{
 			echo '<td>';
 			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:10px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/'.$SItem[$i]['TypeImg'].$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
 			echo '</td>';
 		}
 		else if ($position == 3)
@@ -117,7 +117,7 @@
 			$position = 0;
 			echo '<td>';
 			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:16px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/'.$SItem[$i]['TypeImg'].$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
 			echo '</tr>';
 		}
 		$position++;

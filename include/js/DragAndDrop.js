@@ -33,6 +33,9 @@ function GetId(str)
 
 function updateDraggable()
 {
+	//var Scroll = $(".scroll-pane").jScrollPane({showArrows: false, autoReinitialise: true});
+	//var apiScroll = Scroll.data('jsp');
+//stack
 	var idItem = 0;
 	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable(
 	{
@@ -40,11 +43,19 @@ function updateDraggable()
 		snap:'#SelectWeapon',
 		snapMode: 'inner',
 		snapTolerance: 50,
+		zIndex: 9999,
+		//stack: ".draggable",
 		//grid: [10,10],
-		start: function( event, ui )
+		start: function(event, ui)
 		{
 			$(this).data('preventBehaviour', true);
+			//apiScroll.destroy();
+
+		},
+		stop: function(event, ui)
+		{
 		}
+
     	});
 	$("#SelectWeapon").droppable(
 	{

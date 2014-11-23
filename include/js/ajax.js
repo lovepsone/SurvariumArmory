@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 6
+ * @revision 7
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -85,8 +85,7 @@ $(document).ready(function()
 
 	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
 	{
-		var Fraction = 0;
-		var TypeItem = 1;
+		var Fraction = 0, TypeItem = 1;
 		if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;

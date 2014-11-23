@@ -20,6 +20,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 
+function GetFaction(b){var a=1;switch(b){case"TF1":a=1;break;case"TF2":a=2;break;case"TF3":a=3;break;case"TF4":a=4;break;case"TF5":a=5;break}return a};
+
 $(function StartLoadIitem()
 {
 	$("input#TF0").prop("checked", true);
@@ -79,7 +81,7 @@ $(document).ready(function()
 		$("input#TFWeapon").toggleClass("bWeaponTrueAAW");
 	});
 
-	$("input#TF0").change(function(){});
+	//$("input#TF0").change(function(){});
 
 	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TFAll, input#TFArmory, input#TFWeapon").click(function()
 	{
@@ -91,14 +93,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			switch ($(this).attr('id'))
-			{
-			case "TF1": Faction = 1; break;
-			case "TF2": Faction = 2; break;
-			case "TF3": Faction = 3; break;
-			case "TF4": Faction = 4; break;
-			case "TF5": Faction = 5; break;
-			}
+			Faction = GetFaction($(this).attr('id'));
 		}
 
 		if ($("input#all").prop("checked"))

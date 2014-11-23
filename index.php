@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 4
+ * @revision 5
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -46,14 +46,13 @@
 	echo '<link rel="stylesheet" href="style.css">';
 	echo '<link type="text/css" href="jquery.jscrollpane.css" rel="stylesheet" media="all" />';
 	echo '<script type="text/javascript" src="include/js/jquery-2.1.1.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
+	//echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
 	echo '<script type="text/javascript" src="include/js/ajax.js"></script>';
 	echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery-ui-1.9.2.custom.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.jscrollpane.js"></script>';
-	echo '<script type="text/javascript" src="include/js/scroll.js"></script>';
 
 	echo '</head><body onload="StartLoadIitem();"><div align="center"><table>';
 	//скрытые чекбоксы

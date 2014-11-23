@@ -9,7 +9,7 @@
 
 table {border-collapse:collapse;}
 
-.b0
+.bFraction0
 {
 	border: 0px;
 	position: relative;
@@ -18,9 +18,9 @@ table {border-collapse:collapse;}
 	cursor: pointer;
 }
 
-.b1
+.bFraction1
 {
-	background-image:url(images/1.png);
+	background-image:url(images/Fraction/NoFraction.png);
 	width: 52px;
 	height: 51px; 
 	border: 0px;
@@ -30,9 +30,9 @@ table {border-collapse:collapse;}
 	cursor: pointer;
 }
 
-.b2
+.bFraction2
 {
-	background-image:url(images/2.png);
+	background-image:url(images/Fraction/Vagabondage.png);
 	width: 52px;
 	height: 51px; 
 	border: 0px;
@@ -42,9 +42,9 @@ table {border-collapse:collapse;}
 	cursor: pointer;
 }
 
-.b3
+.bFraction3
 {
-	background-image:url(images/3.png);
+	background-image:url(images/Fraction/BlackMarket.png);
 	width: 52px;
 	height: 51px; 
 	border: 0px;
@@ -54,9 +54,9 @@ table {border-collapse:collapse;}
 	cursor: pointer;
 }
 
-.b4
+.bFraction4
 {
-	background-image:url(images/4.png);
+	background-image:url(images/Fraction/ArmyRevival.png);
 	width: 52px;
 	height: 51px; 
 	border: 0px;
@@ -66,9 +66,9 @@ table {border-collapse:collapse;}
 	cursor: pointer;
 }
 
-.b5
+.bFraction5
 {
-	background-image:url(images/5.png);
+	background-image:url(images/Fraction/SettlementRegion.png);
 	width: 52px;
 	height: 51px; 
 	border: 0px;

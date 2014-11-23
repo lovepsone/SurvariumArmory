@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 4
+ * @revision 6
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,11 +20,11 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 
-function GetFraction(b){var a=1;switch(b){case"TF1":a=1;break;case"TF2":a=2;break;case"TF3":a=3;break;case"TF4":a=4;break;case"TF5":a=5;break}return a};
+function GetFraction(b){var a=1;switch(b){case"Fraction1":a=1;break;case"Fraction2":a=2;break;case"Fraction3":a=3;break;case"Fraction4":a=4;break;case"Fraction5":a=5;break}return a};
 
 $(function StartLoadIitem()
 {
-	$("input#TF0").prop("checked", true);
+	$("input#Fraction0").prop("checked", true);
 	$("input#all").prop("checked", true);
 	$("input#armory").prop("checked", false);
 	$("input#weapon").prop("checked", false);
@@ -83,11 +83,11 @@ $(document).ready(function()
 
 	//$("input#TF0").change(function(){});
 
-	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
+	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
 	{
 		var Fraction = 0;
 		var TypeItem = 1;
-		if ($("input#TF0").prop("checked"))
+		if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;
 		}
@@ -104,7 +104,7 @@ $(document).ready(function()
 		{
 			TypeItem = 1;
 		}
-		else
+		else if($("input#weapon").prop("checked"))
 		{
 			TypeItem = 2;
 		}

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 5
+ * @revision 6
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -65,12 +65,12 @@
 	echo '<table width="386px" border="0px">';
 
 	echo '<tr width="386px" height="163px" class="invhead"><td>';
-	echo '<input type="checkbox" id="TF0" class="b0" name="0"/>';
-	echo '<input type="button" id="TF1" class="b1" name="1" />';
-	echo '<input type="button" id="TF2" class="b2" name="2" />';
-	echo '<input type="button" id="TF3" class="b3" name="3" />';
-	echo '<input type="button" id="TF4" class="b4" name="4" />';
-	echo '<input type="button" id="TF5" class="b5" name="5" /><br>';
+	echo '<input type="checkbox" id="Fraction0" class="bFraction0" name="0"/>';
+	echo '<input type="button" id="Fraction1" class="bFraction1" name="1" />';
+	echo '<input type="button" id="Fraction2" class="bFraction2" name="2" />';
+	echo '<input type="button" id="Fraction3" class="bFraction3" name="3" />';
+	echo '<input type="button" id="Fraction4" class="bFraction4" name="4" />';
+	echo '<input type="button" id="Fraction5" class="bFraction5" name="5" /><br>';
 	echo '<input type="button" id="TypeItemAll"	class="bAllTrue" />';
 	echo '<input type="button" id="TypeItemArmory"	class="bArmoryFalse" />';
 	echo '<input type="button" id="TypeItemWeapon"	class="bWeaponFalse" />';

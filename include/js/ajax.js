@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 2
+ * @revision 4
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -28,12 +28,12 @@ $(function StartLoadIitem()
 	$("input#all").prop("checked", true);
 	$("input#armory").prop("checked", false);
 	$("input#weapon").prop("checked", false);
-	$("input#TFAll").removeClass();
-	$("input#TFArmory").removeClass();
-	$("input#TFWeapon").removeClass();
-	$("input#TFAll").toggleClass("bAllTrueAA");
-	$("input#TFArmory").toggleClass("bArmoryFalseAA");
-	$("input#TFWeapon").toggleClass("bWeaponFalseAA");
+	$("input#TypeItemAll").removeClass();
+	$("input#TypeItemArmory").removeClass();
+	$("input#TypeItemWeapon").removeClass();
+	$("input#TypeItemAll").toggleClass("bAllTrueAA");
+	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
+	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
 	
 	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip();updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
@@ -43,47 +43,47 @@ $(document).ready(function()
 {
 	//$("div.ItemOutput").scrollLeft(30);
 	// нужно будет упростить
-	$("input#TFAll").click(function()
+	$("input#TypeItemAll").click(function()
 	{
 		$("input#all").prop("checked", true);
 		$("input#armory").prop("checked", false);
 		$("input#weapon").prop("checked", false);
-		$("input#TFAll").removeClass();
-		$("input#TFArmory").removeClass();
-		$("input#TFWeapon").removeClass();
-		$("input#TFAll").toggleClass("bAllTrueAA");
-		$("input#TFArmory").toggleClass("bArmoryFalseAA");
-		$("input#TFWeapon").toggleClass("bWeaponFalseAA");
+		$("input#TypeItemAll").removeClass();
+		$("input#TypeItemArmory").removeClass();
+		$("input#TypeItemWeapon").removeClass();
+		$("input#TypeItemAll").toggleClass("bAllTrueAA");
+		$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
+		$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
 	});
-	$("input#TFArmory").click(function()
+	$("input#TypeItemArmory").click(function()
 	{
 		$("input#all").prop("checked", false);
 		$("input#armory").prop("checked", true);
 		$("input#weapon").prop("checked", false);
-		$("input#TFAll").removeClass();
-		$("input#TFArmory").removeClass();
-		$("input#TFWeapon").removeClass();
-		$("input#TFAll").toggleClass("bAllFalseAA");
-		$("input#TFArmory").toggleClass("bArmoryTrueAA");
-		$("input#TFWeapon").toggleClass("bWeaponFalseAA");
+		$("input#TypeItemAll").removeClass();
+		$("input#TypeItemArmory").removeClass();
+		$("input#TypeItemWeapon").removeClass();
+		$("input#TypeItemAll").toggleClass("bAllFalseAA");
+		$("input#TypeItemArmory").toggleClass("bArmoryTrueAA");
+		$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
 	});
 
-	$("input#TFWeapon").click(function()
+	$("input#TypeItemWeapon").click(function()
 	{
 		$("input#all").prop("checked", false);
 		$("input#armory").prop("checked", false);
 		$("input#weapon").prop("checked", true);
-		$("input#TFAll").removeClass();
-		$("input#TFArmory").removeClass();
-		$("input#TFWeapon").removeClass();
-		$("input#TFAll").toggleClass("bAllFalseAAW");
-		$("input#TFArmory").toggleClass("bArmoryFalseAAW");
-		$("input#TFWeapon").toggleClass("bWeaponTrueAAW");
+		$("input#TypeItemAll").removeClass();
+		$("input#TypeItemArmory").removeClass();
+		$("input#TypeItemWeapon").removeClass();
+		$("input#TypeItemAll").toggleClass("bAllFalseAAW");
+		$("input#TypeItemArmory").toggleClass("bArmoryFalseAAW");
+		$("input#TypeItemWeapon").toggleClass("bWeaponTrueAAW");
 	});
 
 	//$("input#TF0").change(function(){});
 
-	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TFAll, input#TFArmory, input#TFWeapon").click(function()
+	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
 	{
 		var Fraction = 0;
 		var TypeItem = 1;

@@ -1,7 +1,25 @@
 <?php
-/*
-*
-*/
+/**
+ * @package Survarium Armory
+ * @version Release 1.0
+ * @revision 4
+ * @copyright (c) 2014 lovepsone
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ **/
 	session_start();
 	error_reporting(E_ALL);
 	$_SESSION['iw'] = '0:0:0:0:0:0:0:0:iw:0';
@@ -54,9 +72,9 @@
 	echo '<input type="button" id="TF3" class="b3" name="3" />';
 	echo '<input type="button" id="TF4" class="b4" name="4" />';
 	echo '<input type="button" id="TF5" class="b5" name="5" /><br>';
-	echo '<input type="button" id="TFAll" class="bAllTrue" />';
-	echo '<input type="button" id="TFArmory" class="bArmoryFalse" />';
-	echo '<input type="button" id="TFWeapon" class="bWeaponFalse" />';
+	echo '<input type="button" id="TypeItemAll"	class="bAllTrue" />';
+	echo '<input type="button" id="TypeItemArmory"	class="bArmoryFalse" />';
+	echo '<input type="button" id="TypeItemWeapon"	class="bWeaponFalse" />';
 	echo '</td></tr>';
 
 	echo '<tr width="386px" height="356px" class="invbody" valign="top"><td>';

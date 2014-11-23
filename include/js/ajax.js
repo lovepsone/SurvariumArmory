@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 1
+ * @revision 2
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -86,7 +86,7 @@ $(document).ready(function()
 	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TFAll, input#TFArmory, input#TFWeapon").click(function()
 	{
 		var Faction = 0;
-		var aType = 1;
+		var TypeItem = 1;
 		if ($("input#TF0").prop("checked"))
 		{
 			Faction = 0;
@@ -98,15 +98,15 @@ $(document).ready(function()
 
 		if ($("input#all").prop("checked"))
 		{
-			aType = 0;
+			TypeItem = 0;
 		}
 		else if($("input#armory").prop("checked"))
 		{
-			aType = 1;
+			TypeItem = 1;
 		}
 		else
 		{
-			aType = 2;
+			TypeItem = 2;
 		}
 
 		$.ajax(
@@ -114,7 +114,7 @@ $(document).ready(function()
 			url: 'include/HandleItems.php', // ѕуть к обработчику
 			type: 'POST', // метод передачи данных
 			//dataType: 'json', // формат, в котором ожидаетс€ получить ответ с сервера
-			data:{'data': Faction.toString() + ':' + aType.toString()},
+			data:{'data': Faction.toString() + ':' + TypeItem.toString()},
 			success: function(data)
 			{
 				$("#ItemOutput").html(data);

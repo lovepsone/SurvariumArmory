@@ -20,7 +20,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 
-function GetFaction(b){var a=1;switch(b){case"TF1":a=1;break;case"TF2":a=2;break;case"TF3":a=3;break;case"TF4":a=4;break;case"TF5":a=5;break}return a};
+function GetFraction(b){var a=1;switch(b){case"TF1":a=1;break;case"TF2":a=2;break;case"TF3":a=3;break;case"TF4":a=4;break;case"TF5":a=5;break}return a};
 
 $(function StartLoadIitem()
 {
@@ -85,15 +85,15 @@ $(document).ready(function()
 
 	$("input#TF0, #TF1, #TF2, #TF3, #TF4, #TF5, input#TFAll, input#TFArmory, input#TFWeapon").click(function()
 	{
-		var Faction = 0;
+		var Fraction = 0;
 		var TypeItem = 1;
 		if ($("input#TF0").prop("checked"))
 		{
-			Faction = 0;
+			Fraction = 0;
 		}
 		else
 		{
-			Faction = GetFaction($(this).attr('id'));
+			Fraction = GetFraction($(this).attr('id'));
 		}
 
 		if ($("input#all").prop("checked"))
@@ -114,7 +114,7 @@ $(document).ready(function()
 			url: 'include/HandleItems.php', // ѕуть к обработчику
 			type: 'POST', // метод передачи данных
 			//dataType: 'json', // формат, в котором ожидаетс€ получить ответ с сервера
-			data:{'data': Faction.toString() + ':' + TypeItem.toString()},
+			data:{'data': Fraction.toString() + ':' + TypeItem.toString()},
 			success: function(data)
 			{
 				$("#ItemOutput").html(data);

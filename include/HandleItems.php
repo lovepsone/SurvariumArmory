@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 8
+ * @revision 14
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -26,9 +26,10 @@
 	/*
 	* $F 1 - независимые/2 - бродяги/3 - черный рынок/4 - армия возражденных/5 - поселение край/0 - все
 	* $T 1 - броня/2 - оружие
+	* $S 1 - сортировка по уровню/2 - сортировка по стоимости
 	*/
 	// обработка переданных данных
-	list($F, $T) = explode(":", $_POST['data']);
+	list($F, $T, $S) = explode(":", $_POST['data']);
 
 	function ToolTips($id)
 	{
@@ -93,7 +94,7 @@
 	}
 
 	$IData = array();
-	$IData = GetItemsData($T, $F);
+	$IData = GetItemsData($T, $F, $S);
 	$position = 1;
 	for ($i = 0; $i < count($IData); $i++)
 	{

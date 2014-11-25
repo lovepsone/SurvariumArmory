@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 13
+ * @revision 14
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -34,7 +34,7 @@ $(function StartLoadIitem()
 	$("input#TypeItemAll").toggleClass("bAllTrueAA");
 	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
 	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip();updateDraggable();}});
+	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip();updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 });
 
@@ -80,11 +80,9 @@ $(document).ready(function()
 		$("input#TypeItemWeapon").toggleClass("bWeaponTrueAAW");
 	});
 
-	//$("input#TF0").change(function(){});
-
-	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
+	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
 	{
-		var Fraction = 0, TypeItem = 1;
+		var Fraction = 0, TypeItem = 1, TypeSort = 0;
 		if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;
@@ -107,12 +105,25 @@ $(document).ready(function()
 			TypeItem = 2;
 		}
 
+		if  ($(this).attr('id') == "SortLvl")
+		{
+			TypeSort = 1;
+			$("input#SortP").prop("checked", false);
+			$("input#SortLvl").prop("checked", true);
+		}
+		else if ($(this).attr('id') == "SortP")
+		{
+			TypeSort = 2;
+			$("input#SortLvl").prop("checked", false);
+			$("input#SortP").prop("checked", true);
+		}
+
 		$.ajax(
 		{
 			url: 'include/HandleItems.php', // ѕуть к обработчику
 			type: 'POST', // метод передачи данных
 			//dataType: 'json', // формат, в котором ожидаетс€ получить ответ с сервера
-			data:{'data': Fraction.toString() + ':' + TypeItem.toString()},
+			data:{'data': Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString()},
 			success: function(data)
 			{
 				$("#ItemOutput").html(data);

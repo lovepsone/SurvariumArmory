@@ -155,20 +155,8 @@ $items['65'] = array(	'selector'=>'if',	'fraction'=>3, 'img'=>'f_3_3.png',		'l'=
 		global $items;
 		$r = array(
 		'id'		=> $id,
-		'selector'	=> $items[$id]['selector'],
-		'img'		=> $items[$id]['img'],
-		'lang'		=> $items[$id]['l'],
-		'armory'	=> $items[$id]['armory'],
-		'isolation'	=> $items[$id]['isolation'],
-		'dmg'		=> $items[$id]['dmg'],
-		'pnt'		=> $items[$id]['pnt'],
-		'vrn'		=> $items[$id]['vrn'],
-		'dis'		=> $items[$id]['dis'],
-		'rate'		=> $items[$id]['rate'],
-		'w'		=> $items[$id]['w'],
 		'p'		=> $items[$id]['p'],
-		'level'		=> $items[$id]['lvl'],
-		'mod'		=> $items[$id]['mod']);
+		'level'		=> $items[$id]['lvl']);
 		return $r;
 	}
 
@@ -176,7 +164,7 @@ $items['65'] = array(	'selector'=>'if',	'fraction'=>3, 'img'=>'f_3_3.png',		'l'=
 	* $TypeItem(2/1/0) - оружие/броня/все
 	* $fraction - fraction
 	*/
-	function GetItems($TypeItem = 0, $faction = 0)
+	function GetItemsData($TypeItem = 0, $faction = 0)
 	{
 		global $items;
 		$result = array(); $icount = 0;

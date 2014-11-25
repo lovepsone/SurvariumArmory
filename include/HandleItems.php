@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 1
+ * @revision 8
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -92,32 +92,31 @@
 		return $html;
 	}
 
-	$SItem = array();
-	$SItem = GetItems($T, $F);
-
+	$IData = array();
+	$IData = GetItemsData($T, $F);
 	$position = 1;
-	for ($i = 0; $i < count($SItem); $i++)
+	for ($i = 0; $i < count($IData); $i++)
 	{
 		if ($position == 1)
 		{
 			echo '<tr height="85"><td>';
-			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:6px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:6px; top:0px;">';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
 			echo '</td>';
 		}
 		else if ($position == 2)
 		{
 			echo '<td>';
-			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:10px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:10px; top:0px;">';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
 			echo '</td>';
 		}
 		else if ($position == 3)
 		{
 			$position = 0;
 			echo '<td>';
-			echo '<div id="'.$SItem[$i]['selector'].'" style="position:relative; left:16px; top:0px;">';
-			echo '<div item-id="'.$i.'" s="'.$SItem[$i]['selector'].'"><img src="images/icon/'.$SItem[$i]['img'].'" title="'.ToolTips($SItem[$i]['id']).'" id="'.$SItem[$i]['id'].'"/></div></div>';
+			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:16px; top:0px;">';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
 			echo '</tr>';
 		}
 		$position++;

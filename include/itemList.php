@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 1
+ * @revision 9
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -159,12 +159,39 @@ $items['65'] = array(	'selector'=>'if',	'fraction'=>3, 'img'=>'f_3_3.png',		'l'=
 		'level'		=> $items[$id]['lvl']);
 		return $r;
 	}
+	//все что связано с сортировками
+	function CMPLvl($a, $b)
+	{
+		if ($a['level'] == $b['level'])
+		{
+			return 0;
+		}
+		return ($a['level'] < $b['level']) ? -1 : 1;
+	}
+
+	function CMPP($a, $b)
+	{
+		if ($a['p'] == $b['p'])
+		{
+			return 0;
+		}
+		return ($a['p'] < $b['p']) ? -1 : 1;
+	}
+	/*
+	* $TypeSort(1/2) - по Уровню/по Цене
+	* $data - массив GetItemsData()
+	*/
+	function SortItemData($data, $TypeSort = 1)
+	{
+		if ($TypeSort == 1) usort($data, "CMPLvl"); else usort($data, "CMPP");
+		return $data;
+	}
 
 	/*
 	* $TypeItem(2/1/0) - оружие/броня/все
 	* $fraction - fraction
 	*/
-	function GetItemsData($TypeItem = 0, $faction = 0)
+	function GetItemsData($TypeItem = 0, $faction = 0, $TypeSort = 1)
 	{
 		global $items;
 		$result = array(); $icount = 0;
@@ -216,6 +243,7 @@ $items['65'] = array(	'selector'=>'if',	'fraction'=>3, 'img'=>'f_3_3.png',		'l'=
 				}
 			}
 		}
+		$result = SortItemData($result, $TypeSort);
 		return $result;
 	}
 ?>

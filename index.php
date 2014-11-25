@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 11
+ * @revision 18
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -30,13 +30,12 @@
 	$_SESSION['ih'] = '0:0:0:0:0:ia:0';
 	$_SESSION['is'] = '0:0:0:0:0:ia:0';
 	$_SESSION['if'] = '0:0:0:0:0:ia:0';
-//http://javascript.ru/ui/draganddrop
-//http://jquery.page2page.ru/index.php5/JQuery_UI
-//http://professorweb.ru/my/javascript/jquery/level4/4_12.php
-//http://habrahabr.ru/post/103242/
-//http://www.simplecoding.org/drag-drop-s-ispolzovaniem-jquery-ui.html
 
-// json http://www.cyberforum.ru/javascript-jquery/thread966787.html
+	//http://jquery.page2page.ru/index.php5/JQuery_UI
+	//http://professorweb.ru/my/javascript/jquery/level4/4_12.php
+	//http://habrahabr.ru/post/103242/
+	//http://www.simplecoding.org/drag-drop-s-ispolzovaniem-jquery-ui.html
+	// json http://www.cyberforum.ru/javascript-jquery/thread966787.html
 
 	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
 	echo '<html xmlns="http://www.w3.org/1999/xhtml">';

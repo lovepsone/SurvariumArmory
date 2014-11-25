@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 16
+ * @revision 18
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,222 +19,110 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-function GetSrc(str)
-{
-	var src = str.split('"');
-	return src[1];
-}
-function GetImg(html)
-{
-	a = GetSrc(html);
-	var b = a.split('=');
-	var c = b[1].split('&');
-	return c[0];
-}
-
-function GetId(str)
-{
-	var id = str.split('"');
-	return id[id.length - 2];
-}
-
+function GetSrc(str, num){var src = str.split('"');return src[num];}function GetImg(html){a = GetSrc(html, 1);var b = a.split('=');var c = b[1].split('&');return c[0];}function GetId(str){var id = str.split('"');return id[id.length - 2];}
 
 function updateDraggable()
 {
-	//var Scroll = $(".scroll-pane").jScrollPane({showArrows: false, autoReinitialise: true});
-	//var apiScroll = Scroll.data('jsp');
-//stack
-	var idItem = 0;
-	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable(
-	{
-		helper:'clone', //containment: 'parent',
-		snap:'#SelectWeapon',
+	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable({helper:'clone',
+		snap:'#SelectWeapon, #SelectHead, #SelectMask, #SelectBack, #SelectArmory, #SelectHand, #SelectShin, #SelectFeet',
 		snapMode: 'inner',
-		snapTolerance: 50,
-		zIndex: 9999,
-		//stack: ".draggable",
-		//grid: [10,10],
-		start: function(event, ui)
-		{
-			$(this).data('preventBehaviour', true);
-			//apiScroll.destroy();
+		snapTolerance: 20,zIndex: 9999,start: function(event, ui){$(this).data('preventBehaviour', true);}});
 
-		},
-		stop: function(event, ui)
-		{
-		}
-
-    	});
 	$("#SelectWeapon").droppable(
 	{
 		tolerance:"touch",
+		accept:"#iw",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastWeapon").empty();
-			//var t = ui.draggable.html();
-			//var t1 = t.replace(/title=.*?(?=id)/i, '');
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastWeapon"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'weapon': move.find("div[item-id]").html()},
-				success: function(data)
-				{
-					$("#StatsOutput").html(data);
-					//alert(data);
-				}
-			});
-				//$("img").easyTooltip();
-
-		},
-		accept: '#iw'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'iw': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
 	$("#SelectHead").droppable(
 	{
 		tolerance:"touch",
+		accept:"#ie",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastHead").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHead"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'ie': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-				//$("img").easyTooltip();
-
-		},
-		accept: '#ie'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
 	$("#SelectMask").droppable(
 	{
 		tolerance:"touch",
+		accept:"#im",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastMask").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastMask"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'im': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-				//$("img").easyTooltip();
-
-		},
-		accept: '#im'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'im': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
 	$("#SelectBack").droppable(
 	{
 		tolerance:"touch",
+		accept:"#ib",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastBack").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastBack"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'ib': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-		},
-		accept: '#ib'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ib': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
 	$("#SelectArmory").droppable(
 	{
 		tolerance:"touch",
+		accept:"#ia",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastArmory").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastArmory"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'ia': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-		},
-		accept: '#ia'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ia': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
-
 	$("#SelectHand").droppable(
 	{
 		tolerance:"touch",
+		accept:"#ih",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastHand").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHand"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'ih': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-		},
-		accept: '#ih'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ih': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
 	$("#SelectShin").droppable(
 	{
 		tolerance:"touch",
+		accept:"#is",
 		drop:function (event, ui)
 		{
-			var basket = $(this),move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastShin").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastShin"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'is': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-		},
-		accept: '#is'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'is': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		
+		}
 	});
 	$("#SelectFeet").droppable(
 	{
 		tolerance:"touch",
+		accept:"#if",
 		drop:function (event, ui)
 		{
-			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
-			$("div.lastFeet").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastFeet"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
-			$.ajax(
-			{
-				url: 'include/HandleArmory.php',
-				type: 'POST',
-				data:{'if': move.find("div[item-id]").html()},
-				success: function(data) { $("#StatsOutput").html(data); }
-			});
-		},
-		accept: '#if'
+			var id = $(this).attr("id"), move = ui.draggable;
+			$("div.last" + id).empty();
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '"/></div>');
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'if': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+		}
 	});
-	//$("div #items").find(":img").live('mousedown', function (e)
-	//{
-	//	var mdown = document.createEvent("MouseEvents");
-	//	mdown.initMouseEvent("mousedown", false, true, window, 0, e.screenX, e.screenY, e.clientX, e.clientY, true, false, false, true, 0, null);
-	//	$(this).closest('div #items')[0].dispatchEvent(mdown);
-	//}).live('click', function(e)
-	//{
-	//	var $draggable = $(this).closest('div #items');
-	//	if($draggable.data("preventBehaviour"))
-	//	{
-	//		console.log(1);
-	//		e.preventDefault();
-	//		$draggable.data("preventBehaviour", false)
-	//	}
-	//});
 }

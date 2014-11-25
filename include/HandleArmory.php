@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 1
+ * @revision 18
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -25,9 +25,9 @@
 	@include_once("itemList.php");
 	@include('functions.php');
 	
-	if (isset($_POST['weapon']))
+	if (isset($_POST['iw']))
 	{
-		$_SESSION['iw'] = GetLoadWeapon(GetParseId($_POST['weapon']), $items);
+		$_SESSION['iw'] = GetLoadWeapon(GetParseId($_POST['iw']), $items);
 	}
 	// голова
 	if (isset($_POST['ie']))

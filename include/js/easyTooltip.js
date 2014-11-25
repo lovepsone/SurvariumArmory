@@ -27,8 +27,7 @@
 		}; 
 			
 		var options = $.extend(defaults, options);  
-		var content;
-				
+		var content;		
 		this.each(function() {  				
 			var title = $(this).attr("title");				
 			$(this).hover(function(e){											 							   

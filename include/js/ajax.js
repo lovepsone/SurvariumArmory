@@ -34,7 +34,7 @@ $(function StartLoadIitem()
 	$("input#TypeItemAll").toggleClass("bAllTrueAA");
 	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
 	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip();updateDraggable();}});
+	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 });
 
@@ -127,7 +127,7 @@ $(document).ready(function()
 			success: function(data)
 			{
 				$("#ItemOutput").html(data);
-				$("img").easyTooltip();
+				//$("img").easyTooltip();
 				updateDraggable();
 				//alert(data);
 			}

@@ -103,7 +103,7 @@
 			echo '<tr height="85"><td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:6px; top:0px;">';
 			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
-			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'" class="ItemInv"/>';
 			echo '</div></div></td>';
 		}
 		else if ($position == 2)
@@ -111,7 +111,7 @@
 			echo '<td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:10px; top:0px;">';
 			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
-			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'" class="ItemInv"/>';
 			echo '</div></div></td>';
 		}
 		else if ($position == 3)
@@ -120,7 +120,7 @@
 			echo '<td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:16px; top:0px;">';
 			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
-			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'" class="ItemInv"/>';
 			echo '</div></div></td>';
 		}
 		$position++;

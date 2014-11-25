@@ -35,7 +35,7 @@ $(document).ready(function()
 	$("input#TypeItemAll").toggleClass("bAllTrueAA");
 	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
 	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});
+	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 
 	// нужно будет упростить
@@ -117,14 +117,13 @@ $(document).ready(function()
 
 		$.ajax(
 		{
-			url: 'include/HandleItems.php', // Путь к обработчику
-			type: 'POST', // метод передачи данных
-			//dataType: 'json', // формат, в котором ожидается получить ответ с сервера
+			url: 'include/HandleItems.php',
+			type: 'POST',
 			data:{'data': Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString()},
 			success: function(data)
 			{
 				$("#ItemOutput").html(data);
-				//$("img").easyTooltip();
+				$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});
 				updateDraggable();
 				//alert(data);
 			}

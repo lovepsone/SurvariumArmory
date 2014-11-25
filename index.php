@@ -54,7 +54,7 @@
 
 	echo '</head><body onload="StartLoadIitem();"><div align="center"><table>';
 	//скрытые чекбоксы
-	echo '<div><input id="all" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/>';
+	echo '<div><input id="all" type="checkbox" style="height: 0; overflow: hidden; width: 0;" checked="checked"/>';
 	echo '<input id="weapon" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/>';
 	echo '<input id="armory" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/></div>';
 	//
@@ -63,13 +63,13 @@
 	echo '<table width="386px" border="0px">';
 
 	echo '<tr width="386px" height="163px" class="invhead"><td>';
-	echo '<input type="checkbox" id="Fraction0" class="bFraction0" name="0"/>';
-	echo '<input type="button" id="Fraction1" class="bFraction1" name="1" />';
-	echo '<input type="button" id="Fraction2" class="bFraction2" name="2" />';
-	echo '<input type="button" id="Fraction3" class="bFraction3" name="3" />';
-	echo '<input type="button" id="Fraction4" class="bFraction4" name="4" />';
-	echo '<input type="button" id="Fraction5" class="bFraction5" name="5" /><br>';
-	echo '<input type="button" id="TypeItemAll"	class="bAllTrue" />';
+	echo '<input type="checkbox" id="Fraction0"/>';
+	echo '<input type="button" id="Fraction1" />';
+	echo '<input type="button" id="Fraction2" />';
+	echo '<input type="button" id="Fraction3" />';
+	echo '<input type="button" id="Fraction4" />';
+	echo '<input type="button" id="Fraction5" /><br>';
+	echo '<input type="button" id="TypeItemAll"	class="bAllTrue" checked="checked"/>';
 	echo '<input type="button" id="TypeItemArmory"	class="bArmoryFalse" />';
 	echo '<input type="button" id="TypeItemWeapon"	class="bWeaponFalse" />';
 	echo '</td></tr>';
@@ -77,7 +77,7 @@
 	echo '<tr width="386px" height="356px" class="invbody" valign="top"><td>';
 	echo '<div class="scroll-pane"><table width="386px" style="position: relative; left: 0px; top: -10px;"><div id="ItemOutput"></div></table></div>';
 	echo '</td></tr>';
-	echo '<tr width="386px" height="81px" class="invfooter"><td><input type="checkbox" id="SortLvl"/><input type="checkbox" id="SortP"/></td></tr>';
+	echo '<tr width="386px" height="81px" class="invfooter"><td><input type="checkbox" id="SortLvl" checked="checked"/><input type="checkbox" id="SortP"/></td></tr>';
 	echo '</table>';
 	echo '</form>';
 	echo '</td>'; // закрываем калонку

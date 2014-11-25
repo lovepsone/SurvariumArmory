@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 10
+ * @revision 11
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -77,7 +77,7 @@
 	echo '<tr width="386px" height="356px" class="invbody" valign="top"><td>';
 	echo '<div class="scroll-pane"><table width="386px" style="position: relative; left: 0px; top: -10px;"><div id="ItemOutput"></div></table></div>';
 	echo '</td></tr>';
-	echo '<tr width="386px" height="81px" class="invfooter"><td></td></tr>';
+	echo '<tr width="386px" height="81px" class="invfooter"><td><input type="checkbox" id="SortLvl"/><input type="checkbox" id="SortP"/></td></tr>';
 	echo '</table>';
 	echo '</form>';
 	echo '</td>'; // закрываем калонку

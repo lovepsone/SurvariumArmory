@@ -194,6 +194,23 @@ table {border-collapse:collapse;}
 	background-repeat: no-repeat;
 	border: 0px;
 }
+#SortLvl
+{
+	border: 0px;
+	position: relative;
+	left: 197px;
+	top: 21px;
+	cursor: pointer;
+}
+
+#SortP
+{
+	border: 0px;
+	position: relative;
+	left: 251px;
+	top: 21px;
+	cursor: pointer;
+}
 
 #easyTooltip
 {

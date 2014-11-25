@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 12
+ * @revision 13
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,6 +24,16 @@ function GetFraction(b){var a=1;switch(b){case"Fraction1":a=1;break;case"Fractio
 
 $(function StartLoadIitem()
 {
+	$("input#Fraction0").prop("checked", true);
+	$("input#all").prop("checked", true);
+	$("input#armory").prop("checked", false);
+	$("input#weapon").prop("checked", false);
+	$("input#TypeItemAll").removeClass();
+	$("input#TypeItemArmory").removeClass();
+	$("input#TypeItemWeapon").removeClass();
+	$("input#TypeItemAll").toggleClass("bAllTrueAA");
+	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
+	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
 	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0'},success: function(data){$("#ItemOutput").html(data);$("img").easyTooltip();updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 });

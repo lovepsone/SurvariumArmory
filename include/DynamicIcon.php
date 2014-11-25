@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 16
+ * @revision 17
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -25,6 +25,9 @@
 	$source = ImageCreateFromPng("../images/icon/".$_GET["n"].".png");
 	$icon = ImageCreateFromPng("../images/money.png");
 	$color = ImageColorAllocate($icon, 60, 60, 60);
+	imagealphablending($source, false);
+	imagealphablending($icon, false);
+	imagesavealpha($icon, true);
 	imagecopy($source, $icon, 68, 65, 0, 0, 49, 15);
 	ImageString($source, 2, 78, 66, $_GET["p"], $color);
 	imagepng($source);

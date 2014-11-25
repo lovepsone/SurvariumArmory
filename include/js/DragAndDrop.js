@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 1
+ * @revision 16
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,12 +24,20 @@ function GetSrc(str)
 	var src = str.split('"');
 	return src[1];
 }
+function GetImg(html)
+{
+	a = GetSrc(html);
+	var b = a.split('=');
+	var c = b[1].split('&');
+	return c[0];
+}
 
 function GetId(str)
 {
 	var id = str.split('"');
 	return id[id.length - 2];
 }
+
 
 function updateDraggable()
 {
@@ -66,7 +74,7 @@ function updateDraggable()
 			$("div.lastWeapon").empty();
 			//var t = ui.draggable.html();
 			//var t1 = t.replace(/title=.*?(?=id)/i, '');
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastWeapon"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastWeapon"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -90,7 +98,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastHead").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHead"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHead"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -110,7 +118,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastMask").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastMask"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastMask"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -130,7 +138,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastBack").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastBack"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastBack"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -148,7 +156,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastArmory").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastArmory"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastArmory"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -167,7 +175,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastHand").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHand"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastHand"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -185,7 +193,7 @@ function updateDraggable()
 		{
 			var basket = $(this),move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastShin").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastShin"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastShin"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',
@@ -203,7 +211,7 @@ function updateDraggable()
 		{
 			var basket = $(this), move = ui.draggable, itemId = basket.find("div[item-id='" + move.attr("item-id") + "']");
 			$("div.lastFeet").empty();
-			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastFeet"><img src="' + GetSrc(move.find("div[item-id]").html()) + '" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
+			basket.append('<div iteml-id="' + move.attr("item-id") + '" class="lastFeet"><img src="images/icon/' + GetImg(move.find("div[item-id]").html()) + '.png" id="' + GetId(move.find("div[item-id]").html()) + '"/></div>');
 			$.ajax(
 			{
 				url: 'include/HandleArmory.php',

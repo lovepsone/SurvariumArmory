@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 15
+ * @revision 16
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -102,23 +102,26 @@
 		{
 			echo '<tr height="85"><td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:6px; top:0px;">';
-			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'.png" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
-			echo '</td>';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '</div></div></td>';
 		}
 		else if ($position == 2)
 		{
 			echo '<td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:10px; top:0px;">';
-			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'.png" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
-			echo '</td>';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '</div></div></td>';
 		}
 		else if ($position == 3)
 		{
 			$position = 0;
 			echo '<td>';
 			echo '<div id="'.$items[$IData[$i]['id']]['selector'].'" style="position:relative; left:16px; top:0px;">';
-			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'"><img src="images/icon/'.$items[$IData[$i]['id']]['img'].'.png" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/></div></div>';
-			echo '</tr>';
+			echo '<div item-id="'.$IData[$i]['id'].'" s="'.$items[$IData[$i]['id']]['selector'].'">';
+			echo '<img src="include/DynamicIcon.php?n='.$items[$IData[$i]['id']]['img'].'&p='.$items[$IData[$i]['id']]['p'].'" title="'.ToolTips($IData[$i]['id']).'" id="'.$IData[$i]['id'].'"/>';
+			echo '</div></div></td>';
 		}
 		$position++;
 	}

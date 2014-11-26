@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 21
+ * @revision 24
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -114,6 +114,8 @@ $(document).ready(function()
 			$("input#SortLvl").prop("checked", false);
 			$("input#SortP").prop("checked", true);
 		}
+		else if ($("input#SortP").prop("checked")) TypeSort = 1;
+		else if ($("input#SortLvl").prop("checked")) TypeSort = 2;
 
 		$.ajax(
 		{

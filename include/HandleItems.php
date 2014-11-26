@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 26
+ * @revision 28
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -60,9 +60,9 @@
 			{
 				for ($i = 0; $i < count($mod); $i++)
 				{
-					$html .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='center'>";
-					$html .= "<font style='color:#ffffff;'>".GetImgMod($mod[$i]['m']).GetTxtMod($mod[$i]['m'])."</font>";
-					$html .= "<font style='color:green; position: relative; top: 1px;'>".GetPlusMinus($mod[$i]['m']).(int)$mod[$i]['c'].GetTxtModType($mod[$i]['m'])."</font></td></tr>";	
+					$html .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'>";
+					$html .= "<font style='color:#ffffff; position: relative; left:5px;'>".GetImgMod($mod[$i]['m']).GetTxtMod($mod[$i]['m'])."</font>";
+					$html .= "<font style='color:green; position: relative; top: 1px; left:5px;'>".GetPlusMinus($mod[$i]['m']).(int)$mod[$i]['c'].GetTxtModType($mod[$i]['m'])."</font></td></tr>";	
 				}
 			}
 			$html .= "<tr><td class='ToolTipFooter' width='165px' height='3px'></td></tr>";

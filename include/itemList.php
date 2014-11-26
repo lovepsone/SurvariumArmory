@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 23
+ * @revision 27
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -46,8 +46,8 @@
 * s - время поиска
 * b - вместимость карманов
 * e - затраты энергии
-* r - скорость перезарядки
-* q - слотов для спецсредств
+* r - время перезарядки
+* q - слот для спецсредств
 * t - скорость передвижения
 * g - регенерация
 * k - отдача оружия
@@ -163,6 +163,27 @@ $items['95'] = array(	'selector'=>'ia',	'fraction'=>4, 'img'=>'a_4_6',		'l'=>'ta
 $items['96'] = array(	'selector'=>'is',	'fraction'=>4, 'img'=>'s_4_6',		'l'=>'ta431', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'5', 	'p'=>52500, 	'lvl'=>15,	'mod'=>'p:1;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
 $items['97'] = array(	'selector'=>'ih',	'fraction'=>4, 'img'=>'h_4_3',		'l'=>'ta432', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.6', 	'p'=>26250, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
 $items['98'] = array(	'selector'=>'if',	'fraction'=>4, 'img'=>'f_4_5',		'l'=>'ta433', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'3', 	'p'=>26250, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+
+$items['99'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_1',		'l'=>'ta51', 	'armory'=>20, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>10450, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['100'] = array(	'selector'=>'im',	'fraction'=>5, 'img'=>'m_5_1',		'l'=>'ta52', 	'armory'=>10, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.8', 	'p'=>5230, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['101'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_1',		'l'=>'ta53', 	'armory'=>50, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'6', 	'p'=>20900, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+$items['102'] = array(	'selector'=>'ib',	'fraction'=>5, 'img'=>'b_5_1',		'l'=>'ta54', 	'armory'=>0, 	'isolation'=>0,		'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'6', 	'p'=>10450, 	'lvl'=>6,	'mod'=>'p:0;c:2;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['103'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_1',		'l'=>'ta55', 	'armory'=>50, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1.6', 	'p'=>10450, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:4;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['104'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_1',		'l'=>'ta56', 	'armory'=>50, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>5230, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:1;g:0;k:0;v:0');
+$items['105'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_2',		'l'=>'ta57', 	'armory'=>20, 	'isolation'=>40,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.5', 	'p'=>15680, 	'lvl'=>8,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['106'] = array(	'selector'=>'im',	'fraction'=>5, 'img'=>'m_5_2',		'l'=>'ta58', 	'armory'=>20, 	'isolation'=>65,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>7840, 	'lvl'=>8,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['107'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_2',		'l'=>'ta59', 	'armory'=>50, 	'isolation'=>65,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'6', 	'p'=>31350, 	'lvl'=>8,	'mod'=>'p:0;c:1;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['108'] = array(	'selector'=>'ib',	'fraction'=>5, 'img'=>'b_5_2',		'l'=>'ta510', 	'armory'=>0, 	'isolation'=>0,		'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'6', 	'p'=>15680, 	'lvl'=>8,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['109'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_2',		'l'=>'ta511', 	'armory'=>50, 	'isolation'=>60,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'2', 	'p'=>15680, 	'lvl'=>8,	'mod'=>'p:0;c:1;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['110'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_1',		'l'=>'ta512', 	'armory'=>50, 	'isolation'=>60,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.3', 	'p'=>7840, 	'lvl'=>8,	'mod'=>'p:0;c:0;a:0;s:10;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['111'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_2',		'l'=>'ta513', 	'armory'=>50, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>7840, 	'lvl'=>8,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:4');
+$items['112'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_3',		'l'=>'ta514', 	'armory'=>60, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'8', 	'p'=>47500, 	'lvl'=>9,	'mod'=>'p:1;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['113'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_3',		'l'=>'ta515', 	'armory'=>60, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1.8', 	'p'=>23750, 	'lvl'=>9,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:2;g:0;k:0;v:0');
+$items['114'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_2',		'l'=>'ta516', 	'armory'=>60, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.2', 	'p'=>11880, 	'lvl'=>9,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:8;q:0;t:0;g:0;k:0;v:0');
+$items['115'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_3',		'l'=>'ta517', 	'armory'=>60, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1.2', 	'p'=>11880, 	'lvl'=>9,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:2;g:0;k:0;v:0');
+$items['116'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_3',		'l'=>'ta518', 	'armory'=>20, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.1', 	'p'=>33250, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['117'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_4',		'l'=>'ta519', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'7', 	'p'=>66500, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:8;t:0;g:0;k:0;v:0');
+
 
 	function GetParseMod($id)
 	{

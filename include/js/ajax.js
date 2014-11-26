@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 24
+ * @revision 29
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,8 +19,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-
-function GetFraction(b){var a=1;switch(b){case"Fraction1":a=1;break;case"Fraction2":a=2;break;case"Fraction3":a=3;break;case"Fraction4":a=4;break;case"Fraction5":a=5;break}return a};
 
 $(document).ready(function()
 {
@@ -79,14 +77,14 @@ $(document).ready(function()
 
 	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
 	{
-		var Fraction = 0, TypeItem = 1, TypeSort = 0;
+		var Fraction = 0, TypeItem = 1, TypeSort = 1, sID = $(this).attr('id');
 		if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;
 		}
-		else
+		else if (sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") 
 		{
-			Fraction = GetFraction($(this).attr('id'));
+			Fraction = sID.replace(/\D/g, '');
 		}
 
 		if ($("input#all").prop("checked"))
@@ -102,13 +100,13 @@ $(document).ready(function()
 			TypeItem = 2;
 		}
 
-		if  ($(this).attr('id') == "SortLvl")
+		if  (sID == "SortLvl")
 		{
 			TypeSort = 1;
 			$("input#SortP").prop("checked", false);
 			$("input#SortLvl").prop("checked", true);
 		}
-		else if ($(this).attr('id') == "SortP")
+		else if (sID == "SortP")
 		{
 			TypeSort = 2;
 			$("input#SortLvl").prop("checked", false);

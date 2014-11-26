@@ -24,9 +24,6 @@ $(document).ready(function()
 {
 	// начало загрузки
 	$("input#Fraction0").prop("checked", true);
-	$("input#all").prop("checked", true);
-	$("input#armory").prop("checked", false);
-	$("input#weapon").prop("checked", false);
 	$("input#TypeItemAll").removeClass();
 	$("input#TypeItemArmory").removeClass();
 	$("input#TypeItemWeapon").removeClass();
@@ -36,48 +33,9 @@ $(document).ready(function()
 	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 
-	// нужно будет упростить
-	$("input#TypeItemAll").click(function()
-	{
-		$("input#all").prop("checked", true);
-		$("input#armory").prop("checked", false);
-		$("input#weapon").prop("checked", false);
-		$("input#TypeItemAll").removeClass();
-		$("input#TypeItemArmory").removeClass();
-		$("input#TypeItemWeapon").removeClass();
-		$("input#TypeItemAll").toggleClass("bAllTrueAA");
-		$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
-		$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	});
-	$("input#TypeItemArmory").click(function()
-	{
-		$("input#all").prop("checked", false);
-		$("input#armory").prop("checked", true);
-		$("input#weapon").prop("checked", false);
-		$("input#TypeItemAll").removeClass();
-		$("input#TypeItemArmory").removeClass();
-		$("input#TypeItemWeapon").removeClass();
-		$("input#TypeItemAll").toggleClass("bAllFalseAA");
-		$("input#TypeItemArmory").toggleClass("bArmoryTrueAA");
-		$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	});
-
-	$("input#TypeItemWeapon").click(function()
-	{
-		$("input#all").prop("checked", false);
-		$("input#armory").prop("checked", false);
-		$("input#weapon").prop("checked", true);
-		$("input#TypeItemAll").removeClass();
-		$("input#TypeItemArmory").removeClass();
-		$("input#TypeItemWeapon").removeClass();
-		$("input#TypeItemAll").toggleClass("bAllFalseAAW");
-		$("input#TypeItemArmory").toggleClass("bArmoryFalseAAW");
-		$("input#TypeItemWeapon").toggleClass("bWeaponTrueAAW");
-	});
-
 	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
 	{
-		var Fraction = 0, TypeItem = 1, TypeSort = 1, sID = $(this).attr('id');
+		var Fraction = 0, TypeItem = 0, TypeSort = 1, sID = $(this).attr('id');
 		if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;
@@ -86,20 +44,33 @@ $(document).ready(function()
 		{
 			Fraction = sID.replace(/\D/g, '');
 		}
-
-		if ($("input#all").prop("checked"))
+		if (sID == "TypeItemAll" || sID == "TypeItemArmory" || sID == "TypeItemWeapon")
 		{
-			TypeItem = 0;
+			$("input#TypeItemAll").removeClass();
+			$("input#TypeItemArmory").removeClass();
+			$("input#TypeItemWeapon").removeClass();
+			switch (sID)
+			{
+			  case "TypeItemAll":
+				$("input#TypeItemAll").toggleClass("bAllTrueAA");
+				$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
+				$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
+				TypeItem = 0;
+			    break;
+			  case "TypeItemArmory":
+				$("input#TypeItemAll").toggleClass("bAllFalseAA");
+				$("input#TypeItemArmory").toggleClass("bArmoryTrueAA");
+				$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
+				TypeItem = 1;
+			    break;
+			  case "TypeItemWeapon":
+				$("input#TypeItemAll").toggleClass("bAllFalseAAW");
+				$("input#TypeItemArmory").toggleClass("bArmoryFalseAAW");
+				$("input#TypeItemWeapon").toggleClass("bWeaponTrueAAW");
+				TypeItem = 2;			    
+			    break;
+			}		
 		}
-		else if($("input#armory").prop("checked"))
-		{
-			TypeItem = 1;
-		}
-		else if($("input#weapon").prop("checked"))
-		{
-			TypeItem = 2;
-		}
-
 		if  (sID == "SortLvl")
 		{
 			TypeSort = 1;

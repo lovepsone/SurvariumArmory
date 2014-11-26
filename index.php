@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 20
+ * @revision 30
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -52,10 +52,8 @@
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
 
 	echo '</head><body><div align="center"><table>';
-	//скрытые чекбоксы
-	echo '<div><input id="all" type="checkbox" style="height: 0; overflow: hidden; width: 0;" checked="checked"/>';
-	echo '<input id="weapon" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/>';
-	echo '<input id="armory" type="checkbox" style="height: 0; overflow: hidden; width: 0;"/></div>';
+	//скрытые
+	echo '<div></div>';
 	//
 	echo '<tr><td width="386px" border="0px">';// основная таблица
 	echo '<form action="">';

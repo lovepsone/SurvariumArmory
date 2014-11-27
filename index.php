@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 30
+ * @revision 31
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -53,7 +53,8 @@
 
 	echo '</head><body><div align="center"><table>';
 	//скрытые
-	echo '<div></div>';
+	echo '<div><input type="hidden" id="FValue" value="0"/>';
+	echo '<input type="hidden" id="TItem" value="0"/></div>';
 	//
 	echo '<tr><td width="386px" border="0px">';// основная таблица
 	echo '<form action="">';

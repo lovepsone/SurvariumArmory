@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 29
+ * @revision 31
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,30 +20,46 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 
+function AjaxItems(strData){$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': strData},success: function(data){$("#ItemOutput").html(data);$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});}
+
 $(document).ready(function()
 {
+	var Fraction = 1, TypeItem = 0, TypeSort = 1;
 	// начало загрузки
 	$("input#Fraction0").prop("checked", true);
+	$("input#FValue").val(Fraction);
+	$("input#TItem").val(TypeItem);
 	$("input#TypeItemAll").removeClass();
 	$("input#TypeItemArmory").removeClass();
 	$("input#TypeItemWeapon").removeClass();
 	$("input#TypeItemAll").toggleClass("bAllTrueAA");
 	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
 	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
-	$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': '0:0:1'},success: function(data){$("#ItemOutput").html(data);$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});
+	AjaxItems('0:0:1');
 	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
 
-	$("input#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
+	$("input#Fraction0").change(function()
 	{
-		var Fraction = 0, TypeItem = 0, TypeSort = 1, sID = $(this).attr('id');
-		if ($("input#Fraction0").prop("checked"))
+		Fraction = $("input#FValue").val();
+		TypeItem = $("input#TItem").val();
+		TypeSort = 1;
+		if($("input#Fraction0").prop("checked") == true) Fraction = 0;
+		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
+	});
+
+	$("#Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
+	{
+		var sID = $(this).attr('id');
+		if ((sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") && !$("input#Fraction0").prop("checked")) 
+		{
+			Fraction = sID.replace(/\D/g, '');
+			$("input#FValue").val(Fraction);
+		}
+		else if ($("input#Fraction0").prop("checked"))
 		{
 			Fraction = 0;
 		}
-		else if (sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") 
-		{
-			Fraction = sID.replace(/\D/g, '');
-		}
+
 		if (sID == "TypeItemAll" || sID == "TypeItemArmory" || sID == "TypeItemWeapon")
 		{
 			$("input#TypeItemAll").removeClass();
@@ -69,7 +85,8 @@ $(document).ready(function()
 				$("input#TypeItemWeapon").toggleClass("bWeaponTrueAAW");
 				TypeItem = 2;			    
 			    break;
-			}		
+			}
+			$("input#TItem").val(TypeItem);		
 		}
 		if  (sID == "SortLvl")
 		{
@@ -85,20 +102,6 @@ $(document).ready(function()
 		}
 		else if ($("input#SortP").prop("checked")) TypeSort = 1;
 		else if ($("input#SortLvl").prop("checked")) TypeSort = 2;
-
-		$.ajax(
-		{
-			url: 'include/HandleItems.php',
-			type: 'POST',
-			data:{'data': Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString()},
-			success: function(data)
-			{
-				$("#ItemOutput").html(data);
-				$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});
-				updateDraggable();
-				//alert(data);
-			}
-		});
+		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
    	})
-
 });

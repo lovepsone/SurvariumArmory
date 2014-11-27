@@ -51,7 +51,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
 			$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectMask").droppable(
@@ -64,7 +64,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemM"/></div>');
 			$("img.ItemM").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'im': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'im': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectBack").droppable(
@@ -77,7 +77,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemB"/></div>');
 			$("img.ItemB").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ib': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ib': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectArmory").droppable(
@@ -90,7 +90,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemA"/></div>');
 			$("img.ItemA").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ia': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ia': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectHand").droppable(
@@ -103,7 +103,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemH"/></div>');
 			$("img.ItemH").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ih': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ih': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectShin").droppable(
@@ -116,7 +116,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemS"/></div>');
 			$("img.ItemS").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'is': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'is': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		
 		}
 	});
@@ -130,7 +130,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemF"/></div>');
 			$("img.ItemF").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'if': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'if': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 }

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 18
+ * @revision 39
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -87,6 +87,31 @@
 		if ($t_lvl < $lvl[$i])
 			$t_lvl = $lvl[$i];
 	}
+	$idItems = array();
+	$idItems[0] =(int)GetParseWeapon($_SESSION['iw'], 'id');
+	$idItems[1] =(int)GetParseArmory($_SESSION['ie'], 'id');
+	$idItems[2] =(int)GetParseArmory($_SESSION['im'], 'id');
+	$idItems[3] =(int)GetParseArmory($_SESSION['ia'], 'id');
+	$idItems[4] =(int)GetParseArmory($_SESSION['ib'], 'id');
+	$idItems[5] =(int)GetParseArmory($_SESSION['ih'], 'id');
+	$idItems[6] =(int)GetParseArmory($_SESSION['is'], 'id');
+	$idItems[7] =(int)GetParseArmory($_SESSION['if'], 'id');
+
+	$BonusTT = "<table><tr><td class='ToolTipHead2'></td></tr>";
+	for ($i = 0; $i < count($idItems); $i++)
+	{
+		$modA = GetParseMod($idItems[$i]);
+		if (count($modA) > 0)
+		{
+			for ($j = 0; $j < count($modA); $j++)
+			{
+				$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'>";
+				$BonusTT .= "<font style='color:#ffffff; position: relative; left:5px;'>".GetImgMod($modA[$j]['m']).GetTxtMod($modA[$j]['m'])."</font>";
+				$BonusTT .= "<font style='color:green; position: relative; top: 1px; left:5px;'>".GetPlusMinus($modA[$j]['m']).(int)$modA[$j]['c'].GetTxtModType($modA[$j]['m'])."</font></td></tr>";	
+			}
+		}
+	}
+	$BonusTT .= "<tr><td class='ToolTipFooter'></td></tr></table>";
 
 	echo '<table width="300px"><tr><td style="color:#ffffff;">'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[GetParseWeapon($_SESSION['iw'], 'l')].'</td></tr>';
 	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dmg').'</td></tr>';
@@ -117,8 +142,6 @@
 	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_w'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_w.$txt['k'].'</td></tr>';
 	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_p'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_p.'</td></tr>';
 	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_lvl'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_lvl.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_b'].'</td><td style="color:#FFE4B5; font-size:11px;">';
-	echo '</td></tr>';
-	//echo '<tr><td style="color:#ffffff; font-size:11px;" height="30px"></td><td style="color:#FFE4B5; font-size:11px;"></td></tr>';
+	echo '<tr><td colspan="2"><img src="images/bonus.png" title="'.$BonusTT.'" class="BonusTT"></td></tr>';
 	echo '</table>';
 ?>

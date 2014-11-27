@@ -256,6 +256,14 @@ table {border-collapse:collapse;}
 	background-image: url(images/tooltip/tooltipHead.png);
 }
 
+.ToolTipHead2
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipHead2.png);
+}
+
 .ToolTipBody
 {
 	color:#ffffff;

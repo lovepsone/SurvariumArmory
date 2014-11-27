@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 27
+ * @revision 35
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -182,8 +182,24 @@ $items['113'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_3',		'l'=>'t
 $items['114'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_2',		'l'=>'ta516', 	'armory'=>60, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.2', 	'p'=>11880, 	'lvl'=>9,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:8;q:0;t:0;g:0;k:0;v:0');
 $items['115'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_3',		'l'=>'ta517', 	'armory'=>60, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1.2', 	'p'=>11880, 	'lvl'=>9,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:2;g:0;k:0;v:0');
 $items['116'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_3',		'l'=>'ta518', 	'armory'=>20, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.1', 	'p'=>33250, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
-$items['117'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_4',		'l'=>'ta519', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'7', 	'p'=>66500, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:8;t:0;g:0;k:0;v:0');
-
+$items['117'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_4',		'l'=>'ta519', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'7', 	'p'=>66500, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:8;k:0;v:0');
+$items['118'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_4',		'l'=>'ta520', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'2', 	'p'=>33250, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+$items['119'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_3',		'l'=>'ta521', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.3', 	'p'=>16630, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:4;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['120'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_4',		'l'=>'ta522', 	'armory'=>65, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>16630, 	'lvl'=>12,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:4;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['121'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_4',		'l'=>'ta523', 	'armory'=>50, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'2', 	'p'=>42750, 	'lvl'=>14,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['122'] = array(	'selector'=>'im',	'fraction'=>5, 'img'=>'m_5_3',		'l'=>'ta524', 	'armory'=>50, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'2', 	'p'=>21380, 	'lvl'=>14,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['123'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_5',		'l'=>'ta525', 	'armory'=>75, 	'isolation'=>25,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'10', 	'p'=>85500, 	'lvl'=>14,	'mod'=>'p:1;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+$items['124'] = array(	'selector'=>'ib',	'fraction'=>5, 'img'=>'b_5_3',		'l'=>'ta526', 	'armory'=>0, 	'isolation'=>0,		'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'4', 	'p'=>42750, 	'lvl'=>14,	'mod'=>'p:0;c:1;a:0;s:0;b:1;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['125'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_5',		'l'=>'ta527', 	'armory'=>75, 	'isolation'=>30,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'3', 	'p'=>42750, 	'lvl'=>14,	'mod'=>'p:1;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+// разброс от бедра
+$items['126'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_4',		'l'=>'ta528', 	'armory'=>75, 	'isolation'=>30,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.3', 	'p'=>21380, 	'lvl'=>14,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['127'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_5',		'l'=>'ta529', 	'armory'=>75, 	'isolation'=>30,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'2.2', 	'p'=>21380, 	'lvl'=>14,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:3;g:0;k:0;v:0');
+$items['128'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_5',		'l'=>'ta530', 	'armory'=>80, 	'isolation'=>90,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'5', 	'p'=>72500, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['129'] = array(	'selector'=>'ia',	'fraction'=>5, 'img'=>'a_5_6',		'l'=>'ta531', 	'armory'=>85, 	'isolation'=>90,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'17', 	'p'=>95000, 	'lvl'=>15,	'mod'=>'p:0;c:1;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+$items['130'] = array(	'selector'=>'ib',	'fraction'=>5, 'img'=>'b_5_4',		'l'=>'ta532', 	'armory'=>0, 	'isolation'=>0,		'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'7', 	'p'=>47500, 	'lvl'=>15,	'mod'=>'p:0;c:1;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:15;k:0;v:0');
+$items['131'] = array(	'selector'=>'is',	'fraction'=>5, 'img'=>'s_5_6',		'l'=>'ta533', 	'armory'=>85, 	'isolation'=>90,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'4', 	'p'=>47500, 	'lvl'=>15,	'mod'=>'p:0;c:1;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0');
+$items['132'] = array(	'selector'=>'ih',	'fraction'=>5, 'img'=>'h_5_5',		'l'=>'ta534', 	'armory'=>85, 	'isolation'=>90,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.4', 	'p'=>23750, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
+$items['133'] = array(	'selector'=>'if',	'fraction'=>5, 'img'=>'f_5_6',		'l'=>'ta535', 	'armory'=>85, 	'isolation'=>90,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1.9', 	'p'=>43750, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0');
 
 	function GetParseMod($id)
 	{

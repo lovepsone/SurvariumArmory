@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 32
+ * @revision 33
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -29,6 +29,7 @@ $(document).ready(function()
 	$("input#Fraction0").prop("checked", true);
 	$("input#FValue").val(Fraction);
 	$("input#TItem").val(TypeItem);
+	$("input#TSort").val(TypeSort);
 	$("input#TypeItemAll").removeClass();
 	$("input#TypeItemArmory").removeClass();
 	$("input#TypeItemWeapon").removeClass();
@@ -42,12 +43,22 @@ $(document).ready(function()
 	{
 		Fraction = $("input#FValue").val();
 		TypeItem = $("input#TItem").val();
-		TypeSort = 1;
+		TypeSort = $("input#TSort").val();
 		if($(this).prop("checked")) Fraction = 0;
 		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
 	});
 
-	$("#Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon, input#SortLvl, input#SortP").click(function()
+	$("input#SortLvl, input#SortP").change(function ()
+	{
+		Fraction = $("input#FValue").val();
+		TypeItem = $("input#TItem").val();
+		TypeSort = $(this).val();
+		$("input#TSort").val(TypeSort);
+		if($("input#Fraction0").prop("checked")) Fraction = 0;
+		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
+	});
+
+	$("#Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
 	{
 		var sID = $(this).attr('id');
 		if ((sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") && !$("input#Fraction0").prop("checked")) 
@@ -88,20 +99,7 @@ $(document).ready(function()
 			}
 			$("input#TItem").val(TypeItem);		
 		}
-		if  (sID == "SortLvl")
-		{
-			TypeSort = 1;
-			$("input#SortP").prop("checked", false);
-			$("input#SortLvl").prop("checked", true);
-		}
-		else if (sID == "SortP")
-		{
-			TypeSort = 2;
-			$("input#SortLvl").prop("checked", false);
-			$("input#SortP").prop("checked", true);
-		}
-		else if ($("input#SortP").prop("checked")) TypeSort = 1;
-		else if ($("input#SortLvl").prop("checked")) TypeSort = 2;
+		TypeSort = $("input#TSort").val();
 		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
    	})
 });

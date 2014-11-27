@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 31
+ * @revision 32
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -43,7 +43,7 @@ $(document).ready(function()
 		Fraction = $("input#FValue").val();
 		TypeItem = $("input#TItem").val();
 		TypeSort = 1;
-		if($("input#Fraction0").prop("checked") == true) Fraction = 0;
+		if($(this).prop("checked")) Fraction = 0;
 		AjaxItems(Fraction.toString() + ':' + TypeItem.toString() + ':' + TypeSort.toString());
 	});
 

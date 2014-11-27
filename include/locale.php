@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 35
+ * @revision 36
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -203,7 +203,8 @@ $txt['qm'] = ' Слот для спецсредств: ';
 $txt['tm'] = ' Скорость передвижения: ';
 $txt['gm'] = ' Регенерация: ';
 $txt['km'] = ' Отдача оружия: ';
-$txt['vm'] = ' Восстановление энергии: ';
+$txt['vm'] = ' Восстановл. энергии: ';
+$txt['dm'] = ' Разброс от бедра: ';
 
 function GetTxtMod($m = 'p')
 {
@@ -244,13 +245,19 @@ function GetTxtMod($m = 'p')
 	  case 'k':
 	    $result = $txt['km'];
 	    break;
+	  case 'v':
+	    $result = $txt['vm'];
+	    break;
+	  case 'd':
+	    $result = $txt['dm'];
+	    break;
 	}
 	return $result;
 }
 
 function GetTxtModType($m = 'a')
 {
-	if ($m == 'a' || $m == 's' || $m == 'e' || $m == 'r' || $m == 't' || $m == 'k'|| $m == 'g')
+	if ($m == 'a' || $m == 's' || $m == 'e' || $m == 'r' || $m == 't' || $m == 'k'|| $m == 'g' || $m == 'v' || $m == 'd')
 		return '%';
 	return '';
 }

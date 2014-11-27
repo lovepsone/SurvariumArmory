@@ -194,6 +194,28 @@ table {border-collapse:collapse;}
 	background-repeat: no-repeat;
 	border: 0px;
 }
+
+.HeadStats
+{
+	background-image:url(images/HeadStats.png);
+	height:6px;
+	width: 300px;
+}
+
+.BodyStats
+{
+	background-image:url(images/BodyStats.png);
+	height:588px;
+	width: 300px;
+}
+
+.FooterStats
+{
+	background-image:url(images/HeadStats.png);
+	height:6px;
+	width: 300px;
+}
+
 #SortLvl
 {
 	border: 0px;

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 37
+ * @revision 38
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -82,9 +82,9 @@
 	echo '</form>';
 	echo '</td>'; // закрываем калонку
 	//централья колонка
-	echo '<td width="315px"><table align="center"><tr><td width="300px" height="6px" style="background-image:url(images/HeadStats.png);"></td></tr>';
-	echo '<tr><td width="300px" style="background-image:url(images/BodyStats.png);"><div id="StatsOutput"></div></td></tr>';
-	echo '<tr><td width="300px" height="6px" style="background-image:url(images/FooterStats.png);"></td></tr></table></td>';
+	echo '<td width="315px"><table align="center"><tr><td class="HeadStats"></td></tr>';
+	echo '<tr><td class="BodyStats"><div id="StatsOutput"></div></td></tr>';
+	echo '<tr><td class="FooterStats"></td></tr></table></td>';
 	//закрытая центральная калонка
 	echo '<td width="386px" style="background-image:url(images/user.png);" border="0px">';
 	//правая таблица шапка

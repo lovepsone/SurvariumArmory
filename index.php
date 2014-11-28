@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 40
+ * @revision 43
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -50,6 +50,7 @@
 	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/modItems.js"></script>';
 
 	echo '</head><body><div align="center"><table>';
 	//скрытые

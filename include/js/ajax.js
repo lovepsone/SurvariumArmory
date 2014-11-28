@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 33
+ * @revision 42
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -61,10 +61,11 @@ $(document).ready(function()
 	$("#Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, input#TypeItemAll, input#TypeItemArmory, input#TypeItemWeapon").click(function()
 	{
 		var sID = $(this).attr('id');
-		if ((sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") && !$("input#Fraction0").prop("checked")) 
+		if (sID == "Fraction1" || sID == "Fraction2" || sID == "Fraction3" || sID == "Fraction4" || sID == "Fraction5") 
 		{
 			Fraction = sID.replace(/\D/g, '');
 			$("input#FValue").val(Fraction);
+			$("input#Fraction0").prop("checked", false);
 		}
 		else if ($("input#Fraction0").prop("checked"))
 		{

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.0
- * @revision 38
+ * @revision 40
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -85,32 +85,25 @@
 	echo '<td width="315px"><table align="center"><tr><td class="HeadStats"></td></tr>';
 	echo '<tr><td class="BodyStats"><div id="StatsOutput"></div></td></tr>';
 	echo '<tr><td class="FooterStats"></td></tr></table></td>';
-	//закрытая центральная калонка
+
 	echo '<td width="386px" style="background-image:url(images/user.png);" border="0px">';
-	//правая таблица шапка
-	echo '<table border="0px" width="385px" height="188px">';
-	echo '<tr height="61px"><td></td></tr><tr height="88px"><td width="68px"></td>';
-	echo '<td width="117px"><div id="SelectWeapon"></div></td>';
-	echo '<td></td></tr><tr><td></td></tr>';
+	//оруже и голова
+	echo '<table border="0px" width="385px" height="276px">';
+	echo '<tr height="61px"><td colspan="5"></td></tr>';
+	echo '<tr height="88px"><td width="68px"></td><td width="117px"><div id="SelectWeapon"></div></td><td width="2px"></td><td width="117px"></td><td></td></tr>';
+	echo '<tr height="40px"><td colspan="5"></td></tr>';
+	echo '<tr height="88px"><td width="68px"></td><td width="117px"><div id="SelectHead"></div></td><td width="2px"></td><td width="117px"><div id="SelectMask"></div></td><td></td></tr>';
 	// закрываем правую таблицу шапка
 	echo '</table>';
-
-	echo '<table border="0px" width="385px" height="412px">';
-	// шлем и маска
-	//шлем
-	echo '<tr height="88px"><td width="68px"></td><td width="117px"><div id="SelectHead"></div></td><td width="2px"></td>';
-	echo '<td width="117px"><div id="SelectMask"></div></td><td></td></tr>';
 	// все что с туловищем
-	echo '<tr><td colspan="5"><table border="0px" height="310px">';
-	echo '<tr height="88px"><td width="7px"></td><td width="117px"><div id="SelectBack"></div></td><td width="1px"></td><td width="117px"><div id="SelectArmory"></div></td><td width="1px"></td><td width="117px"><div id="SelectHand"></div></td></tr>';
-	echo '<tr height="88px"><td width="7px"></td><td colspan="2"></td><td width="117px"><div id="SelectShin"></div></td><td colspan="2"></td></tr>';
-	echo '<tr height="88px"><td width="7px"></td><td colspan="2"></td><td width="117px"><div id="SelectFeet"></div></td><td colspan="2"></td></tr>';
-	echo '<tr><td colspan="5"></td></tr>';
-	echo '</table></td></tr>';
+	echo '<table border="0px" width="385px" height="324px">';
+ 	echo '<tr height="3px"><td colspan="5"></td></tr>';
+ 	echo '<tr height="88px"><td width="6px"></td><td width="117px"><div id="SelectBack"></div></td><td width="117px"><div id="SelectArmory"></div></td><td width="117px"><div id="SelectHand"></div></td><tr>';
+	echo '<tr height="88px"><td colspan="2"></td><td width="117px"><div id="SelectShin"></div></td><td colspan="2"></td><tr>';
+	echo '<tr height="3px"><td colspan="5"></td></tr>';
+	echo '<tr height="88px"><td colspan="2"></td><td width="117px"><div id="SelectFeet"></div></td><td colspan="2"></td><tr>';
+	echo '<tr height="100%"><td colspan="6"></td><tr></table>';
 	//закрываем все что с туловищем
-	// закрываем правую низ
-	echo '</table>';
-
 	echo '</td></tr>';
 
 	echo '</table></div>';

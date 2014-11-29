@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 43
+ * @revision 45
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,9 +22,21 @@
 
 $(document).on('mousedown', 'img.ItemW', function(event)
 {
+	var HeightDocument = $(document).height();
+	var WidthDocument = $(document).width();
+	var HeightScreen = $(window).height();
 	event.preventDefault();
-	if(event.button == 2)
+	if(event.button == 0)
 	{
-        	alert('Click Right Button mouse!!!');
+		$(".HideBodyMod").css({"width":WidthDocument,"height":HeightDocument});
+		$(".HideBodyMod").fadeIn(1000);
+		$(".HideBodyMod").fadeTo("slow",0.8);
+		//Расположение модального окна с содержимым по высоте учитывая скроллинг документа
+		var Top_modal_window = $(document).scrollTop() + HeightScreen/2-$(".ModDialog").height()/2;
+		$(".ModDialog").css({"top":Top_modal_window+"px","display":"block"});
+		$("body").css({"overflow":"hidden"});
     	}
 });
+
+$(document).ready(function()
+{$(".ModDialog button").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});$(".HideBodyMod").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});});

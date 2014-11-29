@@ -1,8 +1,8 @@
 <?php
 /**
  * @package Survarium Armory
- * @version Release 1.0
- * @revision 43
+ * @version Release 1.1
+ * @revision 45
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -108,5 +108,11 @@
 	echo '</td></tr>';
 
 	echo '</table></div>';
+
+	echo '<div class="HideBodyMod"></div>';
+	echo '<div class="ModDialog">';
+	echo '<button>Close Dialog</button>';
+	echo '</div>';
+
 	echo '</body></html>';
 ?>

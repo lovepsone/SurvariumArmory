@@ -111,7 +111,7 @@
 
 	echo '<div class="HideBodyMod"></div>';
 	echo '<div class="ModDialog">';
-	echo '<button>Close Dialog</button>';
+	echo '<input type="button" id="ModClose" class="CloseButton" />';
 	echo '</div>';
 
 	echo '</body></html>';

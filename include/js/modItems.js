@@ -39,4 +39,4 @@ $(document).on('mousedown', 'img.ItemW', function(event)
 });
 
 $(document).ready(function()
-{$(".ModDialog button").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});$(".HideBodyMod").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});});
+{$("#ModClose").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});$(".HideBodyMod").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});});

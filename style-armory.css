@@ -169,6 +169,7 @@
 .HeadStats{background-image:url(images/HeadStats.png);height:6px;width: 300px;}
 .BodyStats{background-image:url(images/BodyStats.png);height:588px;width: 300px;}
 .FooterStats{background-image:url(images/HeadStats.png);height:6px;width: 300px;}
+.User{background-image:url(images/user.png);background-repeat: repeat-y;}
 
 #SortLvl
 {

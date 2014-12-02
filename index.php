@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 48
+ * @revision 50
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -70,7 +70,7 @@
 	echo '<tr><td class="BodyStats"><div id="StatsOutput"></div></td></tr>';
 	echo '<tr><td class="FooterStats"></td></tr></table></td>';
 
-	echo '<td width="386px" style="background-image:url(images/user.png);" border="0px">';
+	echo '<td width="386px" class="User" border="0px">';
 	//оруже и голова
 	echo '<table border="0px" width="385px" height="276px">';
 	echo '<tr height="61px"><td colspan="5"></td></tr>';

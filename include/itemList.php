@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 57
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,7 +20,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-
+// id двухслотовых шлемов 58, 81, 94, 128
 /*
 * fraction
 * 1 - независимые
@@ -162,7 +162,7 @@ $items['93'] = array(	'selector'=>'if',	'fraction'=>4, 'img'=>'f_4_4',		'l'=>'ta
 $items['94'] = array(	'selector'=>'ie',	'fraction'=>4, 'img'=>'e_4_6',		'l'=>'ta429', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'6', 	'p'=>77500, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');
 $items['95'] = array(	'selector'=>'ia',	'fraction'=>4, 'img'=>'a_4_6',		'l'=>'ta430', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'20', 	'p'=>105000, 	'lvl'=>15,	'mod'=>'p:2;c:0;a:0;s:0;b:1;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');
 $items['96'] = array(	'selector'=>'is',	'fraction'=>4, 'img'=>'s_4_6',		'l'=>'ta431', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'5', 	'p'=>52500, 	'lvl'=>15,	'mod'=>'p:1;c:0;a:0;s:0;b:0;e:0;r:0;q:1;t:0;g:0;k:0;v:0;d:0');
-$items['97'] = array(	'selector'=>'ih',	'fraction'=>4, 'img'=>'h_4_3',		'l'=>'ta432', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.6', 	'p'=>26250, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');
+$items['97'] = array(	'selector'=>'ih',	'fraction'=>4, 'img'=>'h_4_4',		'l'=>'ta432', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'0.6', 	'p'=>26250, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');
 $items['98'] = array(	'selector'=>'if',	'fraction'=>4, 'img'=>'f_4_5',		'l'=>'ta433', 	'armory'=>90, 	'isolation'=>50,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'3', 	'p'=>26250, 	'lvl'=>15,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');
 
 $items['99'] = array(	'selector'=>'ie',	'fraction'=>5, 'img'=>'e_5_1',		'l'=>'ta51', 	'armory'=>20, 	'isolation'=>20,	'dmg'=>0, 	'pnt'=>0, 	'vrn'=>'0', 	'dis'=>0, 	'rate'=>0, 	'w'=>'1', 	'p'=>10450, 	'lvl'=>6,	'mod'=>'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0');

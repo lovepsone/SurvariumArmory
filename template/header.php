@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 49
+ * @revision 51
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *

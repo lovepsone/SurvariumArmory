@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 62
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -37,7 +37,7 @@ $(document).ready(function()
 	$("input#TypeItemArmory").toggleClass("bArmoryFalseAA");
 	$("input#TypeItemWeapon").toggleClass("bWeaponFalseAA");
 	AjaxItems('0:0:1');
-	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);}});
+	$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'start': 1},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 
 	$("input#Fraction0").change(function()
 	{

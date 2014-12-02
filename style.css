@@ -10,5 +10,5 @@ body{background-color: black;}
 .b-midl{background-image:url(template/b-midl.gif);}
 .menu-left{width:10px;height:38px;background-image:url(template/m-left.gif);}
 .menu{height:38px;background-image:url(template/menu.gif);}
-.menu-right{height:38px;swidth:10px;background-image:url(template/m-right.gif);}
+.menu-right{height:38px;width:10px;background-image:url(template/m-right.gif);}
 table {border-collapse:collapse;}

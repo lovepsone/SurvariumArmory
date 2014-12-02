@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 59
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,7 +19,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-function GetSrc(str, num){var src = str.split('"');return src[num];}function GetImg(html){a = GetSrc(html, 1);var b = a.split('=');var c = b[1].split('&');return c[0];}function GetId(str){var id = str.split('"');return id[id.length - 2];}
+function GetSrc(str, num){var src = str.split('"');return src[num];}function GetImg(html){a = GetSrc(html, 1);var b = a.split('=');var c = b[1].split('&');return c[0];}function GetId(str){var id = str.split('"');return id[id.length - 4];}
+function HeadCheckSlots2(id)
+{
+	if (id == 58 ||id == 81 ||id == 94 ||id == 128)
+		return true;
+	return false;
+}
 
 function updateDraggable()
 {
@@ -36,7 +42,7 @@ function updateDraggable()
 		{
 			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemW"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("div[item-id]")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemW"/></div>');
 			$("img.ItemW").easyTooltip({tooltipId: "TooltipItemIcon"});
 			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'iw': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
 		}
@@ -49,6 +55,10 @@ function updateDraggable()
 		{
 			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
+			if (HeadCheckSlots2(GetId(move.find("div[item-id]").html())))
+			{
+				$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'_.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+			}
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
 			$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
 			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 56
+ * @revision 64
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -119,6 +119,42 @@
 		  default:
 		    $result = $data[0];
 		    break;
+		}
+		return $result;
+	}
+
+	function GetBundBonus($k = 'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0', $s)
+	{
+		$result = '';
+		$mk = explode(';', $k);
+		$ms = explode(';', $s);
+		for ($i = 0; $i <  count($mk); $i++)
+		{
+			$mk1 = explode(':', $mk[$i]);
+			$ms1 = explode(':', $ms[$i]);
+			if ($i+1 != count($mk))
+				$result .= $mk1[0].':'.((int)$mk1[1] + (int)$ms1[1]).';';
+			else
+				$result .= $mk1[0].':'.((int)$mk1[1] + (int)$ms1[1]);
+		}
+		return $result;
+	}
+
+	function GetParseBonus($k = 'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0')
+	{
+		$result = array();
+		$c = 0;
+		$m = explode(';', $k);
+		for ($i = 0; $i <  count($m); $i++)
+		{
+			$m1 = explode(':', $m[$i]);
+			if ((int)$m1[1] != 0)
+			{
+				$result[$c] = array(
+					'm'=>$m1[0],
+					'c'=>$m1[1]);
+				$c++;
+			}
 		}
 		return $result;
 	}

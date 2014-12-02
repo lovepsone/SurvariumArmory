@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 63
+ * @revision 64
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,11 +24,10 @@
 	@include_once("locale.php");
 	@include_once("itemList.php");
 	@include('functions.php');
-	
+
 	if (isset($_POST['iw']))
-	{
 		$_SESSION['iw'] = GetLoadWeapon(GetParseId($_POST['iw']), $items);
-	}
+
 	// голова
 	if (isset($_POST['ie']))
 		$_SESSION['ie'] = GetLoadArmory(GetParseId($_POST['ie']), $items);
@@ -97,24 +96,26 @@
 	$idItems[6] =(int)GetParseArmory($_SESSION['is'], 'id');
 	$idItems[7] =(int)GetParseArmory($_SESSION['if'], 'id');
 
-	$BonusTT = "<table><tr><td class='ToolTipHead2'></td></tr>";
-	$cBonus = 0;
+	$Bonuses = 'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0';
 	for ($i = 0; $i < count($idItems); $i++)
+		$Bonuses = GetBundBonus($Bonuses, $items[$idItems[$i]]['mod']);
+
+	$BonusTT = "<table><tr><td class='ToolTipHead2'></td></tr>";
+
+	$modA = GetParseBonus($Bonuses);
+	if (count($modA) > 0)
 	{
-		$modA = GetParseMod($idItems[$i]);
-		if (count($modA) > 0)
+		for ($j = 0; $j < count($modA); $j++)
 		{
-			for ($j = 0; $j < count($modA); $j++)
-			{
-				$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'>";
-				$BonusTT .= "<font style='color:#ffffff; position: relative; left:5px;'>".GetImgMod($modA[$j]['m']).GetTxtMod($modA[$j]['m'])."</font>";
-				$BonusTT .= "<font style='color:green; position: relative; top: 1px; left:5px;'>".GetPlusMinus($modA[$j]['m']).(int)$modA[$j]['c'].GetTxtModType($modA[$j]['m'])."</font></td></tr>";
-				$cBonus++;	
-			}
+			$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'>";
+			$BonusTT .= "<font style='color:#ffffff; position: relative; left:5px;'>".GetImgMod($modA[$j]['m']).GetTxtMod($modA[$j]['m'])."</font>";
+			$BonusTT .= "<font style='color:green; position: relative; top: 1px; left:5px;'>".GetPlusMinus($modA[$j]['m']).(int)$modA[$j]['c'].GetTxtModType($modA[$j]['m'])."</font></td></tr>";	
 		}
 	}
-	if ($cBonus < 1)
-		$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'><font style='color:#ffffff; position: relative; left:5px;'>".$txt['bonus_no']."</font></td></tr>"; 
+	else
+	{
+		$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'><font style='color:#ffffff; position: relative; left:5px;'>".$txt['bonus_no']."</font></td></tr>";
+	}
 	$BonusTT .= "<tr><td class='ToolTipFooter'></td></tr></table>";
 
 	echo '<table width="300px"><tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[GetParseWeapon($_SESSION['iw'], 'l')].'</td></tr>';

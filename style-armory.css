@@ -1,0 +1,254 @@
+#Fraction0
+{
+	border: 0px;
+	position: relative;
+	left: 17px;
+	top: -19px;
+	cursor: pointer;
+}
+
+#Fraction1
+{
+	background-image:url(images/Fraction/NoFraction.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 95px;
+	top: -4px;
+	cursor: pointer;
+}
+
+#Fraction2
+{
+	background-image:url(images/Fraction/Vagabondage.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 97px;
+	top: -4px;
+	cursor: pointer;
+}
+
+#Fraction3
+{
+	background-image:url(images/Fraction/BlackMarket.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 98px;
+	top: -4px;
+	cursor: pointer;
+}
+
+#Fraction4
+{
+	background-image:url(images/Fraction/ArmyRevival.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 99px;
+	top: -4px;
+	cursor: pointer;
+}
+
+#Fraction5
+{
+	background-image:url(images/Fraction/SettlementRegion.png);
+	width: 52px;
+	height: 51px; 
+	border: 0px;
+	position: relative;
+	left: 100px;
+	top: -4px;
+	cursor: pointer;
+}
+
+.bAllTrueAA
+{
+	background-image:url(images/AllTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 2px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bAllFalseAA
+{
+	background-image:url(images/AllFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bAllFalseAAW
+{
+	background-image:url(images/AllFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bArmoryTrueAA
+{
+	background-image:url(images/ArmTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 12px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bArmoryFalseAA
+{
+	background-image:url(images/ArmFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bArmoryFalseAAW
+{
+	background-image:url(images/ArmFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 17px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bWeaponTrueAAW
+{
+	background-image:url(images/WeapTrue.png);
+	width: 64px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 20px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.bWeaponFalseAA
+{
+	background-image:url(images/WeapFalse.png);
+	width: 54px;
+	height: 46px; 
+	border: 0px;
+	position: relative;
+	left: 13px;
+	top: 4px;
+	cursor: pointer;
+}
+
+.invhead{background-image:url(images/InvHead.png);background-repeat: no-repeat;border: 0px;}
+.invbody{background-image:url(images/InvBody.png);background-repeat: repeat-y;border: 0px;}
+.invfooter{background-image:url(images/InvFooter.png);background-repeat: no-repeat;border: 0px;}
+.HeadStats{background-image:url(images/HeadStats.png);height:6px;width: 300px;}
+.BodyStats{background-image:url(images/BodyStats.png);height:588px;width: 300px;}
+.FooterStats{background-image:url(images/HeadStats.png);height:6px;width: 300px;}
+
+#SortLvl
+{
+	border: 0px;
+	position: relative;
+	left: 197px;
+	top: 20px;
+	cursor: pointer;
+}
+
+#SortP
+{
+	border: 0px;
+	position: relative;
+	left: 250px;
+	top: 20px;
+	cursor: pointer;
+}
+
+#TooltipItemIcon
+{
+	padding: 5px;
+	border: 0px;
+	width: 168px;
+	height: 133px;
+	font-size: 11px;
+}
+
+.basketW
+{
+    position: relative;
+}
+
+.ToolTipHead
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipHead.png);
+}
+
+.ToolTipHead2
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipHead2.png);
+}
+
+.ToolTipBody
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipBody.png);
+}
+
+.ToolTipFooter
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipFooter.png);
+}
+
+.ToolTipMod
+{
+	color:#ffffff;
+	position: relative;
+	top: -5px;
+	background-image: url(images/tooltip/tooltipMod.png);
+}
+
+.scroll-pane
+{
+	overflow: auto;
+	height: 356px;
+	width: 390px;
+}
+
+.HideBodyMod{position:absolute;display:none;z-index:1000;left:0;top:0;background-color:#A8A8A8;}
+.ModDialog{position:absolute;display:none;left:50%;z-index:1100;width:314px;margin-left:-300px;height:276px;background-image: url(images/mod.png);}
+.CloseButton{background-image: url(images/close.png);width:18px;height:18px;}

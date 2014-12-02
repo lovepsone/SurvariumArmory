@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 48
+ * @revision 49
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -26,6 +26,7 @@
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 	echo '<title>Survarium Armory</title>';
 	echo '<link rel="stylesheet" href="style.css">';
+	echo '<link rel="stylesheet" href="style-armory.css">';
 	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
 	//echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
 	echo '<script type="text/javascript" src="include/js/ajax.js"></script>';
@@ -38,6 +39,8 @@
 	echo '</head><body>';
 	session_start();
 	error_reporting(E_ALL);
+	echo '<table align="center" width="100%"><tr><td class="menu-left"></td><td class="menu"></td><td class="menu-right"></td></tr></table>';
+
 	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
 	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl" height="650px">';
 ?>

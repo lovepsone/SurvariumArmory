@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 59
+ * @revision 61
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -44,7 +44,7 @@ function updateDraggable()
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("div[item-id]")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemW"/></div>');
 			$("img.ItemW").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'iw': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'iw': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectHead").droppable(

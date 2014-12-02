@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 54
+ * @revision 55
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -42,12 +42,12 @@
 	@include("include/locale.php");
 
 	echo '<table align="center" width="100%"><tr><td class="menu-left"></td><td class="menu">';
-	echo '&emsp;<a href="" class="menu-link">&middot;'.$txt['menu_out'].'<a>';
-	echo '&emsp;<a href="" class="menu-link">&middot;'.$txt['menu_main'].'<a>';
-	echo '&emsp;<a href="" class="menu-link">&middot;'.$txt['menu_inv'].'<a>';
-	echo '&emsp;<a href="" class="menu-link">&middot;'.$txt['menu_ch'].'<a>';
+	echo '&emsp;<a href="'.$_SERVER['PHP_SELF'].'" class="menu-link">&middot;'.$txt['menu_out'].'<a>';
+	echo '&emsp;<a href="index.php" class="menu-link">&middot;'.$txt['menu_main'].'<a>';
+	echo '&emsp;<a href="inventory.php" class="menu-link">&middot;'.$txt['menu_inv'].'<a>';
+	echo '&emsp;<a href="changelog.php" class="menu-link">&middot;'.$txt['menu_ch'].'<a>';
 	echo '</td><td class="menu-right"></td></tr></table>';
 
 	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
-	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl" height="650px">';
+	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl">';
 ?>

@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	@include('template/header.php');
-	$fp = fopen('info/index.txt', 'r');
+	$fp = fopen('info/changelog.txt', 'r');
 	if ($fp) 
 	{
 		while (!feof($fp))

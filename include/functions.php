@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 56
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,8 +24,8 @@
 	{
 		//preg_match_all('/<img[^>]+id=([\'"])?((?(1).+?|[^\s>]+))(?(1)\1)/', $str, $result);
 		//$result = explode('\"', $result[2][0]);
-		$result = explode('\"', $str);
-		return $result[5];
+		$result = explode('"', $str);
+		return (int)$result[5];
 	}
 
 	function GetLoadWeapon($id, $item)

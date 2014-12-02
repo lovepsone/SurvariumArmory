@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 62
+ * @revision 63
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -117,35 +117,35 @@
 		$BonusTT .= "<tr><td class='ToolTipMod' width='165px' height='20px' align='left'><font style='color:#ffffff; position: relative; left:5px;'>".$txt['bonus_no']."</font></td></tr>"; 
 	$BonusTT .= "<tr><td class='ToolTipFooter'></td></tr></table>";
 
-	echo '<table width="300px"><tr><td style="color:#ffffff;">'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[GetParseWeapon($_SESSION['iw'], 'l')].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dmg').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['pnt'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'pnt').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['vrn'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'vrn').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['dis'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dis').$txt['m'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['rate'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'rate').'</td></tr>';
+	echo '<table width="300px"><tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[GetParseWeapon($_SESSION['iw'], 'l')].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dmg').'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['pnt'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'pnt').'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['vrn'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'vrn').'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dis'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dis').$txt['m'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['rate'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'rate').'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
-	echo '<tr><td style="color:#ffffff;">'.$txt['head'].'</td><td style="color:#FFE4B5;"></td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_head.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_head.'</td></tr>';
+	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['head'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_head.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_head.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
-	echo '<tr><td style="color:#ffffff;">'.$txt['body'].'</td><td style="color:#FFE4B5;"></td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_body.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_body.'</td></tr>';
+	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['body'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_body.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_body.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
-	echo '<tr><td style="color:#ffffff;">'.$txt['hand'].'</td><td style="color:#FFE4B5;"></td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_hand.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_hand.'</td></tr>';
+	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['hand'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_hand.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_hand.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
-	echo '<tr><td style="color:#ffffff;">'.$txt['footer'].'</td><td style="color:#FFE4B5;"></td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_footer.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_footer.'</td></tr>';
+	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['footer'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_footer.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_footer.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
-	echo '<tr><td style="color:#ffffff;">'.$txt['stats'].'</td><td style="color:#FFE4B5;"></td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_armory'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_armory.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_isolation'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_isolation.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_w'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_w.$txt['k'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_p'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_p.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">'.$txt['t_lvl'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_lvl.'</td></tr>';
+	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['stats'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_armory'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_armory.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_isolation'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_isolation.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_w'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_w.$txt['k'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_p'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_p.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_lvl'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_lvl.'</td></tr>';
 	echo '<tr><td colspan="2"><img src="images/bonus.png" title="'.$BonusTT.'" class="BonusTT"></td></tr>';
 	echo '</table>';
 ?>

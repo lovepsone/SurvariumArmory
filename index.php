@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 46
+ * @revision 47
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -54,6 +54,11 @@
 
 	echo '</head><body>';
 	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
+
+	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl" height="650px">';
+
+
+
 	echo '<div align="center"><table>';
 	//скрытые
 	echo '<div><input type="hidden" id="FValue" value="0"/>';
@@ -110,6 +115,8 @@
 	echo '</td></tr>';
 
 	echo '</table></div>';
+	//
+	echo '</td><td class="b-right"></td></tr><tr><td class="b-foot-left"></td><td class="b-foot"></td><td class="b-foot-right"></td></tr></table>';
 
 	echo '<div class="HideBodyMod"></div>';
 	echo '<div class="ModDialog">';

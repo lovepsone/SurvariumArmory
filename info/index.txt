@@ -5,6 +5,9 @@
 </div>
 <div align="center"><font color="FFFF00" size="6"><b>По поводу найденых багов и предложений</b></font></div>
 <div align="left">&emsp;<font color="FFFFFF"> Если вы нашли баг или ошибку в описании, а возможно что у вас есть идея, которую можно добавить, большая просьба сообщить на форум нашего клана <a href="" style="color: #ffff00;text-decoration: none;"> Life Line Community</a>.<br>
+</font>
+</div>
 
+<div align="center"><font color="FF0000" size="4">&emsp; Так же хочу вырозить огромную благодарность Лидеру клана Life Line Ярославу и заместителю Денису за предоставление информации и помощь в разработке.
 </font>
 </div>

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 46
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -52,7 +52,9 @@
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/modItems.js"></script>';
 
-	echo '</head><body><div align="center"><table>';
+	echo '</head><body>';
+	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
+	echo '<div align="center"><table>';
 	//скрытые
 	echo '<div><input type="hidden" id="FValue" value="0"/>';
 	echo '<input type="hidden" id="TItem" value="0"/>';
@@ -113,6 +115,7 @@
 	echo '<div class="ModDialog">';
 	echo '<input type="button" id="ModClose" class="CloseButton" />';
 	echo '</div>';
-
+	//footer
+	echo '<div><hr width="80%"></div><div align="center"><font color="#ffffff">Author By Lovepsone<br>Copyright &copy; 2014-2015. Life Line Community.</font></div>';
 	echo '</body></html>';
 ?>

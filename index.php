@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 47
+ * @revision 48
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,8 +20,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	session_start();
-	error_reporting(E_ALL);
+	@include('template/header.php');
 	$_SESSION['iw'] = '0:0:0:0:0:0:0:0:iw:0';
 	$_SESSION['ie'] = '0:0:0:0:0:ia:0';
 	$_SESSION['im'] = '0:0:0:0:0:ia:0';
@@ -31,35 +30,12 @@
 	$_SESSION['is'] = '0:0:0:0:0:ia:0';
 	$_SESSION['if'] = '0:0:0:0:0:ia:0';
 
-	//http://jquery.page2page.ru/index.php5/JQuery_UI
-	//http://professorweb.ru/my/javascript/jquery/level4/4_12.php
-	//http://habrahabr.ru/post/103242/
-	//http://www.simplecoding.org/drag-drop-s-ispolzovaniem-jquery-ui.html
-	// json http://www.cyberforum.ru/javascript-jquery/thread966787.html
+	echo '<div class="HideBodyMod"></div>';
+	echo '<div class="ModDialog">';
+	echo '<input type="button" id="ModClose" class="CloseButton" />';
+	echo '</div>';
 
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
-	echo '<head>';
-	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-	echo '<title>Survarium Armory</title>';
-	echo '<link rel="stylesheet" href="style.css">';
-	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
-	//echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
-	echo '<script type="text/javascript" src="include/js/ajax.js"></script>';
-	echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/modItems.js"></script>';
-
-	echo '</head><body>';
-	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
-
-	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl" height="650px">';
-
-
-
-	echo '<div align="center"><table>';
+	echo '<table align="center">';
 	//скрытые
 	echo '<div><input type="hidden" id="FValue" value="0"/>';
 	echo '<input type="hidden" id="TItem" value="0"/>';
@@ -112,17 +88,7 @@
 	echo '<tr height="88px"><td colspan="2"></td><td width="117px"><div id="SelectFeet"></div></td><td colspan="2"></td><tr>';
 	echo '<tr height="100%"><td colspan="6"></td><tr></table>';
 	//закрываем все что с туловищем
-	echo '</td></tr>';
-
-	echo '</table></div>';
+	echo '</td></tr></table>';
 	//
-	echo '</td><td class="b-right"></td></tr><tr><td class="b-foot-left"></td><td class="b-foot"></td><td class="b-foot-right"></td></tr></table>';
-
-	echo '<div class="HideBodyMod"></div>';
-	echo '<div class="ModDialog">';
-	echo '<input type="button" id="ModClose" class="CloseButton" />';
-	echo '</div>';
-	//footer
-	echo '<div><hr width="80%"></div><div align="center"><font color="#ffffff">Author By Lovepsone<br>Copyright &copy; 2014-2015. Life Line Community.</font></div>';
-	echo '</body></html>';
+	@include('template/footer.php');
 ?>

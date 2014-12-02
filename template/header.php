@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 51
+ * @revision 53
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -39,7 +39,11 @@
 	echo '</head><body>';
 	session_start();
 	error_reporting(E_ALL);
-	echo '<table align="center" width="100%"><tr><td class="menu-left"></td><td class="menu"></td><td class="menu-right"></td></tr></table>';
+	@include("include/locale.php");
+
+	echo '<table align="center" width="100%"><tr><td class="menu-left"></td><td class="menu">';
+	echo '&emsp;<a href="" class="menu-link">&middot;'.$txt['menu_out'].'<a>';
+	echo '</td><td class="menu-right"></td></tr></table>';
 
 	echo '<div align="center"><img src="images/logo.jpg"></div>'; // logo
 	echo '<table align="center" width="1150px"><tr><td class="b-top-left"></td><td class="b-top"></td><td class="b-top-right"></td></tr><tr><td class="b-left"></td><td class="b-midl" height="650px">';

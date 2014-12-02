@@ -1,8 +1,8 @@
-﻿<?php
+<?php
 /**
  * @package Survarium Armory
  * @version Release 1.1
- * @revision 45
+ * @revision 53
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,6 +22,8 @@
  **/
 
 $txt = array();
+$txt['menu_out'] = 'Life Line';
+
 $txt['dmg'] = 'Урон';
 $txt['pnt'] = 'Бронебойность';
 $txt['vrn'] = 'Дисперсия';

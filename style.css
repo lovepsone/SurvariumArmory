@@ -12,3 +12,5 @@ body{background-color: black;}
 .menu{height:38px;background-image:url(template/menu.gif);}
 .menu-right{height:38px;width:10px;background-image:url(template/m-right.gif);}
 table {border-collapse:collapse;}
+a.menu-link{color: #ffffff;text-decoration: none;}
+a:hover.menu-link { color: #FFFF00;text-decoration: underline;}

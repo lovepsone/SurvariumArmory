@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 68
+ * @revision 70
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -26,29 +26,29 @@
 	@include('functions.php');
 
 	if (isset($_POST['iw']))
-		$_SESSION['iw'] = GetLoadWeapon(GetParseId($_POST['iw']), $items);
-
+		$_SESSION['iw'] = GetLoadWeapon((int)$_POST['iw'], $items);
 	// голова
 	if (isset($_POST['ie']))
-		$_SESSION['ie'] = GetLoadArmory(GetParseId($_POST['ie']), $items);
+		$_SESSION['ie'] = GetLoadArmory((int)$_POST['ie'], $items);
 	// маска
 	if (isset($_POST['im']))
-		$_SESSION['im'] = GetLoadArmory(GetParseId($_POST['im']), $items);
+		$_SESSION['im'] = GetLoadArmory((int)$_POST['im'], $items);
 	// грудь
 	if (isset($_POST['ia']))
-		$_SESSION['ia'] = GetLoadArmory(GetParseId($_POST['ia']), $items);
+		$_SESSION['ia'] = GetLoadArmory((int)$_POST['ia'], $items);
 	// спина
 	if (isset($_POST['ib']))
-		$_SESSION['ib'] = GetLoadArmory(GetParseId($_POST['ib']), $items);
+		$_SESSION['ib'] = GetLoadArmory((int)$_POST['ib'], $items);
 	// рука
 	if (isset($_POST['ih']))
-		$_SESSION['ih'] = GetLoadArmory(GetParseId($_POST['ih']), $items);
+		$_SESSION['ih'] = GetLoadArmory((int)$_POST['ih'], $items);
 	// ноги
 	if (isset($_POST['is']))
-		$_SESSION['is'] = GetLoadArmory(GetParseId($_POST['is']), $items);
+		$_SESSION['is'] = GetLoadArmory((int)$_POST['is'], $items);
 	// ступни
 	if (isset($_POST['if']))
-		$_SESSION['if'] = GetLoadArmory(GetParseId($_POST['if']), $items);
+		$_SESSION['if'] = GetLoadArmory($_POST['if'], $items);
+
 	$idIE = (int)GetParseArmory($_SESSION['ie'], 'id');
 	// исключаем двайные шлемы
 	if (($idIE == 58 || $idIE == 81 || $idIE == 94 || $idIE == 128) && !isset($_POST['im']))

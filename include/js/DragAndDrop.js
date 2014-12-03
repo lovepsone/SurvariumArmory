@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 71
+ * @revision 70
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -36,11 +36,11 @@ function updateDraggable()
 		accept:"#iw",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("div[item-id]")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemW"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("div[item-id]")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemW"/></div>');
 			$("img.ItemW").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'iw:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'iw':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectHead").droppable(
@@ -49,23 +49,23 @@ function updateDraggable()
 		accept:"#ie",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
 			$("div.lastSelectHead2").empty();
 			$("div.lastSelectMask2").empty();
-			if (HeadCheckSlots2(idItem))
+			if (HeadCheckSlots2(GetId(move.find("div[item-id]").html())))
 			{
 				$("div.lastSelectMask").empty();
-				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectHead2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
-				$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectMask2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'_.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectHead2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectMask2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'_.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
 				$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
 			}
 			else
 			{
-				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
 				$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
 			}
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'ie:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectMask").droppable(
@@ -74,13 +74,13 @@ function updateDraggable()
 		accept:"#im",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.lastSelectHead2").empty();
 			$("div.lastSelectMask2").empty();
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemM"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemM"/></div>');
 			$("img.ItemM").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'im:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'im':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectBack").droppable(
@@ -89,11 +89,11 @@ function updateDraggable()
 		accept:"#ib",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemB"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemB"/></div>');
 			$("img.ItemB").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'ib:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ib':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectArmory").droppable(
@@ -102,11 +102,11 @@ function updateDraggable()
 		accept:"#ia",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemA"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemA"/></div>');
 			$("img.ItemA").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'ia:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ia':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectHand").droppable(
@@ -115,11 +115,11 @@ function updateDraggable()
 		accept:"#ih",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemH"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemH"/></div>');
 			$("img.ItemH").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'ih:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ih':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 	$("#SelectShin").droppable(
@@ -128,11 +128,11 @@ function updateDraggable()
 		accept:"#is",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemS"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemS"/></div>');
 			$("img.ItemS").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'is:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'is':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		
 		}
 	});
@@ -142,11 +142,11 @@ function updateDraggable()
 		accept:"#if",
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html());
+			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemF"/></div>');
+			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemF"/></div>');
 			$("img.ItemF").easyTooltip({tooltipId: "TooltipItemIcon"});
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':'if:'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'if':GetId(move.find("div[item-id]").html())},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
 }

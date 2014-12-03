@@ -1,7 +1,12 @@
 ﻿<div align="center"><font color="FFFF00" size="12px"><b>История версий</b></font></div>
 <div align="center"><font color="FF0000">Внимание!!! После обновления не забывайте чистить кешь браузера.</div>
 <div align="left"><font color="FFFFFF" >
-<b>&emsp;Survarium Armory V 1.2</b><br>
+<b>&emsp;Survarium Armory V 1.2b</b><br>
+&emsp;- исправлен баг со шлемы с 2 иконками;<br>
+&emsp;- реализовано плавное помещение иконок в слот;<br>
+&emsp;- мелкие правки по коду;<br><br>
+
+<b>&emsp;Survarium Armory V 1.2a</b><br>
 &emsp;- исправлен баг отображения бонуса, при одевании оружия;<br>
 &emsp;- при появлении нового бонуса, бонусы объединяются;<br>
 &emsp;- поправлена иконка перчатки;<br>

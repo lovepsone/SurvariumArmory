@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 65
+ * @revision 68
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -49,6 +49,26 @@
 	// ступни
 	if (isset($_POST['if']))
 		$_SESSION['if'] = GetLoadArmory(GetParseId($_POST['if']), $items);
+	$idIE = (int)GetParseArmory($_SESSION['ie'], 'id');
+	// исключаем двайные шлемы
+	if (($idIE == 58 || $idIE == 81 || $idIE == 94 || $idIE == 128) && !isset($_POST['im']))
+	{
+		$_SESSION['im'] = '0:0:0:0:0:ia:0';
+	}
+	else if (($idIE == 58 || $idIE == 81 || $idIE == 94 || $idIE == 128) && isset($_POST['im']))
+	{
+		$_SESSION['ie'] = '0:0:0:0:0:ia:0';
+	}
+	$idItems = array();
+	$idItems[0] =(int)GetParseWeapon($_SESSION['iw'], 'id');
+	$idItems[1] =(int)GetParseArmory($_SESSION['ie'], 'id');
+	$idItems[2] =(int)GetParseArmory($_SESSION['im'], 'id');
+	$idItems[3] =(int)GetParseArmory($_SESSION['ia'], 'id');
+	$idItems[4] =(int)GetParseArmory($_SESSION['ib'], 'id');
+	$idItems[5] =(int)GetParseArmory($_SESSION['ih'], 'id');
+	$idItems[6] =(int)GetParseArmory($_SESSION['is'], 'id');
+	$idItems[7] =(int)GetParseArmory($_SESSION['if'], 'id');
+
 
 	$armory_head = (int)GetParseArmory($_SESSION['ie'], 'a') + (int)GetParseArmory($_SESSION['im'], 'a');
 	$armory_body = (int)GetParseArmory($_SESSION['ia'], 'a') + (int)GetParseArmory($_SESSION['ib'], 'a');
@@ -86,16 +106,7 @@
 		if ($t_lvl < $lvl[$i])
 			$t_lvl = $lvl[$i];
 	}
-	$idItems = array();
-	$idItems[0] =(int)GetParseWeapon($_SESSION['iw'], 'id');
-	$idItems[1] =(int)GetParseArmory($_SESSION['ie'], 'id');
-	$idItems[2] =(int)GetParseArmory($_SESSION['im'], 'id');
-	$idItems[3] =(int)GetParseArmory($_SESSION['ia'], 'id');
-	$idItems[4] =(int)GetParseArmory($_SESSION['ib'], 'id');
-	$idItems[5] =(int)GetParseArmory($_SESSION['ih'], 'id');
-	$idItems[6] =(int)GetParseArmory($_SESSION['is'], 'id');
-	$idItems[7] =(int)GetParseArmory($_SESSION['if'], 'id');
-
+	
 	$Bonuses = 'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0';
 	for ($i = 0; $i < count($idItems); $i++)
 		$Bonuses = GetBundBonus($Bonuses, $items[$idItems[$i]]['mod']);

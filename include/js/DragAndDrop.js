@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 66
+ * @revision 68
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -29,10 +29,7 @@ function HeadCheckSlots2(id)
 
 function updateDraggable()
 {
-	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable({helper:'clone',
-		//snap:'#SelectWeapon, #SelectHead, #SelectMask, #SelectBack, #SelectArmory, #SelectHand, #SelectShin, #SelectFeet',snapMode: 'inner',snapTolerance: 20,
-		zIndex: 9999,start: function(event, ui){$(this).data('preventBehaviour', true);}});
-
+	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable({helper:'clone',zIndex: 9999,start: function(event, ui){$(this).data('preventBehaviour', true);}});
 	$("#SelectWeapon").droppable(
 	{
 		tolerance:"touch",
@@ -54,14 +51,20 @@ function updateDraggable()
 		{
 			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.last" + id).empty();
+			$("div.lastSelectHead2").empty();
+			$("div.lastSelectMask2").empty();
 			if (HeadCheckSlots2(GetId(move.find("div[item-id]").html())))
 			{
-				$("div.lastSelectHead2").empty();
 				$("div.lastSelectMask").empty();
-				$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectHead2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'_.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectHead2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectMask2"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'_.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
 			}
-			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
-			$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
+			else
+			{
+				$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemE"/></div>');
+				$("img.ItemE").easyTooltip({tooltipId: "TooltipItemIcon"});
+			}
 			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'ie': move.find("div[item-id]").html()},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TooltipItemIcon"});}});
 		}
 	});
@@ -73,6 +76,7 @@ function updateDraggable()
 		{
 			var id = $(this).attr("id"), move = ui.draggable;
 			$("div.lastSelectHead2").empty();
+			$("div.lastSelectMask2").empty();
 			$("div.last" + id).empty();
 			$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+GetImg(move.find("div[item-id]").html())+'.png" id="'+GetId(move.find("div[item-id]").html())+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="ItemM"/></div>');
 			$("img.ItemM").easyTooltip({tooltipId: "TooltipItemIcon"});

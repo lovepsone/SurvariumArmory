@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 65
+ * @revision 69
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,13 +20,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 
+$(document).ready(function(){$(document).bind("contextmenu",function(e){return false;});});
 $(document).on('mousedown', 'img.ItemW', function(event)
 {
 	var HeightDocument = $(document).height();
 	var WidthDocument = $(document).width();
 	var HeightScreen = $(window).height();
 	event.preventDefault();
-	if(event.button == 0)
+	if(event.button == 2)
 	{
 		$(".HideBodyMod").css({"width":WidthDocument,"height":HeightDocument});
 		$(".HideBodyMod").fadeIn(1000);
@@ -38,5 +39,4 @@ $(document).on('mousedown', 'img.ItemW', function(event)
     	}
 });
 
-$(document).ready(function()
-{$("#ModClose").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});$(".HideBodyMod").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});});
+$(document).ready(function(){$("#ModClose").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});$(".HideBodyMod").click(function () {$(".HideBodyMod, .ModDialog").hide();$("body").css({"overflow":"auto"});});});

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 71
+ * @revision 72
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,82 +20,73 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
+/*
+* $_SESSION['UserItem']
+* 0 - шлем
+* 1 - маска
+* 2 - торс
+* 3 - спина (рюкзак)
+* 4 - руки
+* 5 - ноги
+* 6 - ступни
+* 7 - оружие (1 слот)
+*/
 	session_start();
 	@include_once("locale.php");
 	@include_once("itemList.php");
 	@include('functions.php');
 
 	$arr = array();
+	$twoHeadHandle = false;
 	if (isset($_POST['data']))
 	{
 		$arr = explode(':', $_POST['data']);
-		if ($arr[0] == 'iw')
-			$_SESSION[$arr[0]] = GetLoadWeapon((int)$arr[1], $items);
-		else
-			$_SESSION[$arr[0]] = GetLoadArmory((int)$arr[1], $items);
+		if ($arr[0] == 'im')
+			$twoHeadHandle = true;
+		for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
+		{
+			if ($_SESSION['UserItem'][$i]['type'] == $arr[0])
+				$_SESSION['UserItem'][$i]['id'] = (int)$arr[1];
+		}
 	}
-
-	$idIE = (int)GetParseArmory($_SESSION['ie'], 'id');
 	// исключаем двайные шлемы
-	if (($idIE == 58 || $idIE == 81 || $idIE == 94 || $idIE == 128) && !isset($_POST['im']))
+	$idExclude = $_SESSION['UserItem'][0]['id'];
+	if (($idExclude == 58 || $idExclude == 81 || $idExclude == 94 || $idExclude == 128) && !$twoHeadHandle)
 	{
-		$_SESSION['im'] = '0:0:0:0:0:ia:0';
+		$_SESSION['UserItem'][1]['id'] = 0;
 	}
-	else if (($idIE == 58 || $idIE == 81 || $idIE == 94 || $idIE == 128) && isset($_POST['im']))
+	else if (($idExclude == 58 || $idExclude == 81 || $idExclude == 94 || $idExclude == 128) && $twoHeadHandle)
 	{
-		$_SESSION['ie'] = '0:0:0:0:0:ia:0';
+		$_SESSION['UserItem'][0]['id'] = 0;
 	}
-	$idItems = array();
-	$idItems[0] =(int)GetParseWeapon($_SESSION['iw'], 'id');
-	$idItems[1] =(int)GetParseArmory($_SESSION['ie'], 'id');
-	$idItems[2] =(int)GetParseArmory($_SESSION['im'], 'id');
-	$idItems[3] =(int)GetParseArmory($_SESSION['ia'], 'id');
-	$idItems[4] =(int)GetParseArmory($_SESSION['ib'], 'id');
-	$idItems[5] =(int)GetParseArmory($_SESSION['ih'], 'id');
-	$idItems[6] =(int)GetParseArmory($_SESSION['is'], 'id');
-	$idItems[7] =(int)GetParseArmory($_SESSION['if'], 'id');
 
+	$ArmoryHead = $items[$_SESSION['UserItem'][0]['id']]['armory'] + $items[$_SESSION['UserItem'][1]['id']]['armory'];
+	$ArmoryBody = $items[$_SESSION['UserItem'][2]['id']]['armory'] + $items[$_SESSION['UserItem'][3]['id']]['armory'];
+	$ArmoryHand = $items[$_SESSION['UserItem'][4]['id']]['armory'];
+	$ArmoryFooter = $items[$_SESSION['UserItem'][5]['id']]['armory'] + $items[$_SESSION['UserItem'][6]['id']]['isolation'];
+	$IsolationHead = $items[$_SESSION['UserItem'][0]['id']]['isolation'] + $items[$_SESSION['UserItem'][1]['id']]['isolation'];
+	$IsolationBody = $items[$_SESSION['UserItem'][2]['id']]['isolation'] + $items[$_SESSION['UserItem'][3]['id']]['isolation'];
+	$IsolationHand = $items[$_SESSION['UserItem'][4]['id']]['isolation'];
+	$IsolationFooter = $items[$_SESSION['UserItem'][5]['id']]['isolation'] + $items[$_SESSION['UserItem'][6]['id']]['isolation'];
 
-	$armory_head = (int)GetParseArmory($_SESSION['ie'], 'a') + (int)GetParseArmory($_SESSION['im'], 'a');
-	$armory_body = (int)GetParseArmory($_SESSION['ia'], 'a') + (int)GetParseArmory($_SESSION['ib'], 'a');
-	$armory_hand = (int)GetParseArmory($_SESSION['ih'], 'a');
-	$armory_footer = (int)GetParseArmory($_SESSION['is'], 'a') + (int)GetParseArmory($_SESSION['if'], 'a');
-	$isolation_head = (int)GetParseArmory($_SESSION['ie'], 'i') + (int)GetParseArmory($_SESSION['im'], 'i');
-	$isolation_body = (int)GetParseArmory($_SESSION['ia'], 'i') + (int)GetParseArmory($_SESSION['ib'], 'i');
-	$isolation_hand = (int)GetParseArmory($_SESSION['ih'], 'i');
-	$isolation_footer = (int)GetParseArmory($_SESSION['is'], 'i') + (int)GetParseArmory($_SESSION['if'], 'i');
+	$GeneralArmory = $ArmoryHead + $ArmoryBody + $ArmoryFooter;
+	$GeneralIsolation = $IsolationHead + $IsolationBody + $IsolationFooter;
 
-	$t_armory = $armory_head + $armory_body + $armory_footer;
-	$t_isolation = $isolation_head + $isolation_body + $isolation_footer;
-
-	$t_p = (int)GetParseWeapon($_SESSION['iw'], 'p') + (int)GetParseArmory($_SESSION['ie'], 'p') + (int)GetParseArmory($_SESSION['im'], 'p'); 
-	$t_p = $t_p + (int)GetParseArmory($_SESSION['ia'], 'p') + (int)GetParseArmory($_SESSION['ib'], 'p') + (int)GetParseArmory($_SESSION['ih'], 'p');
-	$t_p = $t_p + (int)GetParseArmory($_SESSION['is'], 'p') + (int)GetParseArmory($_SESSION['if'], 'p');
-
-	$t_w = (float)GetParseWeapon($_SESSION['iw'], 'w') + (float)GetParseArmory($_SESSION['ie'], 'w') + (float)GetParseArmory($_SESSION['im'], 'w'); 
-	$t_w = $t_w + (float)GetParseArmory($_SESSION['ia'], 'w') + (float)GetParseArmory($_SESSION['ib'], 'w') + (float)GetParseArmory($_SESSION['ih'], 'w');
-	$t_w = $t_w + (float)GetParseArmory($_SESSION['is'], 'w') + (float)GetParseArmory($_SESSION['if'], 'w');
-
-	$lvl = array();
-	$t_lvl = 0;
-	$lvl[0] = (int)GetParseWeapon($_SESSION['iw'], 'lvl');
-	$lvl[1] = (int)GetParseArmory($_SESSION['ie'], 'lvl');
-	$lvl[2] = (int)GetParseArmory($_SESSION['im'], 'lvl');
-	$lvl[3] = (int)GetParseArmory($_SESSION['ia'], 'lvl');
-	$lvl[4] = (int)GetParseArmory($_SESSION['ib'], 'lvl');
-	$lvl[5] = (int)GetParseArmory($_SESSION['ih'], 'lvl');
-	$lvl[6] = (int)GetParseArmory($_SESSION['is'], 'lvl');
-	$lvl[7] = (int)GetParseArmory($_SESSION['if'], 'lvl');
-
-	for ($i = 0; $i < count($lvl); $i++)
+	$GeneralLvl = 0;
+	$GeneralPrice = 0;
+	$GeneralWeight = 0;
+	for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
 	{
-		if ($t_lvl < $lvl[$i])
-			$t_lvl = $lvl[$i];
+		if ($GeneralLvl < $items[$_SESSION['UserItem'][$i]['id']]['lvl'])
+			$GeneralLvl = $items[$_SESSION['UserItem'][$i]['id']]['lvl'];
+		$GeneralPrice += $items[$_SESSION['UserItem'][$i]['id']]['p'];
+		if ($_SESSION['UserItem'][$i]['id'] != 0  || $i == 7)
+			$GeneralWeight += (float)$items[$_SESSION['UserItem'][$i]['id']]['w'];
 	}
-	
+
 	$Bonuses = 'p:0;c:0;a:0;s:0;b:0;e:0;r:0;q:0;t:0;g:0;k:0;v:0;d:0';
-	for ($i = 0; $i < count($idItems); $i++)
-		$Bonuses = GetBundBonus($Bonuses, $items[$idItems[$i]]['mod']);
+	for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
+		$Bonuses = GetBundBonus($Bonuses, $items[$_SESSION['UserItem'][$i]['id']]['mod']);
 
 	$BonusTT = "<table><tr><td class='ToolTipHead2'></td></tr>";
 
@@ -115,35 +106,49 @@
 	}
 	$BonusTT .= "<tr><td class='ToolTipFooter'></td></tr></table>";
 
-	echo '<table width="300px"><tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[GetParseWeapon($_SESSION['iw'], 'l')].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dmg').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['pnt'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'pnt').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['vrn'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'vrn').'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dis'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'dis').$txt['m'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['rate'].':</td><td style="color:#FFE4B5; font-size:11px;">'.GetParseWeapon($_SESSION['iw'], 'rate').'</td></tr>';
+	echo '<table width="300px">';
+
+	if ($_SESSION['UserItem'][7]['id'] == -1)
+	{
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt['iw'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">0</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['pnt'].':</td><td style="color:#FFE4B5; font-size:11px;">0</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['vrn'].':</td><td style="color:#FFE4B5; font-size:11px;">0</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dis'].':</td><td style="color:#FFE4B5; font-size:11px;">0'.$txt['m'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['rate'].':</td><td style="color:#FFE4B5; font-size:11px;">0</td></tr>';
+	}
+	else
+	{
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['weapon'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$txt[$items[$_SESSION['UserItem'][7]['id']]['l']].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dmg'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$items[$_SESSION['UserItem'][7]['id']]['dmg'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['pnt'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$items[$_SESSION['UserItem'][7]['id']]['pnt'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['vrn'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$items[$_SESSION['UserItem'][7]['id']]['vrn'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['dis'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$items[$_SESSION['UserItem'][7]['id']]['dis'].$txt['m'].'</td></tr>';
+		echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['rate'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$items[$_SESSION['UserItem'][7]['id']]['rate'].'</td></tr>';
+	}
 	echo '<tr><td colspan="3"><hr></tr>';
 	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['head'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_head.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_head.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$ArmoryHead.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$IsolationHead.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
 	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['body'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_body.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_body.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$ArmoryBody.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$IsolationBody.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
 	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['hand'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_hand.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_hand.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$ArmoryHand.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$IsolationHand.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
 	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['footer'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$armory_footer.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$isolation_footer.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['armory'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$ArmoryFooter.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['isolation'].':</td><td style="color:#FFE4B5; font-size:11px;">'.$IsolationFooter.'</td></tr>';
 	echo '<tr><td colspan="3"><hr></tr>';
 	echo '<tr><td style="color:#fffff0;" align="center" colspan="2">'.$txt['stats'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_armory'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_armory.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_isolation'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_isolation.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_w'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_w.$txt['k'].'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_p'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_p.'</td></tr>';
-	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_lvl'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$t_lvl.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_armory'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$GeneralArmory.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_isolation'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$GeneralIsolation.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_w'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$GeneralWeight.$txt['k'].'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_p'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$GeneralPrice.'</td></tr>';
+	echo '<tr><td style="color:#ffffff; font-size:11px;">&emsp;'.$txt['t_lvl'].'</td><td style="color:#FFE4B5; font-size:11px;">'.$GeneralLvl.'</td></tr>';
 	echo '<tr><td colspan="2"><img src="images/bonus.png" title="'.$BonusTT.'" class="BonusTT"></td></tr>';
 	echo '</table>';
 ?>

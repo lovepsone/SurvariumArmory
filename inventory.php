@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 65
+ * @revision 72
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,14 +21,16 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	@include('template/header.php');
-	$_SESSION['iw'] = '0:0:0:0:0:0:0:0:iw:0';
-	$_SESSION['ie'] = '0:0:0:0:0:ia:0';
-	$_SESSION['im'] = '0:0:0:0:0:ia:0';
-	$_SESSION['ia'] = '0:0:0:0:0:ia:0';
-	$_SESSION['ib'] = '0:0:0:0:0:ia:0';
-	$_SESSION['ih'] = '0:0:0:0:0:ia:0';
-	$_SESSION['is'] = '0:0:0:0:0:ia:0';
-	$_SESSION['if'] = '0:0:0:0:0:ia:0';
+	$_SESSION['UserItem'] = array(
+	0 => array('type' => 'ie', 'id' => 0), // шлем
+	1 => array('type' => 'im', 'id' => 0), // маска
+	2 => array('type' => 'ia', 'id' => 0), // торс
+	3 => array('type' => 'ib', 'id' => 0), // спина (рюкзак)
+	4 => array('type' => 'ih', 'id' => 0), // руки
+	5 => array('type' => 'is', 'id' => 0), // ноги
+	6 => array('type' => 'if', 'id' => 0), // ступни
+	7 => array('type' => 'iw', 'id' => -1), // оружие (1 слот)
+	);
 
 	echo '<div class="HideBodyMod"></div>';
 	echo '<div class="ModDialog">';

@@ -2,7 +2,7 @@
 <div align="center"><font color="FF0000">Внимание!!! После обновления не забывайте чистить кешь браузера.</div>
 <div align="left"><font color="FFFFFF" >
 <b>&emsp;Survarium Armory V 1.2b</b><br>
-&emsp;- исправлен баг со шлемы с 2 иконками;<br>
+&emsp;- исправлен баг с 2 иконками;<br>
 &emsp;- реализовано плавное помещение иконок в слот;<br>
 &emsp;- мелкие правки по коду;<br><br>
 

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
- * @version Release 1.2
- * @revision 74
+ * @version Release 1.3
+ * @revision 75
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -37,7 +37,7 @@ function AddDraggableUser(SelectorUs, idUs, TypeItemUs, logicM)
 			$(SelectorUs).empty();
 			if (logicM) $("div.lastSelectMask2").remove()
 			$('body #T'+TypeItemUs).remove();
-$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':TypeItemUs+':'+idUs+':1'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TBonus"});}});
+			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':TypeItemUs+':'+idUs+':1'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TBonus"});}});
 		}
 	});
 }

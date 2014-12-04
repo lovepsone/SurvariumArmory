@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.2
- * @revision 72
+ * @revision 74
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -41,12 +41,26 @@
 	if (isset($_POST['data']))
 	{
 		$arr = explode(':', $_POST['data']);
-		if ($arr[0] == 'im')
-			$twoHeadHandle = true;
-		for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
+		if ($arr[2] == 1)
 		{
-			if ($_SESSION['UserItem'][$i]['type'] == $arr[0])
-				$_SESSION['UserItem'][$i]['id'] = (int)$arr[1];
+			for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
+			{
+				if ($_SESSION['UserItem'][$i]['type'] == $arr[0] && $arr[0] != 'iw')
+					$_SESSION['UserItem'][$i]['id'] = 0;
+				else if($_SESSION['UserItem'][$i]['type'] == $arr[0] && $arr[0] == 'iw')
+					$_SESSION['UserItem'][$i]['id'] = -1;
+				
+			}
+		}
+		else
+		{
+			if ($arr[0] == 'im')
+				$twoHeadHandle = true;
+			for ($i = 0; $i < count($_SESSION['UserItem']); $i++)
+			{
+				if ($_SESSION['UserItem'][$i]['type'] == $arr[0])
+					$_SESSION['UserItem'][$i]['id'] = (int)$arr[1];
+			}
 		}
 	}
 	// исключаем двайные шлемы

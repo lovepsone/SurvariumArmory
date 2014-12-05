@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 1.3
- * @revision 75
+ * @revision 76
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -33,7 +33,7 @@
 
 	function ToolTips($id)
 	{
-		global $txt, $items, $T;
+		global $txt, $tRank, $items, $T;
 
 		$html = "<table><th height='34px' width='165px' class='ToolTipHead'>";
 		$html .= "<div align='left' style='position: relative; left: 7px; top: 0px;'>";
@@ -65,7 +65,6 @@
 					$html .= "<font style='color:green; position: relative; top: 1px; left:5px;'>".GetPlusMinus($mod[$i]['m']).(int)$mod[$i]['c'].GetTxtModType($mod[$i]['m'])."</font></td></tr>";	
 				}
 			}
-			$html .= "<tr><td class='ToolTipFooter' width='165px' height='3px'></td></tr>";
 		}
 		else if ($items[$id]['selector'] == 'iw')
 		{
@@ -87,9 +86,14 @@
 			$html .= "<tr><td class='ToolTipBody' width='165px'>";
 			$html .= "<font style='color:#ffffff; position: relative; left: 10px; top: 0px;'>".$txt['w']."</font>";
 			$html .= "<font style='color:#FFE4B5; position: relative; left: 117px; top: 0px;'>".$items[$id]['w'].$txt['k']."</font></td></tr>";
-			$html .= "<tr><td class='ToolTipFooter' width='165px' height='3px'></td></tr>";
 		}
-		$html .= "</table>";
+		if ($items[$id]['fraction'] != 1)
+		{
+			$html .= "<tr><td class='ToolTipMod' width='165px'>";
+			$html .= "<font style='color:#ffffff; position: relative; left: 10px; top: 0px;'>".$txt['rank']."</font>";
+			$html .= "<font style='color:#FFE4B5; position: relative; left: 15px; top: 0px;'>".$tRank[$items[$id]['fraction']][$items[$id]['rank']]."</font></td></tr>";
+		}
+		$html .= "<tr><td class='ToolTipFooter' width='165px' height='3px'></td></tr></table>";
 		return $html;
 	}
 

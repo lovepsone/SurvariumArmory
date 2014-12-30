@@ -1,0 +1,39 @@
+body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; background-color: #000000;}
+.body-main { height: 723px; width: 100%; background: url(images/body.png) no-repeat; background-size: cover;}
+
+.b-inventory { height: 630px; width: 405px; background: url(images/inventory/inventory.png) no-repeat; background-size: cover; color: #ffffff}
+.b-user {  height: 623px; width: 405px; background: url(images/user/user.png) no-repeat; background-size: cover; color: #ffffff } 
+.inventoryHead { height: 25px; font-size: 14px;}
+.userHead { height: 25px; font-size: 14px;}
+.inventoryFooter { height: 25px; font-size: 9px; }
+
+.BFractionAll { height: 36px; width: 66px; background: url(images/inventory/BFractionAll.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionNo { height: 36px; width: 66px; background: url(images/inventory/BFractionNo.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionVagabondage { height: 36px; width: 66px; background: url(images/inventory/BFractionVagabondage.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionBlackMarket { height: 36px; width: 66px; background: url(images/inventory/BFractionBlackMarket.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionArmyReviva { height: 36px; width: 66px; background: url(images/inventory/BFractionArmyReviva.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionSettlementRegion { height: 36px; width: 66px; background: url(images/inventory/BFractionSettlementRegion.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionAlls { height: 36px; width: 66px; background: url(images/inventory/BFractionAll_.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionNos { height: 36px; width: 66px; background: url(images/inventory/BFractionNo_.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionVagabondages { height: 36px; width: 66px; background: url(images/inventory/BFractionVagabondage_.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionBlackMarkets { height: 36px; width: 66px; background: url(images/inventory/BFractionBlackMarket_.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionArmyRevivas { height: 36px; width: 66px; background: url(images/inventory/BFractionArmyReviva_.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionSettlementRegions { height: 36px; width: 66px; background: url(images/inventory/BFractionSettlementRegion_.png) no-repeat; background-size: cover; border: 0px; }
+
+.BFalseAll { height: 49px; width: 66px; background: url(images/inventory/BFalseAll.png) no-repeat; background-size: cover; border: 0px; }
+.BFalseArm { height: 48px; width: 66px; background: url(images/inventory/BFalseArm.png) no-repeat; background-size: cover; border: 0px; }
+.BFalseWeap { height: 48px; width: 66px; background: url(images/inventory/BFalseWeap.png) no-repeat; background-size: cover; border: 0px; }
+.BFalseAmm { height: 48px; width: 66px; background: url(images/inventory/BFalseAmm.png) no-repeat; background-size: cover; border: 0px; }
+.BFalseSpec { height: 48px; width: 66px; background: url(images/inventory/BFalseSpec.png) no-repeat; background-size: cover; border: 0px; }
+.BFalseUpgr { height: 48px; width: 66px; background: url(images/inventory/BFalseUpgr.png) no-repeat; background-size: cover; border: 0px; }
+.BTrueAll { height: 51px; width: 66px; background-image: url('images/inventory/BTrueAll.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+.BTrueArm { height: 51px; width: 66px; background-image: url('images/inventory/BTrueArm.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+.BTrueWeap { height: 51px; width: 66px; background-image: url('images/inventory/BTrueWeap.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+.BTrueAmm { height: 51px; width: 66px; background-image: url('images/inventory/BTrueAmm.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+.BTrueSpec { height: 51px; width: 66px; background-image: url('images/inventory/BTrueSpec.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+.BTrueUpgr { height: 51px; width: 66px; background-image: url('images/inventory/BTrueUpgr.png'); background-repeat: no-repeat; background-size: 100% 100%; border: 0px; }
+
+.BTypeIcon { height: 22px; }
+
+.scrollItemInventory { overflow: auto; overflow-x: hidden; height: 414px; width: 402px; }
+.icon { height: 90px; width: 125px; }

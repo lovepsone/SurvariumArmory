@@ -82,7 +82,7 @@
 	// закрываем правую таблицу шапка
 	echo '</table>';
 	// все что с туловищем
-	echo '<table border="0px" width="385px" height="324px">';
+	echo '<table border="1px" width="385px" height="324px">';
  	echo '<tr height="3px"><td colspan="5"></td></tr>';
  	echo '<tr height="88px"><td width="6px"></td><td width="117px"><div id="SelectBack"></div></td><td width="117px"><div id="SelectArmory"></div></td><td width="117px"><div id="SelectHand"></div></td><tr>';
 	echo '<tr height="88px"><td colspan="2"></td><td width="117px"><div id="SelectShin"></div></td><td colspan="2"></td><tr>';

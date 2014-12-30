@@ -1,3 +1,16 @@
+.bgUser
+{
+	background-image:url(img/bgUser.png);
+	background-repeat: no-repeat;
+	background-size: 300px 600px;
+}
+.hUser
+{
+	//background-image:url(img/hUser.png);
+	//background-repeat: no-repeat;
+	//background-size: 70% 70%;
+}
+
 #Fraction0
 {
 	border: 0px;

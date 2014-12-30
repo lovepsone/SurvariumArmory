@@ -22,6 +22,8 @@
 
 function AjaxItems(strData){$.ajax({url: 'include/HandleItems.php',type: 'POST',data:{'data': strData},success: function(data){$("#ItemOutput").html(data);$("img.ItemInv").easyTooltip({tooltipId: "TooltipItemIcon"});updateDraggable();}});}
 
+//$(function(){var bWindow = $(window);$.cookie('WH', bWindow.width()+':'+bWindow.height());});
+
 $(document).ready(function()
 {
 	var Fraction = 1, TypeItem = 0, TypeSort = 1;

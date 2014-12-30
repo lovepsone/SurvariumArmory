@@ -1,6 +1,6 @@
 /**
  * @package Survarium Armory
- * @version Release 1.3
+ * @version Release 2.0
  * @revision 75
  * @copyright (c) 2014 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -19,30 +19,50 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-
-function GetSrc(str, num){var src = str.split('"');return src[num];}function GetImg(html){a = GetSrc(html, 1);var b = a.split('=');var c = b[1].split('&');return c[0];}function GetId(str){var id = str.split('"');return id[id.length - 4];}
-function HeadCheckSlots2(id)
+function GetDataUrlItem(url)
 {
-	if (id == 58 ||id == 81 ||id == 94 ||id == 128)
-		return true;
-	return false;
+	var data = url.split('&'), dataArray = new Array(), i = 0, ii = 0, t, tmp;
+	for (i = 0; i < data.length; i++)
+	{
+		t = data[i].split('=');
+		if (t[0] == 'iw')
+		{
+			tmp = t[1].split(':');
+			dataArray[ii] = tmp[0];
+			ii++;
+			dataArray[ii] = tmp[4];
+			ii++;
+		}
+		else
+		{
+			tmp = t[1].split(':');
+			dataArray[ii] = tmp[0];
+			ii++;
+		}
+	}
+	return dataArray;
 }
 
-function AddDraggableUser(SelectorUs, idUs, TypeItemUs, logicM)
+function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 {
-	$(SelectorUs).draggable(
+	$.ajax(
 	{
-		stop: function(event, ui)
+		url: 'include/ItemHandle.php',
+		type: 'POST',
+		data:{'id': item},
+		success: function(data)
 		{
-			$(SelectorUs).empty();
-			if (logicM) $("div.lastSelectMask2").remove()
-			$('body #T'+TypeItemUs).remove();
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':TypeItemUs+':'+idUs+':1'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TBonus"});}});
+			var item = JSON.parse(data);
+			if (typeitem == item['selector'])
+			{
+				$('div.last'+lastSelector).empty();
+				$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+			}
 		}
 	});
 }
 
-function AddDraggable(Selector, TypeItem, ClassTooltip)
+function AddDroppable(Selector, TypeItem)
 {
 	$(Selector).droppable(
 	{
@@ -50,54 +70,56 @@ function AddDraggable(Selector, TypeItem, ClassTooltip)
 		accept:'#'+TypeItem,
 		drop:function (event, ui)
 		{
-			var id = $(this).attr("id"), move = ui.draggable, idItem = GetId(move.find("div[item-id]").html()), img = GetImg(move.find("div[item-id]").html()), logic = 0;
-			$('div.last' + id).empty();
-
-			if (TypeItem == 'im')
+			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item"), href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1]);
+			AjaxItemHandleP(Selector, id, idItem, TypeItem);
+			switch (TypeItem)
 			{
-				$("div.lastSelectHead2").empty();
-				$("div.lastSelectMask2").empty();
-			}
-			if (TypeItem == 'ie')
-			{
-				$("div.lastSelectHead2").empty();
-				$("div.lastSelectMask2").empty();
-				var LClass = '';
-				if (HeadCheckSlots2(idItem))
-				{
-					logic = 1;
-					$("div.lastSelectMask").empty();
-					LClass = 'lastSelectHead2';
-					$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectHead2"><img src="images/icon/'+img+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="'+ClassTooltip+'"/></div>');
-					$("#SelectMask").append('<div iteml-id="'+move.attr("item-id")+'" class="lastSelectMask2"><img src="images/icon/'+img+'_.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="'+ClassTooltip+'"/></div>');
-				}
-				else
-				{
-					$(this).append('<div iteml-id="'+move.attr("item-id")+'" class="last'+id+'"><img src="images/icon/'+img+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="'+ClassTooltip+'"/></div>');
-					LClass = 'last'+id;
-				}
-				AddDraggableUser('div.'+LClass, idItem, TypeItem, logic);
-			}
-			else
-			{
-				$(this).append('<div iteml-id="'+move.attr("div[item-id]")+'" class="last'+id+'"><img src="images/icon/'+img+'.png" id="'+idItem+'" title="'+GetSrc(move.find("div[item-id]").html(), 3)+ '" class="'+ClassTooltip+'"/></div>');
-				AddDraggableUser("div.last"+id, idItem, TypeItem, logic);
-			}
-			$.ajax({url: 'include/HandleArmory.php',type: 'POST',data:{'data':TypeItem+':'+idItem+':0'},success: function(data){$("#StatsOutput").html(data);$("img.BonusTT").easyTooltip({tooltipId: "TBonus"});}});
-			$("img."+ClassTooltip).easyTooltip({tooltipId: 'T'+TypeItem});
+			  case 'iw':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+idItem+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'ie':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+idItem+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'im':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+idItem+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'ib':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+idItem+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'ia':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+idItem+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'ih':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+idItem+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'is':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+idItem+':0:0:0&if='+di[8]+':0:0:0');
+			    break;
+			  case 'if':
+			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+idItem+':0:0:0');
+			    break;
+			} 
 		}
 	});
 }
 
-function updateDraggable()
+function InitDragAndDrop()
 {
-	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable({helper:'clone',zIndex: 9999,start: function(event, ui){$(this).data('preventBehaviour', true);}});
-	AddDraggable('#SelectWeapon', 'iw', "ItemW");
-	AddDraggable('#SelectHead', 'ie', "ItemE");
-	AddDraggable('#SelectMask', 'im', "ItemM");
-	AddDraggable('#SelectBack', 'ib', "ItemB");
-	AddDraggable('#SelectArmory', 'ia', "ItemA");
-	AddDraggable('#SelectHand', 'ih', "ItemH");
-	AddDraggable('#SelectShin', 'is', "ItemS");
-	AddDraggable('#SelectFeet', 'if', "ItemF");
+	$("div #iw, div #ie, div #im, div #ia, div #ib, div #ih, div #is, div #if").draggable(
+	{
+		helper:'clone',
+		zIndex: 9999,
+		start: function(event, ui)
+		{
+			$(this).data('preventBehaviour', true);
+		}
+	});
+	AddDroppable('#SelectWeapon', 'iw');
+	AddDroppable('#SelectHead', 'ie');
+	AddDroppable('#SelectMask', 'im');
+	AddDroppable('#SelectBack', 'ib');
+	AddDroppable('#SelectArmory', 'ia');
+	AddDroppable('#SelectHand', 'ih');
+	AddDroppable('#SelectShin', 'is');
+	AddDroppable('#SelectFeet', 'if');
 }

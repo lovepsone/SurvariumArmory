@@ -35,6 +35,7 @@
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/modItems.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.cookie.js"></script>';
 
 	echo '</head><body>';
 	session_start();

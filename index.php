@@ -39,7 +39,7 @@
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
 	echo '<script type="text/javascript" src="include/js/url.min.js"></script>';
-	//echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
+	echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
 	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
 	echo '</head><body>';

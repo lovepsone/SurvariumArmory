@@ -43,6 +43,52 @@ function GetDataUrlItem(url)
 	return dataArray;
 }
 
+function GetUrlReplaceState(gTypeItem, gidItem)
+{
+	var href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1])
+	switch (gTypeItem)
+	{
+	  case 'iw':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'ie':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+gidItem+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'im':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+gidItem+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'ib':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+gidItem+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'ia':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+gidItem+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'ih':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+gidItem+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'is':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+gidItem+':0:0:0&if='+di[8]+':0:0:0');
+	    break;
+	  case 'if':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+gidItem+':0:0:0');
+	    break;
+	}
+}
+
+function AddDraggableUser(Selector, twoslots, selTypeItem)
+{
+	$(Selector).draggable(
+	{
+		stop: function(event, ui)
+		{
+			$(Selector).empty();
+			if (twoslots) $("div.lastSelectMask2").remove()
+			//$('body #T'+TypeItemUs).remove();
+			GetUrlReplaceState(selTypeItem, '0');
+		}
+	});
+}
+
 function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 {
 	$.ajax(
@@ -52,11 +98,41 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 		data:{'id': item},
 		success: function(data)
 		{
-			var item = JSON.parse(data);
+			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]);
 			if (typeitem == item['selector'])
 			{
-				$('div.last'+lastSelector).empty();
-				$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+				if (item['selector'] == 'im')
+				{
+					$("div.lastSelectHead2").empty();
+					$("div.lastSelectMask2").empty();
+				}
+				if (item['selector'] == 'ie')
+				{
+					$("div.lastSelectHead2").empty();
+					$("div.lastSelectMask2").empty();
+					if (item['twoslots'] == 1)
+					{
+						twoslots = 1;
+						$("div.lastSelectMask").empty();
+						$('div.last'+lastSelector).empty();
+						$(Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+						$("#SelectMask").append('<div class="lastSelectMask2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+						GetUrlReplaceState('im', '0');
+						AddDraggableUser("div.lastSelectHead2", twoslots, item['selector']);
+					}
+					else
+					{
+						$('div.last'+lastSelector).empty();
+						$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+						AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
+					}
+				}
+				else
+				{
+					$('div.last'+lastSelector).empty();
+					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+					AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
+				}
 			}
 		}
 	});
@@ -70,35 +146,9 @@ function AddDroppable(Selector, TypeItem)
 		accept:'#'+TypeItem,
 		drop:function (event, ui)
 		{
-			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item"), href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1]);
+			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item");
+			GetUrlReplaceState(TypeItem, idItem);
 			AjaxItemHandleP(Selector, id, idItem, TypeItem);
-			switch (TypeItem)
-			{
-			  case 'iw':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+idItem+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'ie':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+idItem+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'im':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+idItem+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'ib':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+idItem+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'ia':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+idItem+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'ih':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+idItem+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'is':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+idItem+':0:0:0&if='+di[8]+':0:0:0');
-			    break;
-			  case 'if':
-			    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+idItem+':0:0:0');
-			    break;
-			} 
 		}
 	});
 }

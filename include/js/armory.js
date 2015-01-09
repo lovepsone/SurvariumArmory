@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 78
+ * @revision 80
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -132,7 +132,6 @@ $(document).ready(function()
 		TypeItem = $("input#TItem").val();
 		TypeSort = $("input#TSort").val();
 		AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
-		alert(Fraction+':'+TypeItem);
 	});
 
 	$("input#SortL, input#SortP").change(function()

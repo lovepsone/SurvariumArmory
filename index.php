@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 78
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -104,7 +104,7 @@
 	//button non release
 	echo '</td></tr>';
 	echo '<tr><td align="center" class="inventoryFooter"><input type="checkbox"/>'.$locale['compare'].$locale['sort'];
-	echo '<input type="radio" name="GSort" id="SortL" value="1" checked="checked"/>'.$locale['sortl'].'<input type="radio" name="GSort" id="SortP" value="2"/>'.$locale['sortp'];
+	echo '<input type="radio" name="ItemSort" id="SortL" value="1" checked="checked"/>'.$locale['sortl'].'<input type="radio" name="ItemSort" id="SortP" value="2"/>'.$locale['sortp'];
 	echo '</td></tr>';
 	echo '</table>';
 	// ----------------------------------------------------------------------------------------------------

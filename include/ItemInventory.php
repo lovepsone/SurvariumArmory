@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 78
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -28,9 +28,24 @@
 	*/
 	// обработка переданных данных
 	list($fraction, $typeItem, $typeSort) = explode(":", $_POST['data']);
+
+	$strSort = "";
+	switch ($typeSort)
+	{
+	  case 1:
+	    $strSort = " ORDER BY level, typeItem";
+	    break;
+	  case 2:
+	     $strSort = " ORDER BY cost, typeItem";
+	    break;
+	  default:
+	    $strSort = " ORDER BY level, typeItem";
+	    break;
+	}
+
 	if ($fraction == 0 && $typeItem == 0)
 	{
-		$STH = $DBH->prepare("SELECT * FROM armory_items");
+		$STH = $DBH->prepare("SELECT * FROM armory_items".$strSort);
 		$STH->execute();
 	}
 	else if ($fraction != 0 && $typeItem != 0)
@@ -38,21 +53,21 @@
 		$data = array();
 		$data['ti'] = $typeItem;
 		$data['f'] = $fraction;
-		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:ti and fraction=:f");
+		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:ti and fraction=:f".$strSort);
 		$STH->execute($data);
 	}
 	else if ($fraction == 0 && $typeItem != 0)
 	{
 		$data = array();
 		$data['ti'] = $typeItem;
-		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:ti");
+		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:ti".$strSort);
 		$STH->execute($data);
 	}
 	else if ($fraction != 0 && $typeItem == 0)
 	{
 		$data = array();
 		$data['f'] = $fraction;
-		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:f");
+		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE fraction=:f".$strSort);
 		$STH->execute($data);
 	}
 	function ToolTipIcon($data)

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 78
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -53,12 +53,12 @@ $(document).ready(function()
 	if (uCheck(getUrls()["if"], 1) != 0)
 		AjaxItemHandleP('#SelectFeet', 'SelectFeet', uCheck(getUrls()["if"], 1), 'if');
 
-	var Fraction = 0, TypeItem = 0;
+	var Fraction = 0, TypeItem = 0, TypeSort = 1;
 	$("#Fraction0").removeClass();
 	$("#Fraction0").toggleClass("BFractionAlls");
 	$("#Type0").removeClass();
 	$("#Type0").toggleClass("BTrueAll");
-	AjaxItems(Fraction+':'+TypeItem+':1');
+	AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
 	$("#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, #Type0, #Type1, #Type2, #Type3, #Type4, #Type5").click(function()
 	{
 		var id = $(this).attr('id');
@@ -130,6 +130,17 @@ $(document).ready(function()
 		}
 		Fraction = $("input#FValue").val();
 		TypeItem = $("input#TItem").val();
-		AjaxItems(Fraction+':'+TypeItem+':1');
+		TypeSort = $("input#TSort").val();
+		AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
+		alert(Fraction+':'+TypeItem);
+	});
+
+	$("input#SortL, input#SortP").change(function()
+	{
+		Fraction = $("input#FValue").val();
+		TypeItem = $("input#TItem").val();
+		TypeSort = $(this).val();
+		$("input#TSort").val(TypeSort);
+		AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
 	});
 });

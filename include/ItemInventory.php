@@ -2,8 +2,8 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 75
- * @copyright (c) 2014-2015 lovepsone
+ * @revision 77
+ * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * This program is free software; you can redistribute it and/or modify
@@ -55,6 +55,30 @@
 		$STH = $DBH->prepare("SELECT * FROM armory_items WHERE typeItem=:f");
 		$STH->execute($data);
 	}
+	function ToolTipIcon($data)
+	{
+		global $itemloc, $locale;
+		$s =  "<table style='background-image:url(1.png);'><tr><td>".$itemloc[$data->locale]."</td><td>".$data->level."</td></tr>";
+		if ($data->typeItem == 1)
+		{
+			$s .= "<tr><td>".$locale['defence']."</td><td>".$data->defence."</td></tr>";
+			$s .= "<tr><td>".$locale['isolation']."</td><td>".$data->isolation."</td></tr>";
+			$s .= "<tr><td>".$locale['weight']."</td><td>".$data->weight."</td></tr>";
+		}
+		else if ($data->typeItem == 2)
+		{
+			$s .= "<tr><td>".$locale['damage']."</td><td>".$data->damage."</td></tr>";
+			$s .= "<tr><td>".$locale['piercing']."</td><td>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>".$locale['sighting']."</td><td>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>".$locale['stoppower']."</td><td>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>".$locale['dispersion']."</td><td>".$data->dispersion."</td></tr>";
+			$s .= "<tr><td>".$locale['distance']."</td><td>".$data->distance."</td></tr>";
+			$s .= "<tr><td>".$locale['rate']."</td><td>".$data->rate."</td></tr>";
+			$s .= "<tr><td>".$locale['weight']."</td><td>".$data->weight."</td></tr>";
+		}
+		$s .= "</table>";
+		return $s;
+	}
 
 	$position = 1;
 	while($res = $STH->fetch(PDO::FETCH_OBJ))
@@ -62,20 +86,20 @@
 		if ($position == 1)
 		{
 			echo '<tr><td valign="top">';
-			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" />';
+			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" title="'.ToolTipIcon($res).'"/>';
 			echo '</div></td>';
 		}
 		else if ($position == 2)
 		{
 			echo '<td valign="top">';
-			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" />';
+			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" title="'.ToolTipIcon($res).'"/>';
 			echo '</div></td>';
 		}
 		else if ($position == 3)
 		{
 			$position = 0;
 			echo '<td valign="top">';
-			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" />';
+			echo '<div id="'.$res->selector.'"><img src="images/icon/'.$res->images.'.png" item="'.$res->id.'" class="icon" title="'.ToolTipIcon($res).'"/>';
 			echo '</div></td></tr>';
 		}
 		$position++;

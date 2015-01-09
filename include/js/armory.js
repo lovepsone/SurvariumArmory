@@ -1,8 +1,8 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 75
- * @copyright (c) 2014-2015 lovepsone
+ * @revision 77
+ * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,7 +21,7 @@
  **/
 function getUrls() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
 function AjaxItems(strData){$.ajax({url: 'include/ItemInventory.php',type: 'POST',data:{'data': strData},success: function(data)
-{$("#ItemInventory").html(data); InitDragAndDrop()}});}
+{$("#ItemInventory").html(data); InitDragAndDrop(); $("img.icon").easyTooltip({tooltipId: "TooltipItemIcon"});}});}
 function FractionClearClass() { $("#Fraction0").removeClass(); $("#Fraction1").removeClass(); $("#Fraction2").removeClass(); $("#Fraction3").removeClass(); $("#Fraction4").removeClass(); $("#Fraction5").removeClass(); $("#Fraction0").toggleClass("BFractionAll"); $("#Fraction1").toggleClass("BFractionNo"); $("#Fraction2").toggleClass("BFractionVagabondage"); $("#Fraction3").toggleClass("BFractionBlackMarket"); $("#Fraction4").toggleClass("BFractionArmyReviva"); $("#Fraction5").toggleClass("BFractionSettlementRegion"); }
 function TypeItemClearClass() { $("#Type0").removeClass(); $("#Type1").removeClass(); $("#Type2").removeClass(); $("#Type3").removeClass(); $("#Type4").removeClass(); $("#Type5").removeClass(); $("#Type0").toggleClass("BFalseAll"); $("#Type1").toggleClass("BFalseArm"); $("#Type2").toggleClass("BFalseWeap"); $("#Type3").toggleClass("BFalseAmm"); $("#Type4").toggleClass("BFalseSpec"); $("#Type5").toggleClass("BFalseUpgr"); }
 function uCheck(url, numItem)

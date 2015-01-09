@@ -37,3 +37,13 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 
 .scrollItemInventory { overflow: auto; overflow-x: hidden; height: 414px; width: 402px; }
 .icon { height: 90px; width: 125px; }
+
+
+#TooltipItemIcon
+{
+	padding: 5px;
+	border: 0px;
+	width: 168px;
+	height: 133px;
+	font-size: 11px;
+}

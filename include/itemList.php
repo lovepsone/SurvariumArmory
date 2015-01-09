@@ -1,9 +1,9 @@
 <?php 
 /**
  * @package Survarium Armory
- * @version Release 1.3
- * @revision 76
- * @copyright (c) 2014 lovepsone
+ * @version Release 2.0
+ * @revision 77
+ * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * This program is free software; you can redistribute it and/or modify

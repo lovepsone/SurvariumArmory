@@ -55,3 +55,5 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 	box-shadow: none;
 	padding: 0;
 }
+
+.tooltipBody { background: url(images/tooltip/tooltipBody.png); width: 196px; padding-left:5px; padding-right:3px;}

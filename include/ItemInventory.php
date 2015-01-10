@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 78
+ * @revision 82
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -73,7 +73,7 @@
 	function ToolTipIcon($data)
 	{
 		global $itemloc, $locale;
-		$s =  "<table style='background-image:url(1.png);'><tr><td>".$itemloc[$data->locale]."</td><td>".$data->level."</td></tr>";
+		$s =  "<table class='tooltipBody'><tr><td width='160px'>".$itemloc[$data->locale]."</td><td>".$data->level."</td></tr>";
 		if ($data->typeItem == 1)
 		{
 			$s .= "<tr><td>".$locale['defence']."</td><td>".$data->defence."</td></tr>";

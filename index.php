@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 78
+ * @revision 81
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -38,8 +38,7 @@
 	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
-	echo '<script type="text/javascript" src="include/js/url.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/easyTooltip.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
 	echo '</head><body>';

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 80
+ * @revision 81
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,7 +21,7 @@
  **/
 function getUrls() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
 function AjaxItems(strData){$.ajax({url: 'include/ItemInventory.php',type: 'POST',data:{'data': strData},success: function(data)
-{$("#ItemInventory").html(data); InitDragAndDrop(); $("img.icon").easyTooltip({tooltipId: "TooltipItemIcon"});}});}
+{$("#ItemInventory").html(data);InitDragAndDrop();}});}
 function FractionClearClass() { $("#Fraction0").removeClass(); $("#Fraction1").removeClass(); $("#Fraction2").removeClass(); $("#Fraction3").removeClass(); $("#Fraction4").removeClass(); $("#Fraction5").removeClass(); $("#Fraction0").toggleClass("BFractionAll"); $("#Fraction1").toggleClass("BFractionNo"); $("#Fraction2").toggleClass("BFractionVagabondage"); $("#Fraction3").toggleClass("BFractionBlackMarket"); $("#Fraction4").toggleClass("BFractionArmyReviva"); $("#Fraction5").toggleClass("BFractionSettlementRegion"); }
 function TypeItemClearClass() { $("#Type0").removeClass(); $("#Type1").removeClass(); $("#Type2").removeClass(); $("#Type3").removeClass(); $("#Type4").removeClass(); $("#Type5").removeClass(); $("#Type0").toggleClass("BFalseAll"); $("#Type1").toggleClass("BFalseArm"); $("#Type2").toggleClass("BFalseWeap"); $("#Type3").toggleClass("BFalseAmm"); $("#Type4").toggleClass("BFalseSpec"); $("#Type5").toggleClass("BFalseUpgr"); }
 function uCheck(url, numItem)
@@ -52,6 +52,11 @@ $(document).ready(function()
 		AjaxItemHandleP('#SelectShin', 'SelectShin', uCheck(getUrls()["is"], 1), 'is');
 	if (uCheck(getUrls()["if"], 1) != 0)
 		AjaxItemHandleP('#SelectFeet', 'SelectFeet', uCheck(getUrls()["if"], 1), 'if');
+	// tooltips inventar item
+	$('#ItemInventory').on('mouseenter', 'img.icon[title]', function (event)
+	{
+		$(this).qtip({ position:{my: 'top right', at: 'top left', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
+	});
 
 	var Fraction = 0, TypeItem = 0, TypeSort = 1;
 	$("#Fraction0").removeClass();
@@ -143,3 +148,6 @@ $(document).ready(function()
 		AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
 	});
 });
+
+jQuery(function(){
+$('img[title]').qtip({ style: { border: {width: 3,radius: 8, color: '#6699CC' }, tip: true } })});

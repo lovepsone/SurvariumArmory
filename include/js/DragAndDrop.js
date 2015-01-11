@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 84
+ * @revision 85
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -49,28 +49,28 @@ function GetUrlReplaceState(gTypeItem, gidItem)
 	switch (gTypeItem)
 	{
 	  case 'iw':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'ie':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+gidItem+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+gidItem+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'im':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+gidItem+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+gidItem+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'ib':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+gidItem+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+gidItem+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'ia':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+gidItem+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+gidItem+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'ih':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+gidItem+':0:0:0&is='+di[7]+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+gidItem+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'is':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+gidItem+':0:0:0&if='+di[8]+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+gidItem+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
 	    break;
 	  case 'if':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0:0:0:'+di[1]+':0:0:0&ie='+di[2]+':0:0:0&im='+di[3]+':0:0:0&ib='+di[4]+':0:0:0&ia='+di[5]+':0:0:0&ih='+di[6]+':0:0:0&is='+di[7]+':0:0:0&if='+gidItem+':0:0:0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+gidItem+':0-0:0-0:0-0');
 	    break;
 	}
 }

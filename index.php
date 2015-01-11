@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 84
+ * @revision 85
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,7 +24,7 @@
 	//if ($GET[''])
 	if (empty($_SERVER["QUERY_STRING"]))
 	{
-		$sUrl = '?iw=0:0:0:0:0:0:0:0&ie=0:0:0:0&im=0:0:0:0&ib=0:0:0:0&ia=0:0:0:0&ih=0:0:0:0&is=0:0:0:0&if=0:0:0:0';
+		$sUrl = '?iw=0:0-0:0-0:0-0:0:0-0:0-0:0-0&ie=0:0-0:0-0:0-0&im=0:0-0:0-0:0-0&ib=0:0-0:0-0:0-0&ia=0:0-0:0-0:0-0&ih=0:0-0:0-0:0-0&is=0:0-0:0-0:0-0&if=0:0-0:0-0:0-0';
 		echo "<script type='text/javascript'>document.location.href='".str_replace("&amp;", "&", "index.php".$sUrl)."'</script>\n";
 		exit;
 	}

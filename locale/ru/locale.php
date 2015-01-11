@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 83
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,6 +22,7 @@
  **/
 $locale = array();
 $itemloc = array();
+$modloc = array();
 $locale['shop'] = 'Магазин';
 $locale['compare'] = ' Сравнение предметов ';
 $locale['sort'] = ' Сортировать ';
@@ -38,6 +39,32 @@ $locale['rate'] = 'Скорострельность';
 $locale['defence'] = 'Броня';
 $locale['isolation'] = 'Изоляция';
 $locale['weight'] = 'Вес';
+
+$modloc[1] = ' Подсумки для патронов: ';
+$modloc[2] = ' Контейнер артефактов: ';
+$modloc[3] = ' Время прицеливания: ';
+$modloc[4] = ' Время поиска: ';
+$modloc[5] = ' Вместимость карманов: ';
+$modloc[6] = ' Затраты энергии: ';
+$modloc[7] = ' Восстановление энергии: ';
+$modloc[8] = ' Скорость перезарядки: ';
+$modloc[9] = ' Слот для спецсредств: ';
+$modloc[10] = ' Скорость передвижения: ';
+$modloc[11] = ' Регенерация: ';
+$modloc[12] = ' Отдача оружия: ';
+$modloc[13] = ' Разброс от бедра: ';
+$modloc[14] = ' Урон: ';
+$modloc[15] = ' Бронебойность: ';
+$modloc[16] = ' Броня: ';
+$modloc[17] = ' Дисперсия: ';
+$modloc[18] = ' Скорострельность: ';
+$modloc[19] = ' Вес: ';
+$modloc[20] = ' Надежность: ';
+$modloc[21] = ' Дальность: ';
+$modloc[22] = ' Изоляция: ';
+$modloc[23] = ' Переносимый вес: ';
+$modloc[24] = ' Время досылки: ';
+$modloc[25] = ' 3апас кислорода: ';
 
 $itemloc[1111] = 'Карабин Мосина';
 $itemloc[1112] = 'ППШ-41';

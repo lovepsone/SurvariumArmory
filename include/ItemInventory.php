@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 82
+ * @revision 83
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -72,7 +72,17 @@
 	}
 	function ToolTipIcon($data)
 	{
-		global $itemloc, $locale;
+		global $DBH, $modloc, $itemloc, $locale;
+
+		$sm = ""; $d = array();
+		$d['item'] = $data->id;
+		$STH = $DBH->prepare("SELECT * FROM armory_items_mods LEFT JOIN armory_mods ON armory_mods.`id` = armory_items_mods.`idMod` WHERE armory_items_mods.`idItem`=:item");
+		$STH->execute($d);
+		while($res = $STH->fetch(PDO::FETCH_OBJ))
+		{
+			$sm .= "<tr><td><img src='images/mod/".$res->imgMod."' class='iconMod'/>".$modloc[$res->localeMod]."</td><td>".$res->mathsign.$res->value.$res->txtsign."</td></tr>";
+		}
+
 		$s =  "<table class='tooltipBody'><tr><td width='160px'>".$itemloc[$data->locale]."</td><td>".$data->level."</td></tr>";
 		if ($data->typeItem == 1)
 		{
@@ -91,6 +101,7 @@
 			$s .= "<tr><td>".$locale['rate']."</td><td>".$data->rate."</td></tr>";
 			$s .= "<tr><td>".$locale['weight']."</td><td>".$data->weight."</td></tr>";
 		}
+		$s .= $sm;
 		$s .= "</table>";
 		return $s;
 	}

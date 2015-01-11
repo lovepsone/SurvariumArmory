@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 81
+ * @revision 84
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -32,6 +32,17 @@ function uCheck(url, numItem)
 	else
 		return data[4];
 }
+$(document).on('mousedown', 'img.Ñontext', function(event)
+{      
+	if (event.which === 3)
+	{         
+		var target = $(event.target);                          
+		$(".ÑontextMenuMod").fadeIn(1000);
+		$(".ÑontextMenuMod").fadeTo("slow",0.8);
+		$(".ÑontextMenuMod").css({left: event.pageX+'px', top: event.pageY+'px'});
+		$("body").css({"overflow":"hidden"});
+	}
+});
 
 $(document).ready(function()
 {
@@ -57,6 +68,9 @@ $(document).ready(function()
 	{
 		$(this).qtip({ position:{my: 'top right', at: 'top left', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
 	});
+	// contextmenu hide
+	$(document).bind("contextmenu",function(e){return false;});
+	$(".ÑontextMenuMod").click(function(){$(".ÑontextMenuMod").hide();$("body").css({"overflow":"auto"});});
 
 	var Fraction = 0, TypeItem = 0, TypeSort = 1;
 	$("#Fraction0").removeClass();

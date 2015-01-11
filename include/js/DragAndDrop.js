@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 84
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -130,7 +130,7 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 				else
 				{
 					$('div.last'+lastSelector).empty();
-					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Ñontext"/></div>');
 					AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
 				}
 			}

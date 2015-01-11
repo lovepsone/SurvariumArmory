@@ -57,3 +57,15 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 }
 .iconMod { height: 25px; width: 25px; }
 .tooltipBody { background: url(images/tooltip/tooltipBody.png); width: 196px; padding-left:5px; padding-right:3px;}
+
+.ÑontextMenuMod {
+position: absolute;
+display: none;
+background-color: #000000;
+border: 2px solid #333;
+z-index:1000;
+}
+.ÑontextMenuMod  ul { list-style: none; margin: 0; padding: 0; }
+.ÑontextMenuMod  ul li { margin: 0; padding: 0; background: url(images/tooltip/tooltipBody.png); background-color: #000000; display: block; }
+.ÑontextMenuMod  ul li a { color: #333; text-decoration: none; font-size: 12px; display: block; padding: 5px; }
+.ÑontextMenuMod  ul li a:hover { background-color: #eee; }  

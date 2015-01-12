@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 85
+ * @revision 86
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -48,7 +48,7 @@
 	echo '<input type="hidden" id="TItem" value="0"/>';
 	echo '<input type="hidden" id="TSort" value="0"/></div>';
 
-	echo '<div class="ÑontextMenuMod"><ul>';
+	echo '<div class="ContextMenuMod"><ul>';
 	echo '<li><a href="#">'.$locale['contextblue'].'</a></li>';
 	echo '<li><a href="#">'.$locale['contextgreen'].'</a></li>';
 	echo '<li><a href="#">'.$locale['contextgold'].'</a></li>';

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 85
+ * @revision 86
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -115,7 +115,7 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 						twoslots = 1;
 						$("div.lastSelectMask").empty();
 						$('div.last'+lastSelector).empty();
-						$(Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+						$(Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
 						$("#SelectMask").append('<div class="lastSelectMask2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
 						GetUrlReplaceState('im', '0');
 						AddDraggableUser("div.lastSelectHead2", twoslots, item['selector']);
@@ -123,14 +123,14 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 					else
 					{
 						$('div.last'+lastSelector).empty();
-						$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
+						$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
 						AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
 					}
 				}
 				else
 				{
 					$('div.last'+lastSelector).empty();
-					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Ñontext"/></div>');
+					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
 					AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
 				}
 			}

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 86
+ * @revision 87
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,6 +19,34 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
+
+function addToolTip(data)
+{
+	var t;
+	if (data['typeItem'] == 1)
+	{
+		t = "<table class='tooltipBody'><tr><td width='160px'>"+data['locale']+"</td><td>"+data['level']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['defence']+"</td><td>"+data['defence']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['isolation']+"</td><td>"+data['isolation']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['weight']+"</td><td>"+data['weight']+"</td></tr>"+
+		"</table>";
+	}
+	else if(data['typeItem'] == 2)
+	{
+		t = "<table class='tooltipBody'><tr><td width='160px'>"+data['locale']+"</td><td>"+data['level']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['damage']+"</td><td>"+data['damage']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['piercing']+"</td><td>"+data['piercing']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['sighting']+"</td><td>"+data['piercing']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['stoppower']+"</td><td>"+data['piercing']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['dispersion']+"</td><td>"+data['dispersion']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['distance']+"</td><td>"+data['distance']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['rate']+"</td><td>"+data['rate']+"</td></tr>"+
+		"<tr><td>"+data['localetxt']['weight']+"</td><td>"+data['weight']+"</td></tr>"+
+		"</table>";
+	}
+	return t;
+}
+
 function GetDataUrlItem(url)
 {
 	var data = url.split('&'), dataArray = new Array(), i = 0, ii = 0, t, tmp;
@@ -77,13 +105,13 @@ function GetUrlReplaceState(gTypeItem, gidItem)
 
 function AddDraggableUser(Selector, twoslots, selTypeItem)
 {
-	$(Selector).draggable(
+	$("div.last"+Selector).draggable(
 	{
 		stop: function(event, ui)
 		{
-			$(Selector).empty();
-			if (twoslots) $("div.lastSelectMask2").remove()
-			//$('body #T'+TypeItemUs).remove();
+			$("div.last"+Selector).empty();
+			if (twoslots) $("div.lastSelectMask2").remove();
+			$('#'+Selector).qtip('destroy', true);
 			GetUrlReplaceState(selTypeItem, '0');
 		}
 	});
@@ -101,6 +129,7 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]);
 			if (typeitem == item['selector'])
 			{
+				$('#'+lastSelector).qtip('destroy', true);
 				if (item['selector'] == 'im')
 				{
 					$("div.lastSelectHead2").empty();
@@ -118,20 +147,20 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 						$(Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
 						$("#SelectMask").append('<div class="lastSelectMask2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
 						GetUrlReplaceState('im', '0');
-						AddDraggableUser("div.lastSelectHead2", twoslots, item['selector']);
+						AddDraggableUser("SelectHead2", twoslots, item['selector']);
 					}
 					else
 					{
 						$('div.last'+lastSelector).empty();
 						$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
-						AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
+						AddDraggableUser(lastSelector, twoslots, item['selector']);
 					}
 				}
 				else
 				{
 					$('div.last'+lastSelector).empty();
-					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
-					AddDraggableUser("div.last"+lastSelector, twoslots, item['selector']);
+					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
+					AddDraggableUser(lastSelector, twoslots, item['selector']);
 				}
 			}
 		}

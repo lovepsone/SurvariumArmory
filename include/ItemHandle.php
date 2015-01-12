@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 87
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,12 +21,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	@include_once('../maincore.php');
-	//$data = array();
 	if (isset($_POST['id']))
 	{
-		//$data['i'] = $_POST['id'];
 		$STH = $DBH->query("SELECT * FROM armory_items WHERE id=".$_POST['id']);
 		$STH->execute();
-		echo json_encode($STH->fetch(PDO::FETCH_ASSOC));
+		$dItem = $STH->fetch(PDO::FETCH_ASSOC);
+		$dItem['locale'] = $itemloc[$dItem['locale']];
+		$dItem['localetxt'] = $locale;
+		echo json_encode($dItem);
 	}
 ?>

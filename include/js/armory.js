@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 86
+ * @revision 87
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -67,6 +67,11 @@ $(document).ready(function()
 	$('#ItemInventory').on('mouseenter', 'img.icon[title]', function (event)
 	{
 		$(this).qtip({ position:{my: 'top right', at: 'top left', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
+	});
+	// tooltips user item
+	$('#SelectWeapon, #SelectHead, #SelectMask, #SelectBack, #SelectArmory, #SelectHand, #SelectShin, #SelectFeet').on('mouseenter', 'img.icon[title]', function (event)
+	{
+		$(this).qtip({ position:{my: 'top left', at: 'top right', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
 	});
 	// contextmenu hide
 	$(document).bind("contextmenu",function(e){return false;});

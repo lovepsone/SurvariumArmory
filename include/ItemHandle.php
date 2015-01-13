@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 87
+ * @revision 88
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -28,6 +28,17 @@
 		$dItem = $STH->fetch(PDO::FETCH_ASSOC);
 		$dItem['locale'] = $itemloc[$dItem['locale']];
 		$dItem['localetxt'] = $locale;
+		$dItem['localemod'] = $modloc;
+		//start mods items
+		$STH = $DBH->prepare("SELECT * FROM armory_items_mods LEFT JOIN armory_mods ON armory_mods.`id` = armory_items_mods.`idMod` WHERE armory_items_mods.`idItem`=:item");
+		$STH->execute(array('item' => $_POST['id']));
+		$i = 0; $mods = array();
+		while($res = $STH->fetch(PDO::FETCH_ASSOC))
+		{
+			$mods[$i] = $res;
+			$i++;
+		}
+		$dItem['mods'] = $mods;
 		echo json_encode($dItem);
 	}
 ?>

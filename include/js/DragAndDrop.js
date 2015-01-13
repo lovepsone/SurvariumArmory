@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 87
+ * @revision 88
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,13 +22,22 @@
 
 function addToolTip(data)
 {
-	var t;
+	var t, tmod="";
+	if (data['mods'] != false)
+	{
+		for (var i=0; i < data['mods'].length; i++)
+		{
+			tmod +="<tr><td><img src='images/mod/"+data['mods'][i]['imgMod']+"' class='iconMod'/>"+data['localemod'][data['mods'][i]['localeMod']]+"</td>"+
+			"<td>"+data['mods'][i]['mathsign']+data['mods'][i]['value']+data['mods'][i]['txtsign']+"</td></tr>";
+		}
+	}
 	if (data['typeItem'] == 1)
 	{
 		t = "<table class='tooltipBody'><tr><td width='160px'>"+data['locale']+"</td><td>"+data['level']+"</td></tr>"+
 		"<tr><td>"+data['localetxt']['defence']+"</td><td>"+data['defence']+"</td></tr>"+
 		"<tr><td>"+data['localetxt']['isolation']+"</td><td>"+data['isolation']+"</td></tr>"+
 		"<tr><td>"+data['localetxt']['weight']+"</td><td>"+data['weight']+"</td></tr>"+
+		tmod+
 		"</table>";
 	}
 	else if(data['typeItem'] == 2)

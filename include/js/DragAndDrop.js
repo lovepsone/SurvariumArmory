@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 88
+ * @revision 89
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -122,6 +122,10 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 			if (twoslots) $("div.lastSelectMask2").remove();
 			$('#'+Selector).qtip('destroy', true);
 			GetUrlReplaceState(selTypeItem, '0');
+		},
+		start: function(event, ui)
+		{
+			$('#'+Selector).qtip('destroy', true);
 		}
 	});
 }

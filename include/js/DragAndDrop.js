@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 89
+ * @revision 90
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -120,12 +120,11 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 		{
 			$("div.last"+Selector).empty();
 			if (twoslots) $("div.lastSelectMask2").remove();
-			$('#'+Selector).qtip('destroy', true);
 			GetUrlReplaceState(selTypeItem, '0');
 		},
 		start: function(event, ui)
 		{
-			$('#'+Selector).qtip('destroy', true);
+			$('img.icon[title]').qtip('destroy', true);
 		}
 	});
 }
@@ -142,7 +141,6 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]);
 			if (typeitem == item['selector'])
 			{
-				$('#'+lastSelector).qtip('destroy', true);
 				if (item['selector'] == 'im')
 				{
 					$("div.lastSelectHead2").empty();
@@ -191,6 +189,10 @@ function AddDroppable(Selector, TypeItem)
 			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item");
 			GetUrlReplaceState(TypeItem, idItem);
 			AjaxItemHandleP(Selector, id, idItem, TypeItem);
+		},
+		over:function (event, ui)
+		{
+			$('img.icon[title]').qtip('destroy', true);
 		}
 	});
 }

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 91
+ * @revision 94
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,8 +20,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 function getUrls() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
-function AjaxItems(strData){$.ajax({url: 'include/ItemInventory.php',type: 'POST',data:{'data': strData},success: function(data)
-{$("#ItemInventory").html(data);InitDragAndDrop();}});}
+function AjaxItems(strData){$.ajax({url: 'include/ItemInventory.php',type: 'POST',data:{'data': strData},success: function(data){$("#ItemInventory").html(data);InitDragAndDrop();}});}
 function FractionClearClass() { $("#Fraction0").removeClass(); $("#Fraction1").removeClass(); $("#Fraction2").removeClass(); $("#Fraction3").removeClass(); $("#Fraction4").removeClass(); $("#Fraction5").removeClass(); $("#Fraction0").toggleClass("BFractionAll"); $("#Fraction1").toggleClass("BFractionNo"); $("#Fraction2").toggleClass("BFractionVagabondage"); $("#Fraction3").toggleClass("BFractionBlackMarket"); $("#Fraction4").toggleClass("BFractionArmyReviva"); $("#Fraction5").toggleClass("BFractionSettlementRegion"); }
 function TypeItemClearClass() { $("#Type0").removeClass(); $("#Type1").removeClass(); $("#Type2").removeClass(); $("#Type3").removeClass(); $("#Type4").removeClass(); $("#Type5").removeClass(); $("#Type0").toggleClass("BFalseAll"); $("#Type1").toggleClass("BFalseArm"); $("#Type2").toggleClass("BFalseWeap"); $("#Type3").toggleClass("BFalseAmm"); $("#Type4").toggleClass("BFalseSpec"); $("#Type5").toggleClass("BFalseUpgr"); }
 function uCheck(url, numItem)
@@ -32,6 +31,21 @@ function uCheck(url, numItem)
 	else
 		return data[4];
 }
+
+function getModsUrl(countMods, typeitem)
+{
+	$.ajax(
+	{
+		url: 'include/ModsHandle.php',
+		type: 'POST',
+		data:{'data': countMods+':'+typeitem},
+		success: function(data)
+		{
+			alert(data);
+		}
+	});
+}
+
 $(document).on('mousedown', 'img.Context', function(event)
 {      
 	if (event.which === 3)
@@ -170,23 +184,50 @@ $(document).ready(function()
 
 	$("#TypeMod1, #TypeMod2, #TypeMod3, #TypeMod4").click(function()
 	{
-		var id = $(this).attr('id'), curr = $("div img.CurrentItem");
-		switch (id.replace(/\D/g, ''))
+		var id = $(this).attr('id'), curr = $("div img.CurrentItem"), typeitem = '';
+
+		switch (curr.attr("id"))
+		{
+		  case 'lastSelectWeapon':
+		    typeitem = 'iw';
+		    break;
+		  case 'lastSelectHead':
+		    typeitem = 'ie';
+		    break;
+		  case 'lastSelectMask':
+		    typeitem = 'im';
+		    break;
+		  case 'lastSelectBack':
+		    typeitem = 'ib';
+		    break;
+		  case 'lastSelectArmory':
+		    typeitem = 'ia';
+		    break;
+		  case 'lastSelectHand':
+		    typeitem = 'ih';
+		    break;
+		  case 'lastSelectShin':
+		    typeitem = 'is';
+		    break;
+		  case 'lastSelectFeet':
+		    typeitem = 'if';
+		    break;
+		}
+
+		switch (parseInt(id.replace(/\D/g, '')))
 		{
 		  case 1:
-		    
+		    getModsUrl(1, typeitem);
 		    break;
 		  case 2:
-		    
+		    getModsUrl(2, typeitem);		    
 		    break;
 		  case 3:
-		    
+		    getModsUrl(3, typeitem);
 		    break;
 		  case 4:
-		    
 		    break;
 		}
 		curr.removeClass("CurrentItem");
-		//alert( curr.attr("id"));
 	});
 });

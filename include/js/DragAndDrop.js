@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 91
+ * @revision 92
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,7 +22,7 @@
 
 function addToolTip(data)
 {
-	var t, tmod="";
+	var t, tmod = "";
 	if (data['mods'] != false)
 	{
 		for (var i=0; i < data['mods'].length; i++)
@@ -80,6 +80,30 @@ function GetDataUrlItem(url)
 	return dataArray;
 }
 
+function getDataUrlMods(url)
+{
+	var data = url.split('&'), dataArray = new Array(), i = 0, ii = 0, t, tmp;
+	for (i = 0; i < data.length; i++)
+	{
+		t = data[i].split('=');
+		if (t[0] == 'iw')
+		{
+			tmp = t[1].split(':');
+			dataArray[ii] = ':'+tmp[1]+':'+tmp[2]+':'+tmp[3]+':';
+			ii++;
+			dataArray[ii] = ':'+tmp[5]+':'+tmp[6]+':'+tmp[7];
+			ii++;
+		}
+		else
+		{
+			tmp = t[1].split(':');
+			dataArray[ii] = ':'+tmp[1]+':'+tmp[2]+':'+tmp[3];
+			ii++;
+		}
+	}
+	return dataArray;
+}
+
 function CountMods(typeitem, url)
 {
 	var data = url.split('&'), t, tmp, buf, i, j, count = 0;
@@ -124,32 +148,32 @@ function getImgUrl(countMods)
 
 function GetUrlReplaceState(gTypeItem, gidItem)
 {
-	var href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1])
+	var href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1]), dm = getDataUrlMods(d[1]);
 	switch (gTypeItem)
 	{
 	  case 'iw':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0-0:0-0:0-0:'+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ie':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+gidItem+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+gidItem+':0-0:0-0:0-0&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'im':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+gidItem+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+gidItem+':0-0:0-0:0-0&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ib':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+gidItem+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+gidItem+':0-0:0-0:0-0&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ia':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+gidItem+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+gidItem+':0-0:0-0:0-0&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ih':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+gidItem+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+gidItem+':0-0:0-0:0-0&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'is':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+gidItem+':0-0:0-0:0-0&if='+di[8]+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+gidItem+':0-0:0-0:0-0&if='+di[8]+dm[8]);
 	    break;
 	  case 'if':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+':0-0:0-0:0-0:'+di[1]+':0-0:0-0:0-0&ie='+di[2]+':0-0:0-0:0-0&im='+di[3]+':0-0:0-0:0-0&ib='+di[4]+':0-0:0-0:0-0&ia='+di[5]+':0-0:0-0:0-0&ih='+di[6]+':0-0:0-0:0-0&is='+di[7]+':0-0:0-0:0-0&if='+gidItem+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+gidItem+':0-0:0-0:0-0');
 	    break;
 	}
 }

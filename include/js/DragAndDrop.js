@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 90
+ * @revision 91
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -80,6 +80,48 @@ function GetDataUrlItem(url)
 	return dataArray;
 }
 
+function CountMods(typeitem, url)
+{
+	var data = url.split('&'), t, tmp, buf, i, j, count = 0;
+	for (i = 0; i < data.length; i++)
+	{
+		t = data[i].split('=');
+		// обработку на втророй слот оружия пока не делаю
+		if (t[0] == typeitem)
+		{
+			tmp =  t[1].split(':');
+			for (j = 1; j <= 3; j++)
+			{
+				buf = tmp[j].split('-');
+				if(buf[0] != '0')
+					count++;
+			}
+		}
+	}
+	return count;
+}
+
+function getImgUrl(countMods)
+{
+	var u = '';
+	switch (countMods)
+	{
+	  case 0:
+	    u = 'images/icon/simple/';
+	    break;
+	  case 1:
+	    u = 'images/icon/blue/';
+	    break;
+	  case 2:
+	    u = 'images/icon/green/';
+	    break;
+	  case 3:
+	    u = 'images/icon/gold/';
+	    break;
+	}
+	return u;
+}
+
 function GetUrlReplaceState(gTypeItem, gidItem)
 {
 	var href = window.location.href, d = href.split('?'), di = GetDataUrlItem(d[1])
@@ -129,7 +171,7 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 	});
 }
 
-function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
+function AjaxItemHandleP(Selector, item, typeitem)
 {
 	$.ajax(
 	{
@@ -138,7 +180,7 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 		data:{'id': item},
 		success: function(data)
 		{
-			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]);
+			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]), cmods = CountMods(typeitem, h1[1]);
 			if (typeitem == item['selector'])
 			{
 				if (item['selector'] == 'im')
@@ -154,24 +196,24 @@ function AjaxItemHandleP(Selector, lastSelector, item, typeitem)
 					{
 						twoslots = 1;
 						$("div.lastSelectMask").empty();
-						$('div.last'+lastSelector).empty();
-						$(Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
+						$('div.last'+Selector).empty();
+						$('#'+Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
 						$("#SelectMask").append('<div class="lastSelectMask2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
 						GetUrlReplaceState('im', '0');
 						AddDraggableUser("SelectHead2", twoslots, item['selector']);
 					}
 					else
 					{
-						$('div.last'+lastSelector).empty();
-						$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
-						AddDraggableUser(lastSelector, twoslots, item['selector']);
+						$('div.last'+Selector).empty();
+						$('#'+Selector).append('<div class="last'+Selector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
+						AddDraggableUser(Selector, twoslots, item['selector']);
 					}
 				}
 				else
 				{
-					$('div.last'+lastSelector).empty();
-					$(Selector).append('<div class="last'+lastSelector+'"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
-					AddDraggableUser(lastSelector, twoslots, item['selector']);
+					$('div.last'+Selector).empty();
+					$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
+					AddDraggableUser(Selector, twoslots, item['selector']);
 				}
 			}
 		}
@@ -188,7 +230,7 @@ function AddDroppable(Selector, TypeItem)
 		{
 			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item");
 			GetUrlReplaceState(TypeItem, idItem);
-			AjaxItemHandleP(Selector, id, idItem, TypeItem);
+			AjaxItemHandleP(id, idItem, TypeItem);
 		},
 		over:function (event, ui)
 		{

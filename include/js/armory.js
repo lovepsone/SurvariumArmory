@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 87
+ * @revision 91
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -36,7 +36,8 @@ $(document).on('mousedown', 'img.Context', function(event)
 {      
 	if (event.which === 3)
 	{         
-		var target = $(event.target);                          
+		var target = $(event.target);
+		target.addClass("CurrentItem");
 		$(".ContextMenuMod").fadeIn(1000);
 		$(".ContextMenuMod").fadeTo("slow",0.8);
 		$(".ContextMenuMod").css({left: event.pageX+'px', top: event.pageY+'px'});
@@ -48,21 +49,21 @@ $(document).ready(function()
 {
 	// для начала проверим все url
 	if (uCheck(getUrls()["iw"], 1) != 0)
-		AjaxItemHandleP('#SelectWeapon', 'SelectWeapon', uCheck(getUrls()["iw"], 1), 'iw');
+		AjaxItemHandleP('SelectWeapon', uCheck(getUrls()["iw"], 1), 'iw');
 	if (uCheck(getUrls()["ie"], 1) != 0)
-		AjaxItemHandleP('#SelectHead', 'SelectHead', uCheck(getUrls()["ie"], 1), 'ie');
+		AjaxItemHandleP('SelectHead', uCheck(getUrls()["ie"], 1), 'ie');
 	if (uCheck(getUrls()["im"], 1) != 0)
-		AjaxItemHandleP('#SelectMask', 'SelectMask', uCheck(getUrls()["im"], 1), 'im');
+		AjaxItemHandleP('SelectMask', uCheck(getUrls()["im"], 1), 'im');
 	if (uCheck(getUrls()["ib"], 1) != 0)
-		AjaxItemHandleP('#SelectBack', 'SelectBack', uCheck(getUrls()["ib"], 1), 'ib');
+		AjaxItemHandleP('SelectBack', uCheck(getUrls()["ib"], 1), 'ib');
 	if (uCheck(getUrls()["ia"], 1) != 0)
-		AjaxItemHandleP('#SelectArmory', 'SelectArmory', uCheck(getUrls()["ia"], 1), 'ia');
+		AjaxItemHandleP('SelectArmory', uCheck(getUrls()["ia"], 1), 'ia');
 	if (uCheck(getUrls()["ih"], 1) != 0)
-		AjaxItemHandleP('#SelectHand', 'SelectHand', uCheck(getUrls()["ih"], 1), 'ih');
+		AjaxItemHandleP('SelectHand', uCheck(getUrls()["ih"], 1), 'ih');
 	if (uCheck(getUrls()["is"], 1) != 0)
-		AjaxItemHandleP('#SelectShin', 'SelectShin', uCheck(getUrls()["is"], 1), 'is');
+		AjaxItemHandleP('SelectShin', uCheck(getUrls()["is"], 1), 'is');
 	if (uCheck(getUrls()["if"], 1) != 0)
-		AjaxItemHandleP('#SelectFeet', 'SelectFeet', uCheck(getUrls()["if"], 1), 'if');
+		AjaxItemHandleP('SelectFeet', uCheck(getUrls()["if"], 1), 'if');
 	// tooltips inventar item
 	$('#ItemInventory').on('mouseenter', 'img.icon[title]', function (event)
 	{
@@ -166,7 +167,26 @@ $(document).ready(function()
 		$("input#TSort").val(TypeSort);
 		AjaxItems(Fraction+':'+TypeItem+':'+TypeSort);
 	});
-});
 
-jQuery(function(){
-$('img[title]').qtip({ style: { border: {width: 3,radius: 8, color: '#6699CC' }, tip: true } })});
+	$("#TypeMod1, #TypeMod2, #TypeMod3, #TypeMod4").click(function()
+	{
+		var id = $(this).attr('id'), curr = $("div img.CurrentItem");
+		switch (id.replace(/\D/g, ''))
+		{
+		  case 1:
+		    
+		    break;
+		  case 2:
+		    
+		    break;
+		  case 3:
+		    
+		    break;
+		  case 4:
+		    
+		    break;
+		}
+		curr.removeClass("CurrentItem");
+		//alert( curr.attr("id"));
+	});
+});

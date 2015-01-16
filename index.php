@@ -49,10 +49,10 @@
 	echo '<input type="hidden" id="TSort" value="0"/></div>';
 
 	echo '<div class="ContextMenuMod"><ul>';
-	echo '<li><a href="#">'.$locale['contextblue'].'</a></li>';
-	echo '<li><a href="#">'.$locale['contextgreen'].'</a></li>';
-	echo '<li><a href="#">'.$locale['contextgold'].'</a></li>';
-	echo '<li><a href="#">'.$locale['contextsetting'].'</a></li></ul></div>';
+	echo '<li><a href="#" id="TypeMod1">'.$locale['contextblue'].'</a></li>';
+	echo '<li><a href="#" id="TypeMod2">'.$locale['contextgreen'].'</a></li>';
+	echo '<li><a href="#" id="TypeMod3">'.$locale['contextgold'].'</a></li>';
+	echo '<li><a href="#" id="TypeMod4">'.$locale['contextsetting'].'</a></li></ul></div>';
 
 	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
 	//таблица юзера

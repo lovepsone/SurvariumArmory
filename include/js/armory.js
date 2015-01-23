@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 94
+ * @revision 96
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -32,7 +32,39 @@ function uCheck(url, numItem)
 		return data[4];
 }
 
-function getModsUrl(countMods, typeitem)
+function addUrlMods(typeitem, tmp)
+{
+	switch (typeitem)
+	{
+	  case 'iw':
+	    history.replaceState(1, "Title 2", 'index.php?'+tmp+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'ie':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&'+tmp+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'im':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&'+tmp+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'ib':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&'+tmp+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'ia':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&'+tmp+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'ih':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&'+tmp+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    break;
+	  case 'is':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&'+tmp+'&if='+getUrls()["if"]);
+	    break;
+	  case 'if':
+	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&'+tmp);
+	    break;
+	}
+}
+
+
+function getModsUrl(countMods, typeitem, selector)
 {
 	$.ajax(
 	{
@@ -41,15 +73,31 @@ function getModsUrl(countMods, typeitem)
 		data:{'data': countMods+':'+typeitem},
 		success: function(data)
 		{
-			alert(data);
+			var mods = JSON.parse(data), i, idItem = uCheck(getUrls()[typeitem], 1), buf = typeitem + "=" + idItem + ":";
+			for (i = 0; i < mods.length; i++)
+			{
+				if ( i < 2)
+					buf += mods[i]['id'] + "-" + mods[i]['val'] + ":";
+				else
+					buf += mods[i]['id'] + '-' + mods[i]['val'];
+			}
+			if (mods.length == 1)
+				buf += "0-0:0-0";
+			else if (mods.length == 2)
+				buf += "0-0";
+			// fix iw
+			if (typeitem == "iw")
+				buf += ":0:0-0:0-0:0-0";
+			addUrlMods(typeitem, buf);
+			AjaxItemHandleP(selector, idItem, typeitem);
 		}
 	});
 }
 
 $(document).on('mousedown', 'img.Context', function(event)
-{      
+{
 	if (event.which === 3)
-	{         
+	{
 		var target = $(event.target);
 		target.addClass("CurrentItem");
 		$(".ContextMenuMod").fadeIn(1000);
@@ -101,7 +149,7 @@ $(document).ready(function()
 	$("#Fraction0, #Fraction1, #Fraction2, #Fraction3, #Fraction4, #Fraction5, #Type0, #Type1, #Type2, #Type3, #Type4, #Type5").click(function()
 	{
 		var id = $(this).attr('id');
-		if (id == "Fraction0" || id == "Fraction1" || id == "Fraction2" || id == "Fraction3" || id == "Fraction4"|| id == "Fraction5") 
+		if (id == "Fraction0" || id == "Fraction1" || id == "Fraction2" || id == "Fraction3" || id == "Fraction4"|| id == "Fraction5")
 		{
 			Fraction = id.replace(/\D/g, '');
 			$("input#FValue").val(Fraction);
@@ -184,7 +232,7 @@ $(document).ready(function()
 
 	$("#TypeMod1, #TypeMod2, #TypeMod3, #TypeMod4").click(function()
 	{
-		var id = $(this).attr('id'), curr = $("div img.CurrentItem"), typeitem = '';
+		var id = $(this).attr('id'), curr = $("div img.CurrentItem"), typeitem = '', select = curr.attr("id").substring(4, curr.attr("id").length);
 
 		switch (curr.attr("id"))
 		{
@@ -217,13 +265,13 @@ $(document).ready(function()
 		switch (parseInt(id.replace(/\D/g, '')))
 		{
 		  case 1:
-		    getModsUrl(1, typeitem);
+		    getModsUrl(1, typeitem, select);
 		    break;
 		  case 2:
-		    getModsUrl(2, typeitem);		    
+		    getModsUrl(2, typeitem, select);
 		    break;
 		  case 3:
-		    getModsUrl(3, typeitem);
+		    getModsUrl(3, typeitem, select);
 		    break;
 		  case 4:
 		    break;

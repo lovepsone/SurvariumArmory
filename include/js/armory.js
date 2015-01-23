@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 96
+ * @revision 100
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -89,7 +89,7 @@ function getModsUrl(countMods, typeitem, selector)
 			if (typeitem == "iw")
 				buf += ":0:0-0:0-0:0-0";
 			addUrlMods(typeitem, buf);
-			AjaxItemHandleP(selector, idItem, typeitem);
+			AjaxItemHandleP(selector, typeitem);
 		}
 	});
 }
@@ -111,21 +111,21 @@ $(document).ready(function()
 {
 	// для начала проверим все url
 	if (uCheck(getUrls()["iw"], 1) != 0)
-		AjaxItemHandleP('SelectWeapon', uCheck(getUrls()["iw"], 1), 'iw');
+		AjaxItemHandleP('SelectWeapon', 'iw');
 	if (uCheck(getUrls()["ie"], 1) != 0)
-		AjaxItemHandleP('SelectHead', uCheck(getUrls()["ie"], 1), 'ie');
+		AjaxItemHandleP('SelectHead', 'ie');
 	if (uCheck(getUrls()["im"], 1) != 0)
-		AjaxItemHandleP('SelectMask', uCheck(getUrls()["im"], 1), 'im');
+		AjaxItemHandleP('SelectMask', 'im');
 	if (uCheck(getUrls()["ib"], 1) != 0)
-		AjaxItemHandleP('SelectBack', uCheck(getUrls()["ib"], 1), 'ib');
+		AjaxItemHandleP('SelectBack', 'ib');
 	if (uCheck(getUrls()["ia"], 1) != 0)
-		AjaxItemHandleP('SelectArmory', uCheck(getUrls()["ia"], 1), 'ia');
+		AjaxItemHandleP('SelectArmory', 'ia');
 	if (uCheck(getUrls()["ih"], 1) != 0)
-		AjaxItemHandleP('SelectHand', uCheck(getUrls()["ih"], 1), 'ih');
+		AjaxItemHandleP('SelectHand', 'ih');
 	if (uCheck(getUrls()["is"], 1) != 0)
-		AjaxItemHandleP('SelectShin', uCheck(getUrls()["is"], 1), 'is');
+		AjaxItemHandleP('SelectShin', 'is');
 	if (uCheck(getUrls()["if"], 1) != 0)
-		AjaxItemHandleP('SelectFeet', uCheck(getUrls()["if"], 1), 'if');
+		AjaxItemHandleP('SelectFeet', 'if');
 	// tooltips inventar item
 	$('#ItemInventory').on('mouseenter', 'img.icon[title]', function (event)
 	{

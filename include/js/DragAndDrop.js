@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 99
+ * @revision 100
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -195,7 +195,7 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 	});
 }
 
-function AjaxItemHandleP(Selector, item, typeitem)
+function AjaxItemHandleP(Selector, typeitem)
 {
 	$.ajax(
 	{
@@ -254,7 +254,7 @@ function AddDroppable(Selector, TypeItem)
 		{
 			var id = Selector.substring(1, Selector.length), move = ui.draggable, idItem = move.find("img").attr("item");
 			GetUrlReplaceState(TypeItem, idItem);
-			AjaxItemHandleP(id, idItem, TypeItem);
+			AjaxItemHandleP(id, TypeItem);
 		},
 		over:function (event, ui)
 		{

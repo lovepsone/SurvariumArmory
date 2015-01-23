@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 98
+ * @revision 99
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -201,7 +201,7 @@ function AjaxItemHandleP(Selector, item, typeitem)
 	{
 		url: 'include/ItemHandle.php',
 		type: 'POST',
-		data:{'id': item},
+		data:{'UrlItem': getUrls()[typeitem]},
 		success: function(data)
 		{
 			var item = JSON.parse(data), twoslots = 0, h = window.location.href, h1 = h.split('?'), h2 = GetDataUrlItem(h1[1]), cmods = CountMods(typeitem, h1[1]);

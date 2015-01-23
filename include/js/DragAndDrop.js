@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 101
+ * @revision 103
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -222,7 +222,7 @@ function AjaxItemHandleP(Selector, typeitem)
 						twoslots = 1;
 						$("div.lastSelectMask").empty();
 						$('div.last'+Selector).empty();
-						$('#'+Selector).append('<div class="lastSelectHead2"><img src="images/icon/simple/'+item['images']+'.png" class="icon Context"/></div>');
+						$('#'+Selector).append('<div class="lastSelectHead2"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
 						$("#SelectMask").append('<div class="lastSelectMask2"><img src="images/icon/simple/'+item['images']+'.png" class="icon"/></div>');
 						GetUrlReplaceState('im', '0');
 						AddDraggableUser("SelectHead2", twoslots, item['selector']);

@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 100
+ * @revision 101
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -51,6 +51,7 @@ function addToolTip(data)
 		"<tr><td>"+data['localetxt']['distance']+"</td><td>"+data['distance']+"</td></tr>"+
 		"<tr><td>"+data['localetxt']['rate']+"</td><td>"+data['rate']+"</td></tr>"+
 		"<tr><td>"+data['localetxt']['weight']+"</td><td>"+data['weight']+"</td></tr>"+
+		tmod+
 		"</table>";
 	}
 	return t;

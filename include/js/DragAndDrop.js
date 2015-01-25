@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 104
+ * @revision 105
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,6 +19,11 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
+
+function EmptySlot(Selector, typeItem)
+{
+	$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="include/DynamicSlots.php?type='+typeItem+'" class="icon" /></div>');
+}
 
 function addToolTip(data)
 {
@@ -186,7 +191,13 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 		stop: function(event, ui)
 		{
 			$("div.last"+Selector).empty();
-			if (twoslots) $("div.lastSelectMask2").remove();
+			if (Selector != "SelectHead2") EmptySlot(Selector, selTypeItem); else EmptySlot("SelectHead", "ie");
+			if (twoslots)
+			{
+				$("div.lastSelectMask2").remove();
+				EmptySlot("SelectMask", "im");
+
+			}
 			GetUrlReplaceState(selTypeItem, '0');
 		},
 		start: function(event, ui)

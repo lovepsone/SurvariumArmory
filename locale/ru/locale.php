@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 84
+ * @revision 105
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -44,6 +44,15 @@ $locale['contextblue'] = 'Синий предмет';
 $locale['contextgreen'] = 'Зеленый предмет';
 $locale['contextgold'] = 'Золотой предмет';
 $locale['contextsetting'] = 'Настройка предмета';
+
+$locale['iw'] = 'Оружие';
+$locale['ie'] = 'Шлем';
+$locale['im'] = 'Маска';
+$locale['ib'] = 'Снаряжение';
+$locale['ia'] = 'Бронежилет';
+$locale['ih'] = 'Перчатки';
+$locale['is'] = 'Штаны';
+$locale['if'] = 'Ботинки';
 
 $modloc[1] = ' Подсумки для патронов: ';
 $modloc[2] = ' Контейнер артефактов: ';

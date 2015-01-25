@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 100
+ * @revision 105
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -110,22 +110,14 @@ $(document).on('mousedown', 'img.Context', function(event)
 $(document).ready(function()
 {
 	// для начала проверим все url
-	if (uCheck(getUrls()["iw"], 1) != 0)
-		AjaxItemHandleP('SelectWeapon', 'iw');
-	if (uCheck(getUrls()["ie"], 1) != 0)
-		AjaxItemHandleP('SelectHead', 'ie');
-	if (uCheck(getUrls()["im"], 1) != 0)
-		AjaxItemHandleP('SelectMask', 'im');
-	if (uCheck(getUrls()["ib"], 1) != 0)
-		AjaxItemHandleP('SelectBack', 'ib');
-	if (uCheck(getUrls()["ia"], 1) != 0)
-		AjaxItemHandleP('SelectArmory', 'ia');
-	if (uCheck(getUrls()["ih"], 1) != 0)
-		AjaxItemHandleP('SelectHand', 'ih');
-	if (uCheck(getUrls()["is"], 1) != 0)
-		AjaxItemHandleP('SelectShin', 'is');
-	if (uCheck(getUrls()["if"], 1) != 0)
-		AjaxItemHandleP('SelectFeet', 'if');
+	if (uCheck(getUrls()["iw"], 1) != 0) AjaxItemHandleP('SelectWeapon', 'iw'); else EmptySlot('SelectWeapon', 'iw');
+	if (uCheck(getUrls()["ie"], 1) != 0) AjaxItemHandleP('SelectHead', 'ie'); else EmptySlot('SelectHead', 'ie');
+	if (uCheck(getUrls()["im"], 1) != 0) AjaxItemHandleP('SelectMask', 'im'); else EmptySlot('SelectMask', 'im');
+	if (uCheck(getUrls()["ib"], 1) != 0) AjaxItemHandleP('SelectBack', 'ib'); else EmptySlot('SelectBack', 'ib');
+	if (uCheck(getUrls()["ia"], 1) != 0) AjaxItemHandleP('SelectArmory', 'ia'); else EmptySlot('SelectArmory', 'ia');
+	if (uCheck(getUrls()["ih"], 1) != 0) AjaxItemHandleP('SelectHand', 'ih'); else EmptySlot('SelectHand', 'ih');
+	if (uCheck(getUrls()["is"], 1) != 0) AjaxItemHandleP('SelectShin', 'is'); else EmptySlot('SelectShin', 'is');
+	if (uCheck(getUrls()["if"], 1) != 0) AjaxItemHandleP('SelectFeet', 'if'); else EmptySlot('SelectFeet', 'if');
 	// tooltips inventar item
 	$('#ItemInventory').on('mouseenter', 'img.icon[title]', function (event)
 	{

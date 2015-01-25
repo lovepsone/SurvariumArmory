@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 86
+ * @revision 105
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -63,9 +63,9 @@
 	echo '<tr><td valign="top" colspan="7">';
 	// таблица для двух верхних слотов
 	echo '<table border="0px" style="border-collapse:collapse;"><tr height="10px"><td colspan="4"></td></tr>';
-	echo '<tr height="94px"><td width="65px"></td><td width="125px" valing="top"><div id="SelectWeapon"></div></td><td width="125px"></td><td width="64px"></td></tr>';
+	echo '<tr height="94px"><td width="69px"></td><td width="125px" valing="top"><div id="SelectWeapon"></div></td><td width="125px"></td><td width="64px"></td></tr>';
 	echo '<tr height="38px"><td colspan="4"></td></tr>';
-	echo '<tr height="90px"><td width="65px"></td><td width="125px" valing="top"><div id="SelectHead"></div></td><td width="125px" valing="top"><div id="SelectMask"></div></td><td width="64px"></td></tr>';
+	echo '<tr height="90px"><td width="69px"></td><td width="125px" valing="top"><div id="SelectHead"></div></td><td width="125px" valing="top"><div id="SelectMask"></div></td><td width="64px"></td></tr>';
 		echo '<tr height="275px"><td colspan="4" valign="top">';
 		echo '<table border="0px" style="border-collapse:collapse;">';
 		echo '<tr height="90px"><td width="5px"></td><td width="125px"><div id="SelectBack"></div></td><td width="125px"><div id="SelectArmory"></div></td><td width="125px"><div id="SelectHand"></div></td></tr>';

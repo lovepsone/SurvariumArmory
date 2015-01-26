@@ -1,14 +1,14 @@
 body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; background-color: #000000;}
 .body-main { height: 723px; width: 100%; background: url(images/body.png) no-repeat; background-size: cover;}
 
-.b-inventory { height: 630px; width: 405px; background: url(images/inventory/inventory.png) no-repeat; background-size: cover; color: #ffffff}
+.b-inventory { height: 630px; width: 415px; background: url(images/inventory/inventory.png) no-repeat; background-size: cover; color: #ffffff}
 .b-user {  height: 623px; width: 405px; background: url(images/user/user.png) no-repeat; background-size: cover; color: #ffffff } 
 .inventoryHead { height: 25px; font-size: 14px;}
 .userHead { height: 25px; font-size: 14px;}
 .inventoryFooter { height: 25px; font-size: 9px; }
 
-.BFractionAll { height: 36px; width: 66px; background: url(images/inventory/BFractionAll.png) no-repeat; background-size: cover; border: 0px; }
-.BFractionNo { height: 36px; width: 66px; background: url(images/inventory/BFractionNo.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionAll { height: 36px; width: 69px; background: url(images/inventory/BFractionAll.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionNo { height: 36px; width: 69px; background: url(images/inventory/BFractionNo.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionVagabondage { height: 36px; width: 66px; background: url(images/inventory/BFractionVagabondage.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionBlackMarket { height: 36px; width: 66px; background: url(images/inventory/BFractionBlackMarket.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionArmyReviva { height: 36px; width: 66px; background: url(images/inventory/BFractionArmyReviva.png) no-repeat; background-size: cover; border: 0px; }

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 83
+ * @revision 109
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -80,26 +80,27 @@
 		$STH->execute($d);
 		while($res = $STH->fetch(PDO::FETCH_OBJ))
 		{
-			$sm .= "<tr><td><img src='images/mod/".$res->imgMod."' class='iconMod'/>".$modloc[$res->localeMod]."</td><td>".$res->mathsign.$res->value.$res->txtsign."</td></tr>";
+			$sm .= "<tr class='tooltipMod'><td colspan='2'><img src='images/mod/".$res->imgMod."' class='iconMod'/>".$modloc[$res->localeMod].$res->mathsign.$res->value.$res->txtsign."</td></tr>";
 		}
 
-		$s =  "<table class='tooltipBody'><tr><td width='160px'>".$itemloc[$data->locale]."</td><td>".$data->level."</td></tr>";
+		$s = "<table class='tooltipBody' style='border-collapse:collapse;'><tr class='tooltipHead'><td colspan='2' style='position: relative; top:-9px; font-size: 9px; color: #9C9797;' align='center'>".$locale['shop']."</td></tr>";
+		$s .= "<tr class='tooltipHead'><td width='155px' style='position: relative; top:-11px;'>&nbsp;<img src='images/smallicon/".$data->fraction.".png' class='smallIconFraction'/>&nbsp;".$itemloc[$data->locale]."</td><td style='position: relative; top:-8px; right:0px; color: #9C9797;'>".$locale['lvl'].$data->level."</td></tr>";
 		if ($data->typeItem == 1)
 		{
-			$s .= "<tr><td>".$locale['defence']."</td><td>".$data->defence."</td></tr>";
-			$s .= "<tr><td>".$locale['isolation']."</td><td>".$data->isolation."</td></tr>";
-			$s .= "<tr><td>".$locale['weight']."</td><td>".$data->weight."</td></tr>";
+			$s .= "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;".$locale['defence']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->defence."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['isolation']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->isolation."</td></tr>";
+			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight."</td></tr>";
 		}
 		else if ($data->typeItem == 2)
 		{
-			$s .= "<tr><td>".$locale['damage']."</td><td>".$data->damage."</td></tr>";
-			$s .= "<tr><td>".$locale['piercing']."</td><td>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>".$locale['sighting']."</td><td>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>".$locale['stoppower']."</td><td>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>".$locale['dispersion']."</td><td>".$data->dispersion."</td></tr>";
-			$s .= "<tr><td>".$locale['distance']."</td><td>".$data->distance."</td></tr>";
-			$s .= "<tr><td>".$locale['rate']."</td><td>".$data->rate."</td></tr>";
-			$s .= "<tr><td>".$locale['weight']."</td><td>".$data->weight."</td></tr>";
+			$s .= "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;".$locale['damage']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->damage."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['piercing']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['sighting']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['stoppower']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['dispersion']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->dispersion."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['distance']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->distance."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['rate']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->rate."</td></tr>";
+			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight."</td></tr>";
 		}
 		$s .= $sm;
 		$s .= "</table>";

@@ -7,8 +7,8 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 .userHead { height: 25px; font-size: 14px;}
 .inventoryFooter { height: 25px; font-size: 9px; }
 
-.BFractionAll { height: 36px; width: 69px; background: url(images/inventory/BFractionAll.png) no-repeat; background-size: cover; border: 0px; }
-.BFractionNo { height: 36px; width: 69px; background: url(images/inventory/BFractionNo.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionAll { height: 36px; width: 66px; background: url(images/inventory/BFractionAll.png) no-repeat; background-size: cover; border: 0px; }
+.BFractionNo { height: 36px; width: 66px; background: url(images/inventory/BFractionNo.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionVagabondage { height: 36px; width: 66px; background: url(images/inventory/BFractionVagabondage.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionBlackMarket { height: 36px; width: 66px; background: url(images/inventory/BFractionBlackMarket.png) no-repeat; background-size: cover; border: 0px; }
 .BFractionArmyReviva { height: 36px; width: 66px; background: url(images/inventory/BFractionArmyReviva.png) no-repeat; background-size: cover; border: 0px; }

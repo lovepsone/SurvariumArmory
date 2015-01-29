@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 109
+ * @revision 110
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -61,10 +61,10 @@ $modloc[3] = ' Время прицеливания: ';
 $modloc[4] = ' Время поиска: ';
 $modloc[5] = ' Вместимость карманов: ';
 $modloc[6] = ' Затраты энергии: ';
-$modloc[7] = ' Восстановление энергии: ';
+$modloc[7] = ' Восстанов. энергии: ';
 $modloc[8] = ' Скорость перезарядки: ';
 $modloc[9] = ' Слот для спецсредств: ';
-$modloc[10] = ' Скорость передвижения: ';
+$modloc[10] = ' Скорость передвиж.: ';
 $modloc[11] = ' Регенерация: ';
 $modloc[12] = ' Отдача оружия: ';
 $modloc[13] = ' Разброс от бедра: ';

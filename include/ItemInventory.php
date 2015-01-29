@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 109
+ * @revision 110
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -74,13 +74,15 @@
 	{
 		global $DBH, $modloc, $itemloc, $locale;
 
-		$sm = ""; $d = array();
+		$sm = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>";
+		$d = array(); $vmod = 0;
 		$d['item'] = $data->id;
 		$STH = $DBH->prepare("SELECT * FROM armory_items_mods LEFT JOIN armory_mods ON armory_mods.`id` = armory_items_mods.`idMod` WHERE armory_items_mods.`idItem`=:item");
 		$STH->execute($d);
 		while($res = $STH->fetch(PDO::FETCH_OBJ))
 		{
-			$sm .= "<tr class='tooltipMod'><td colspan='2'><img src='images/mod/".$res->imgMod."' class='iconMod'/>".$modloc[$res->localeMod].$res->mathsign.$res->value.$res->txtsign."</td></tr>";
+			$vmod = 1;
+			$sm .= "<tr valign='top'><td colspan='2'><img src='images/mod/".$res->imgMod."' class='iconMod'/>".$modloc[$res->localeMod].$res->mathsign.$res->value.$res->txtsign."</td></tr>";
 		}
 
 		$s = "<table class='tooltipBody' style='border-collapse:collapse;'><tr class='tooltipHead'><td colspan='2' style='position: relative; top:-9px; font-size: 9px; color: #9C9797;' align='center'>".$locale['shop']."</td></tr>";
@@ -102,8 +104,8 @@
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['rate']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->rate."</td></tr>";
 			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight."</td></tr>";
 		}
-		$s .= $sm;
-		$s .= "</table>";
+		if ($vmod) $s .= $sm;
+		$s .= "<tr><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr></table>";
 		return $s;
 	}
 

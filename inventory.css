@@ -56,10 +56,9 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 	padding: 0;
 }
 .smallIconFraction { height: 14px; width: 14px; position: relative; top:2px;}
-.iconMod { height: 20px; width: 20px; position: relative; top:4px;}
+.iconMod { height: 20px; width: 20px; position: relative; top:-4px;}
 .tooltipBody { background: url(images/tooltip/tooltipBody.png); width: 196px; font-size: 10px; color: #ffffff;}
 .tooltipHead { width: 100%; background-color: #000000; }
-.tooltipMod { width: 100%; background-color: #161614; }
 .ContextMenuMod {
 position: absolute;
 display: none;

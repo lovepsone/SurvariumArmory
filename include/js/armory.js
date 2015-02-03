@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 111
+ * @revision 112
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -131,7 +131,10 @@ $(document).ready(function()
 		$(this).qtip({ position:{my: 'top left', at: 'top right', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
 	});
 	// tooltips info user
-
+	$('#userInfo').on('mouseenter', 'img[title]', function (event)
+	{
+		$(this).qtip({ position:{my: 'top left', at: 'top right', viewport: $(window)},overwrite: false, show:{ event: event.type, ready: true }});
+	});
 	// contextmenu hide
 	$(document).bind("contextmenu",function(e){return false;});
 	$(".ContextMenuMod, body").click(function(){$(".ContextMenuMod").hide();$("body").css({"overflow":"auto"});});

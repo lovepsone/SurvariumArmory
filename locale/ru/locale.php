@@ -23,6 +23,7 @@
 $locale = array();
 $itemloc = array();
 $modloc = array();
+$uiloc = array();
 $locale['shop'] = 'Магазин';
 $locale['compare'] = ' Сравнение предметов ';
 $locale['sort'] = ' Сортировать ';
@@ -45,6 +46,8 @@ $locale['contextblue'] = 'Синий предмет';
 $locale['contextgreen'] = 'Зеленый предмет';
 $locale['contextgold'] = 'Золотой предмет';
 $locale['contextsetting'] = 'Настройка предмета';
+
+$locale['equipment'] = 'Информация об экипировке';
 
 $locale['iw'] = 'Оружие';
 $locale['ie'] = 'Шлем';
@@ -80,6 +83,23 @@ $modloc[22] = ' Изоляция: ';
 $modloc[23] = ' Переносимый вес: ';
 $modloc[24] = ' Время досылки: ';
 $modloc[25] = ' 3апас кислорода: ';
+
+$uiloc['weapon'] = 'Оружие:';
+$uiloc['head'] = 'Голова';
+$uiloc['body'] = 'Тело';
+$uiloc['hand'] = 'Руки';
+$uiloc['footer'] = 'Ноги и ступни';
+$uiloc['empty'] = 'пусто';
+$uiloc['damage'] = 'Урон:';
+$uiloc['piercing'] = 'Бронебойность:';
+$uiloc['sighting'] = 'Время прицеливания:';
+$uiloc['stoppower'] = 'Останавливающая сила:';
+$uiloc['dispersion'] = 'Дисперсия:';
+$uiloc['distance'] = 'Дистанция:';
+$uiloc['rate'] = 'Скорострельность:';
+$uiloc['defence'] = 'Броня:';
+$uiloc['isolation'] = 'Изоляция:';
+$uiloc['weight'] = 'Вес:';
 
 $itemloc[1111] = 'Карабин Мосина';
 $itemloc[1112] = 'ППШ-41';

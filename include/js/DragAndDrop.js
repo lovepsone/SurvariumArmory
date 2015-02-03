@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 110
+ * @revision 112
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -201,6 +201,7 @@ function AddDraggableUser(Selector, twoslots, selTypeItem)
 
 			}
 			GetUrlReplaceState(selTypeItem, '0');
+			AjaxUserInfo();
 		},
 		start: function(event, ui)
 		{
@@ -274,6 +275,10 @@ function AddDroppable(Selector, TypeItem)
 		over:function (event, ui)
 		{
 			$('img.icon[title]').qtip('destroy', true);
+		},
+		deactivate: function(event, ui)
+		{
+			AjaxUserInfo();
 		}
 	});
 }

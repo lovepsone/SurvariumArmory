@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 105
+ * @revision 111
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -59,7 +59,7 @@
 	// ----------------------------------------------------------------------------------------------------
 	echo '<table class="b-user" border="0px">';
 	echo '<tr><td align="center" colspan="7" class="userHead">'.$locale['user'].'</td></tr>';
-	echo '<tr><td  align="center" colspan="7" style="height: 35px;">ewfw</td></tr>'; //button non release
+	echo '<tr><td  align="center" colspan="7" style="height:35px;"><div id="userInfo"></div></td></tr>'; //button non release
 	echo '<tr><td valign="top" colspan="7">';
 	// таблица для двух верхних слотов
 	echo '<table border="0px" style="border-collapse:collapse;"><tr height="10px"><td colspan="4"></td></tr>';

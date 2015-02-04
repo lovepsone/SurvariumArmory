@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 110
+ * @revision 113
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -84,7 +84,8 @@ $modloc[23] = ' Переносимый вес: ';
 $modloc[24] = ' Время досылки: ';
 $modloc[25] = ' 3апас кислорода: ';
 
-$uiloc['weapon'] = 'Оружие:';
+$uiloc['weapon'] = 'Оружие';
+$uiloc['oneslot'] = 'Первый слот:';
 $uiloc['head'] = 'Голова';
 $uiloc['body'] = 'Тело';
 $uiloc['hand'] = 'Руки';

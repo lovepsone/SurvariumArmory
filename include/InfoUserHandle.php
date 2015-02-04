@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 112
+ * @revision 113
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -56,7 +56,8 @@
 	$wFooter = (!empty($rItem['if']) ? $rItem['if']['weight'] : 0) + (!empty($rItem['is']) ? $rItem['is']['weight'] : 0);
 
 	$title = "<table class='tooltipBodyUser'>";
-	$title .= "<tr><td>".$uiloc['weapon']."</td><td>".(!empty($rItem['iw']) ? $itemloc[$rItem['iw']['locale']] : $uiloc['empty'])."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center'>".$uiloc['weapon']."</td></tr>";
+	$title .= "<tr><td>".$uiloc['oneslot']."</td><td>".(!empty($rItem['iw']) ? $itemloc[$rItem['iw']['locale']] : $uiloc['empty'])."</td></tr>";
 	$title .= "<tr><td>".$uiloc['damage']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['damage'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['piercing']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['sighting']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";

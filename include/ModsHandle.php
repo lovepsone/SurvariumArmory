@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 94
+ * @revision 117
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -38,14 +38,16 @@
 		$data = explode("/", $val);
 		return $data[rand(0, count($data)-1)];
 	}
-
 	for ($i = 0; $i < $countMods; $i++)
 	{
-		$idMod = $Tmods[$typeItem][rand(1, count($Tmods[$typeItem]))];
+		$rint = rand(1, count($Tmods[$typeItem]));
+		$idMod = $Tmods[$typeItem][$rint];
 		$STH = $DBH->query("SELECT * FROM armory_mods WHERE id=".$idMod);
 		$STH->execute();
 		$data = $STH->fetch(PDO::FETCH_ASSOC);
 		$result[$i] = array('id'=>$idMod, 'val' => ParseModValues($data['values']));
+		unset($Tmods[$typeItem][$rint]); 
+		sort($Tmods[$typeItem]);
 	}
 	echo json_encode($result);
 ?>

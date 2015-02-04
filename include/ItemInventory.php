@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 114
+ * @revision 115
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -91,18 +91,18 @@
 		{
 			$s .= "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;".$locale['defence']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->defence."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['isolation']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->isolation."</td></tr>";
-			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight."</td></tr>";
+			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight.$locale['k']."</td></tr>";
 		}
 		else if ($data->typeItem == 2)
 		{
 			$s .= "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;".$locale['damage']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->damage."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['piercing']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>&nbsp;&nbsp;".$locale['sighting']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->sighting."</td></tr>";
-			$s .= "<tr><td>&nbsp;&nbsp;".$locale['stoppower']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->stoppower."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['sighting']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->sighting.$locale['s']."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['stoppower']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->stoppower.$locale['p']."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['dispersion']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->dispersion."</td></tr>";
-			$s .= "<tr><td>&nbsp;&nbsp;".$locale['distance']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->distance."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['distance']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->distance.$locale['m']."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['rate']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->rate."</td></tr>";
-			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight."</td></tr>";
+			$s .= "<tr height='20px' valign='top'><td>&nbsp;&nbsp;".$locale['weight']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->weight.$locale['k']."</td></tr>";
 		}
 		if ($vmod) $s .= $sm;
 		$s .= "<tr><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr></table>";

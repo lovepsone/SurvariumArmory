@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 113
+ * @revision 115
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -41,6 +41,10 @@ $locale['defence'] = 'Броня';
 $locale['isolation'] = 'Изоляция';
 $locale['weight'] = 'Вес';
 $locale['lvl'] = 'Ур. ';
+$locale['s'] = 'c';
+$locale['m'] = 'м';
+$locale['p'] = '%';
+$locale['k'] = 'кг';
 
 $locale['contextblue'] = 'Синий предмет';
 $locale['contextgreen'] = 'Зеленый предмет';

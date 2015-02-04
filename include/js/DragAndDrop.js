@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 114
+ * @revision 115
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -45,18 +45,18 @@ function addToolTip(data)
 	{
 		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['defence']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['defence']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['isolation']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['isolation']+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+"</td></tr>";
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+data['localetxt']['k']+"</td></tr>";
 	}
 	else if(data['typeItem'] == 2)
 	{
 		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['damage']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['damage']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['piercing']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+data['localetxt']['s']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+data['localetxt']['p']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['dispersion']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['distance']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['distance']+data['localetxt']['m']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['rate']+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+"</td></tr>";
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+data['localetxt']['k']+"</td></tr>";
 	}
 	if (vmod)
 		t += tmod;

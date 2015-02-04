@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 112
+ * @revision 116
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -104,7 +104,7 @@ $(document).on('mousedown', 'img.Context', function(event)
 		$(".ContextMenuMod").fadeIn(1000);
 		$(".ContextMenuMod").fadeTo("slow",0.8);
 		$(".ContextMenuMod").css({left: event.pageX+'px', top: event.pageY+'px'});
-		$("body").css({"overflow":"hidden"});
+		//$("body").css({"overflow":"hidden"});
 	}
 });
 

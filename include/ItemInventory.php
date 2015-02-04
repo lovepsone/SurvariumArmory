@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 110
+ * @revision 114
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -97,8 +97,8 @@
 		{
 			$s .= "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;".$locale['damage']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->damage."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['piercing']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>&nbsp;&nbsp;".$locale['sighting']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
-			$s .= "<tr><td>&nbsp;&nbsp;".$locale['stoppower']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->piercing."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['sighting']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->sighting."</td></tr>";
+			$s .= "<tr><td>&nbsp;&nbsp;".$locale['stoppower']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->stoppower."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['dispersion']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->dispersion."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['distance']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->distance."</td></tr>";
 			$s .= "<tr><td>&nbsp;&nbsp;".$locale['rate']."</td><td style='color:#FFF0A0; font-weight:500;'>".$data->rate."</td></tr>";

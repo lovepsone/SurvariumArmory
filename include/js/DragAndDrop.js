@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 112
+ * @revision 114
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -51,8 +51,8 @@ function addToolTip(data)
 	{
 		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['damage']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['damage']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['piercing']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['dispersion']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['distance']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['rate']+"</td></tr>"+

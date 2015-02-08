@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 119
+ * @revision 121
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,7 +22,7 @@
 function calcPerOfVal(per, val){return parseFloat(val)*parseFloat(per)/100.0;}
 function EmptySlot(Selector, typeItem){$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="include/DynamicSlots.php?type='+typeItem+'" class="icon" /></div>');}
 
-function addToolTip(data)
+function addToolTip(data, CountMod)
 {
 	var t, tmod, vmod = 0, color = "#c6c6c6", v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v22 = 0;
 	tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>"
@@ -35,9 +35,9 @@ function addToolTip(data)
 	if (data['mods'] != false)
 	{
 		vmod = 1;
-		if (data['mods'].length == 1) color = "#486d7f";
-		if (data['mods'].length == 2) color = "#63854d";
-		if (data['mods'].length == 3) color = "#ffd700";
+		if (CountMod == 1) color = "#486d7f";
+		if (CountMod == 2) color = "#63854d";
+		if (CountMod == 3) color = "#ffd700";
 		for (var i=0; i < data['mods'].length; i++)
 		{
 			tmod +="<tr valign='top'><td colspan='2'><img src='images/mod/"+data['mods'][i]['imgMod']+"' class='iconMod'/>"+
@@ -265,22 +265,22 @@ function AjaxItemHandleP(Selector, typeitem)
 						twoslots = 1;
 						$("div.lastSelectMask").empty();
 						$('div.last'+Selector).empty();
-						$('#'+Selector).append('<div class="lastSelectHead2"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
-						$("#SelectMask").append('<div class="lastSelectMask2"><img src="'+getImgUrl(cmods)+item['images']+'.png" class="icon" title="'+addToolTip(item)+'"//></div>');
+						$('#'+Selector).append('<div class="lastSelectHead2"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item, cmods)+'"/></div>');
+						$("#SelectMask").append('<div class="lastSelectMask2"><img src="'+getImgUrl(cmods)+item['images']+'.png" class="icon" title="'+addToolTip(item, cmods)+'"//></div>');
 						GetUrlReplaceState('im', '0');
 						AddDraggableUser("SelectHead2", twoslots, item['selector']);
 					}
 					else
 					{
 						$('div.last'+Selector).empty();
-						$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
+						$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item, cmods)+'"/></div>');
 						AddDraggableUser(Selector, twoslots, item['selector']);
 					}
 				}
 				else
 				{
 					$('div.last'+Selector).empty();
-					$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item)+'"/></div>');
+					$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="'+getImgUrl(cmods)+item['images']+'.png" class="icon Context" title="'+addToolTip(item, cmods)+'"/></div>');
 					AddDraggableUser(Selector, twoslots, item['selector']);
 				}
 			}

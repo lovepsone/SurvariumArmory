@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 115
+ * @revision 118
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,15 +19,19 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-
-function EmptySlot(Selector, typeItem)
-{
-	$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="include/DynamicSlots.php?type='+typeItem+'" class="icon" /></div>');
-}
+function calcPerOfVal(per, val){return parseFloat(val)*parseFloat(per)/100.0;}
+function EmptySlot(Selector, typeItem){$('#'+Selector).append('<div class="last'+Selector+'"><img id="last'+Selector+'" src="include/DynamicSlots.php?type='+typeItem+'" class="icon" /></div>');}
 
 function addToolTip(data)
 {
-	var t, tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>", vmod = 0;
+	var t, tmod, vmod = 0, v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v22 = 0;
+	tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>"
+	if (data['damage'] != undefined) v14 =  parseFloat(data['damage']);
+	if (data['defence'] != undefined) v16 =  parseInt(data['defence'], 10);
+	if (data['dispersion'] != undefined) v17 =  parseFloat(data['dispersion']);
+	if (data['rate'] != undefined) v18 =  parseFloat(data['rate']);
+	if (data['isolation'] != undefined) v22 =  parseInt(data['isolation'], 10);
+
 	if (data['mods'] != false)
 	{
 		vmod = 1;
@@ -35,6 +39,27 @@ function addToolTip(data)
 		{
 			tmod +="<tr valign='top'><td colspan='2'><img src='images/mod/"+data['mods'][i]['imgMod']+"' class='iconMod'/>"+
 			data['localemod'][data['mods'][i]['localeMod']]+data['mods'][i]['mathsign']+data['mods'][i]['value']+data['mods'][i]['txtsign']+"</td></tr>";
+			switch (parseInt(data['mods'][i]['id'], 10))
+			{
+			  case 14:
+			    v14 += calcPerOfVal(data['mods'][i]['value'], data['damage']);
+			    break;
+			  case 16:
+			    v16 += parseInt(data['mods'][i]['value'], 10);
+			    break;
+			  case 17:
+			    v17 -= calcPerOfVal(data['mods'][i]['value'], data['dispersion']);
+			    break;
+			  case 18:
+			    v18 += calcPerOfVal(data['mods'][i]['value'], data['rate']);
+			    break;
+			  case 19:
+			    v19 -= calcPerOfVal(data['mods'][i]['value'], data['weight']);
+			    break;
+			  case 22:
+			    v22 += parseInt(data['mods'][i]['value'], 10);
+			    break;
+			}
 		}
 	}
 	t = "<table class='tooltipBody' style='border-collapse:collapse;'><tr class='tooltipHead'><td colspan='2' style='position: relative; top:-9px; font-size: 9px; color: #9C9797;' align='center'>"+data['localetxt']['shop']+"</td></tr>"+
@@ -43,20 +68,20 @@ function addToolTip(data)
 
 	if (data['typeItem'] == 1)
 	{
-		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['defence']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['defence']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['isolation']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['isolation']+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+data['localetxt']['k']+"</td></tr>";
+		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['defence']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v16.toString()+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['isolation']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v22.toString()+"</td></tr>"+
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v19.toString()+data['localetxt']['k']+"</td></tr>";
 	}
 	else if(data['typeItem'] == 2)
 	{
-		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['damage']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['damage']+"</td></tr>"+
+		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['damage']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v14.toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['piercing']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+data['localetxt']['s']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+data['localetxt']['p']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['dispersion']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v17.toFixed(2).toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['distance']+data['localetxt']['m']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['rate']+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['weight']+data['localetxt']['k']+"</td></tr>";
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v18.toString()+"</td></tr>"+
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v19.toString()+data['localetxt']['k']+"</td></tr>";
 	}
 	if (vmod)
 		t += tmod;

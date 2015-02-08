@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 120
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -35,7 +35,8 @@
 	imagesavealpha($icon, true);
 	$fraction = ImageCreateFromPng("images/fractions/".$idfraction.".png");
 	imagesavealpha($fraction, true);
-	$color = ImageColorAllocate($bg, 0, 170, 0);
+	//$color = ImageColorAllocate($bg, 0, 170, 0);
+	$color = ImageColorAllocate($bg, 99, 133, 77);
 	$colorlvl = ImageColorAllocate($bg, 98, 98, 98);
 
 	imagecopy($bg, $icon, 2, 10, 0, 0, 171, 90);

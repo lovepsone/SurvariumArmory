@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 118
+ * @revision 119
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,7 +24,7 @@ function EmptySlot(Selector, typeItem){$('#'+Selector).append('<div class="last'
 
 function addToolTip(data)
 {
-	var t, tmod, vmod = 0, v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v22 = 0;
+	var t, tmod, vmod = 0, color = "#c6c6c6", v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v22 = 0;
 	tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>"
 	if (data['damage'] != undefined) v14 =  parseFloat(data['damage']);
 	if (data['defence'] != undefined) v16 =  parseInt(data['defence'], 10);
@@ -35,6 +35,9 @@ function addToolTip(data)
 	if (data['mods'] != false)
 	{
 		vmod = 1;
+		if (data['mods'].length == 1) color = "#486d7f";
+		if (data['mods'].length == 2) color = "#63854d";
+		if (data['mods'].length == 3) color = "#ffd700";
 		for (var i=0; i < data['mods'].length; i++)
 		{
 			tmod +="<tr valign='top'><td colspan='2'><img src='images/mod/"+data['mods'][i]['imgMod']+"' class='iconMod'/>"+
@@ -63,7 +66,7 @@ function addToolTip(data)
 		}
 	}
 	t = "<table class='tooltipBody' style='border-collapse:collapse;'><tr class='tooltipHead'><td colspan='2' style='position: relative; top:-9px; font-size: 9px; color: #9C9797;' align='center'>"+data['localetxt']['shop']+"</td></tr>"+
-	"<tr class='tooltipHead'><td width='155px' style='position: relative; top:-11px;'>&nbsp;<img src='images/smallicon/"+data['fraction']+".png' class='smallIconFraction'/>&nbsp;"+
+	"<tr class='tooltipHead'><td width='155px' style='position: relative; top:-11px; color:"+color+";'>&nbsp;<img src='images/smallicon/"+data['fraction']+".png' class='smallIconFraction'/>&nbsp;"+
 	data['locale']+"</td><td style='position: relative; top:-8px; right:0px; color: #9C9797;'>"+data['localetxt']['lvl']+data['level']+"</td></tr>";
 
 	if (data['typeItem'] == 1)

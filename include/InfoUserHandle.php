@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 113
+ * @revision 122
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -54,6 +54,9 @@
 	$dFooter = (!empty($rItem['if']) ? $rItem['if']['defence'] : 0) + (!empty($rItem['is']) ? $rItem['is']['defence'] : 0);
 	$iFooter = (!empty($rItem['if']) ? $rItem['if']['isolation'] : 0) + (!empty($rItem['is']) ? $rItem['is']['isolation'] : 0);
 	$wFooter = (!empty($rItem['if']) ? $rItem['if']['weight'] : 0) + (!empty($rItem['is']) ? $rItem['is']['weight'] : 0);
+	$dGeneral = $dHead + $dBody + $dHand + $dFooter;
+	$iGeneral = $iHead + $iBody + $iHand + $iFooter;
+	$wGeneral = $wHead + $wBody + $wHand + $wFooter;
 
 	$title = "<table class='tooltipBodyUser'>";
 	$title .= "<tr><td colspan='2' align='center'>".$uiloc['weapon']."</td></tr>";
@@ -82,6 +85,10 @@
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wFooter."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center'>".$uiloc['general']."</td></tr>";
+	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dGeneral."</td></tr>";
+	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iGeneral."</td></tr>";
+	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wGeneral."</td></tr>";
 	$title .= "</table>";
 	echo '<img src="include/DynamicButtons.php" class="userBotton" title="'.$title.'"/>';
 ?>

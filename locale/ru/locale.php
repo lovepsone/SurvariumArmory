@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 115
+ * @revision 122
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -105,6 +105,7 @@ $uiloc['rate'] = 'Скорострельность:';
 $uiloc['defence'] = 'Броня:';
 $uiloc['isolation'] = 'Изоляция:';
 $uiloc['weight'] = 'Вес:';
+$uiloc['general'] = 'Общие характеристики';
 
 $itemloc[1111] = 'Карабин Мосина';
 $itemloc[1112] = 'ППШ-41';

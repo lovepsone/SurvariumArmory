@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 123
+ * @revision 129
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -76,7 +76,7 @@ function addToolTip(data, CountMod)
 	{
 		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['defence']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v16.toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['isolation']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v22.toString()+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v19.toString()+data['localetxt']['k']+"</td></tr>";
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v19,2).toString()+data['localetxt']['k']+"</td></tr>";
 	}
 	else if(data['typeItem'] == 2)
 	{
@@ -84,7 +84,7 @@ function addToolTip(data, CountMod)
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['piercing']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['piercing']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+data['localetxt']['s']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+data['localetxt']['p']+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v17.toFixed(2).toString()+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v17,2).toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v21.toString()+data['localetxt']['m']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v18.toString()+"</td></tr>"+
 		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v19,2).toString()+data['localetxt']['k']+"</td></tr>";

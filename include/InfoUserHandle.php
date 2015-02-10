@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 122
+ * @revision 125
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,8 +22,47 @@
  **/
 	@include_once('../maincore.php');
 
+	function getCountMods($data)
+	{
+		$temp = explode(":", $data);
+		$count = 0;
+		if ((int)$temp[0] == 0)
+			return 0;
+		for ($i = 1; $i < count($temp); $i++)
+		{
+			if ((int)$temp[$i] != 0)
+				$count++;
+		}
+		return $count;
+	}
+
+	function getColorNameItem($countMods)
+	{
+		$color = '';
+		switch ($countMods)
+		{
+		  case 0:
+		    $color = '#c6c6c6';
+		    break;
+		  case 1:
+		    $color = '#486d7f';
+		    break;
+		  case 2:
+		    $color = '#63854d';
+		    break;
+		  case 3:
+		    $color = '#ffd700';
+		    break;
+		  default:
+		    $color = '#c6c6c6';
+		    break;
+		}
+		return $color;
+	}
+
 	$item = array(0=>'iw', 1=>'ie', 2=>'im', 3=>'ib', 4=>'ia', 5=>'ih', 6=>'is', 7=>'if');
 	$itemId = array();
+	$modsId = array();
 	$in = "";
 
 	for ($i = 0; $i < count($_POST['url']); $i++)
@@ -33,6 +72,11 @@
 		$in .= ":".$item[$i];
 		if ($i+1 != count($_POST['url']))
 			$in .= ", ";
+		// модификаторы
+		if ((int)$d[0] != 0)
+		{
+			//$modsId[$item[$i]]	
+		}
 	}
 
 	$STH = $DBH->prepare("SELECT * FROM armory_items WHERE id IN (".$in.")");
@@ -60,7 +104,7 @@
 
 	$title = "<table class='tooltipBodyUser'>";
 	$title .= "<tr><td colspan='2' align='center'>".$uiloc['weapon']."</td></tr>";
-	$title .= "<tr><td>".$uiloc['oneslot']."</td><td>".(!empty($rItem['iw']) ? $itemloc[$rItem['iw']['locale']] : $uiloc['empty'])."</td></tr>";
+	$title .= "<tr><td>".$uiloc['oneslot']."</td><td style='color:".getColorNameItem(getCountMods($_POST['url']['iw'])).";'>".(!empty($rItem['iw']) ? $itemloc[$rItem['iw']['locale']] : $uiloc['empty'])."</td></tr>";
 	$title .= "<tr><td>".$uiloc['damage']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['damage'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['piercing']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['sighting']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
@@ -69,19 +113,19 @@
 	$title .= "<tr><td>".$uiloc['distance']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['distance'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['rate']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['rate'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['weight'] : 0)."</td></tr>";
-	$title .= "<tr><td colspan='2' align='center'>".$uiloc['head']."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ie'])).";'>".$uiloc['head']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dHead."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iHead."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wHead."</td></tr>";
-	$title .= "<tr><td colspan='2' align='center'>".$uiloc['body']."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ia'])).";'>".$uiloc['body']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dBody."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iBody."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wBody."</td></tr>";
-	$title .= "<tr><td colspan='2' align='center'>".$uiloc['hand']."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ih'])).";'>".$uiloc['hand']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dHand."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iHand."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wHand."</td></tr>";
-	$title .= "<tr><td colspan='2' align='center'>".$uiloc['footer']."</td></tr>";
+	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['is'])).";'>".$uiloc['footer']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wFooter."</td></tr>";

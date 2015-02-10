@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 124
+ * @revision 125
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -92,6 +92,7 @@ function getModsUrl(countMods, typeitem, selector)
 				buf += ":0:0-0:0-0:0-0";
 			addUrlMods(typeitem, buf);
 			AjaxItemHandleP(selector, typeitem);
+			AjaxUserInfo();
 		}
 	});
 }

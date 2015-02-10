@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 117
+ * @revision 126
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	@include_once('../maincore.php');
-	list($countMods, $typeItem) = explode(":", $_POST['data']);
+	list($countMods, $typeItem, $idItem) = explode(":", $_POST['data']);
 	//таблиц возможных индификаторов для предметов
 	$Tmods = array(); $result = array();
 	$Tmods['iw'] = array(1 => 3, 2 => 8, 3 => 12, 4 => 14, 5 => 15, 6 => 17, 7 => 18, 8 => 19, 9 => 20, 10 => 21, 11 => 24);

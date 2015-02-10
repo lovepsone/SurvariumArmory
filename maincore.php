@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 130
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -31,8 +31,11 @@
 	}
 	define("BASEDIR", $folder_level);
 	require_once BASEDIR.'conf.php';
+	define("THEMES", BASEDIR."themes/default/");
+	define("INCLUDES", BASEDIR."include/");
+
 	$DB = NULL;
-	if(!@include(BASEDIR.'include/class.DB.php'))
+	if(!@include(INCLUDES.'class.DB.php'))
 		die("<b>Error:</b> can not open class.DB.php!!!");
 	define("DB_PREFIX", $Config['mysql']['prefix']);
 
@@ -41,4 +44,6 @@
 
 	if(!@include(BASEDIR.'locale/'.$Config['settings']['locale'].'/locale.php'))
 		die("<b>Error:</b> can not loaded locale!!!");
+
+	//include('themes/default/theme.php');
 ?>

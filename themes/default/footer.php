@@ -21,7 +21,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	//footer
-	echo '</td><td class="b-right"></td></tr><tr><td class="b-foot-left"></td><td class="b-foot"></td><td class="b-foot-right"></td></tr></table>';
-	echo '<div><hr width="80%"></div><div align="center"><font color="#ffffff">Author By Lovepsone<br>Copyright &copy; 2014-2015. Life Line Community.</font></div>';
+	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
+	echo '<td style="background-image: url(themes/default/footer.jpg); height: 25px; background-size: 100% 100%;"></td>';
+	echo '</tr></table>';
 	echo '</body></html>';
 ?>

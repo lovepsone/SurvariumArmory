@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 113
+ * @revision 130
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,27 +21,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	require_once 'maincore.php';
-	//if ($GET[''])
+	require_once THEMES.'header.php';
+
 	if (empty($_SERVER["QUERY_STRING"]))
 	{
 		$sUrl = '?iw=0:0-0:0-0:0-0:0:0-0:0-0:0-0&ie=0:0-0:0-0:0-0&im=0:0-0:0-0:0-0&ib=0:0-0:0-0:0-0&ia=0:0-0:0-0:0-0&ih=0:0-0:0-0:0-0&is=0:0-0:0-0:0-0&if=0:0-0:0-0:0-0';
 		echo "<script type='text/javascript'>document.location.href='".str_replace("&amp;", "&", "index.php".$sUrl)."'</script>\n";
 		exit;
 	}
-	echo '<!DOCTYPE html>';
-	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
-	echo '<head>';
-	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-	echo '<title>Survarium Armory</title>';
-	echo '<link rel="stylesheet" href="inventory.css">';
-	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
-	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
-	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
-	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
-	echo '</head><body>';
 
 	//скрытые
 	echo '<div><input type="hidden" id="FValue" value="0"/>';
@@ -114,5 +101,6 @@
 	echo '</table>';
 	// ----------------------------------------------------------------------------------------------------
 	echo '</td></tr></table>';//основная таблица
-	echo '</body></html>';
+
+	require_once THEMES.'footer.php';
 ?>

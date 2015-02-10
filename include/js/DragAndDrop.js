@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 121
+ * @revision 123
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,12 +24,13 @@ function EmptySlot(Selector, typeItem){$('#'+Selector).append('<div class="last'
 
 function addToolTip(data, CountMod)
 {
-	var t, tmod, vmod = 0, color = "#c6c6c6", v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v22 = 0;
+	var t, tmod, vmod = 0, color = "#c6c6c6", v14 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v21 = 0, v22 = 0;
 	tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>"
 	if (data['damage'] != undefined) v14 =  parseFloat(data['damage']);
 	if (data['defence'] != undefined) v16 =  parseInt(data['defence'], 10);
 	if (data['dispersion'] != undefined) v17 =  parseFloat(data['dispersion']);
 	if (data['rate'] != undefined) v18 =  parseFloat(data['rate']);
+	if (data['distance'] != undefined) v21 =  parseFloat(data['distance']);
 	if (data['isolation'] != undefined) v22 =  parseInt(data['isolation'], 10);
 
 	if (data['mods'] != false)
@@ -59,6 +60,8 @@ function addToolTip(data, CountMod)
 			  case 19:
 			    v19 -= calcPerOfVal(data['mods'][i]['value'], data['weight']);
 			    break;
+			  case 21:
+			    v21 += calcPerOfVal(data['mods'][i]['value'], data['distance']);
 			  case 22:
 			    v22 += parseInt(data['mods'][i]['value'], 10);
 			    break;
@@ -82,9 +85,9 @@ function addToolTip(data, CountMod)
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+data['localetxt']['s']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+data['localetxt']['p']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v17.toFixed(2).toString()+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['distance']+data['localetxt']['m']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v21.toString()+data['localetxt']['m']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['rate']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v18.toString()+"</td></tr>"+
-		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v19.toString()+data['localetxt']['k']+"</td></tr>";
+		"<tr height='20px' valign='top'><td>&nbsp;&nbsp;"+data['localetxt']['weight']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v19,2).toString()+data['localetxt']['k']+"</td></tr>";
 	}
 	if (vmod)
 		t += tmod;

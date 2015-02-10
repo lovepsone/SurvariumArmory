@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 116
+ * @revision 123
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -19,6 +19,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
+function roundPlus(x, n){if(isNaN(x) || isNaN(n)) return false; var m = Math.pow(10,n); return Math.round(x*m)/m; }
 function getUrls() { var vars = {}; var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { vars[key] = value; }); return vars; }
 function AjaxItems(strData){$.ajax({url: 'include/ItemInventory.php',type: 'POST',data:{'data': strData},success: function(data){$("#ItemInventory").html(data);InitDragAndDrop();}});}
 function AjaxUserInfo(){$.ajax({url: 'include/InfoUserHandle.php',type: 'POST',data:{'url': getUrls()},success: function(data){$("#userInfo").html(data);}});}
@@ -71,7 +72,7 @@ function getModsUrl(countMods, typeitem, selector)
 	{
 		url: 'include/ModsHandle.php',
 		type: 'POST',
-		data:{'data': countMods+':'+typeitem},
+		data:{'data': countMods+':'+typeitem+':'+uCheck(getUrls()[typeitem], 1)},
 		success: function(data)
 		{
 			var mods = JSON.parse(data), i, idItem = uCheck(getUrls()[typeitem], 1), buf = typeitem + "=" + idItem + ":";

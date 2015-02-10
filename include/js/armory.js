@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 123
+ * @revision 124
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -75,13 +75,13 @@ function getModsUrl(countMods, typeitem, selector)
 		data:{'data': countMods+':'+typeitem+':'+uCheck(getUrls()[typeitem], 1)},
 		success: function(data)
 		{
-			var mods = JSON.parse(data), i, idItem = uCheck(getUrls()[typeitem], 1), buf = typeitem + "=" + idItem + ":";
+			var mods = JSON.parse(data), i, idItem = uCheck(getUrls()[typeitem], 1), buf = typeitem + "=" + idItem.toString() + ":";
 			for (i = 0; i < mods.length; i++)
 			{
 				if ( i < 2)
-					buf += mods[i]['id'] + "-" + mods[i]['val'] + ":";
+					buf += mods[i]['id'].toString() + "-" + mods[i]['val'].toString() + ":";
 				else
-					buf += mods[i]['id'] + '-' + mods[i]['val'];
+					buf += mods[i]['id'].toString() + "-" + mods[i]['val'].toString();
 			}
 			if (mods.length == 1)
 				buf += "0-0:0-0";

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 125
+ * @revision 127
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -60,6 +60,11 @@
 		return $color;
 	}
 
+	function calcPerOfVal($per, $val)
+	{
+		return $val*$per/100.0;
+	}
+
 	$item = array(0=>'iw', 1=>'ie', 2=>'im', 3=>'ib', 4=>'ia', 5=>'ih', 6=>'is', 7=>'if');
 	$itemId = array();
 	$modsId = array();
@@ -75,7 +80,15 @@
 		// модификаторы
 		if ((int)$d[0] != 0)
 		{
-			//$modsId[$item[$i]]	
+			$mCount = getCountMods($_POST['url'][$item[$i]]);
+			for ($j = 0; $j < $mCount; $j++)
+			{
+				$mod = explode("-", $d[$j+1]);
+				$STH = $DBH->query("SELECT * FROM armory_mods WHERE id=".$mod[0]);
+				$STH->execute();
+				$modsId[$item[$i]][$j] = $STH->fetch(PDO::FETCH_ASSOC);
+				$modsId[$item[$i]][$j]['values'] = $mod[1];
+			}
 		}
 	}
 
@@ -86,33 +99,72 @@
 	{
 		$rItem[$res['selector']] = $res;
 	}
-	$dHead = (!empty($rItem['ie']) ? $rItem['ie']['defence'] : 0) + (!empty($rItem['im']) ? $rItem['im']['defence'] : 0);
-	$iHead = (!empty($rItem['ie']) ? $rItem['ie']['isolation'] : 0) + (!empty($rItem['im']) ? $rItem['im']['isolation'] : 0);
-	$wHead = (!empty($rItem['ie']) ? $rItem['ie']['weight'] : 0) + (!empty($rItem['im']) ? $rItem['im']['weight'] : 0);
-	$dBody = /*(!empty($rItem['ib']) ? $rItem['ie']['defence'] : 0) + */(!empty($rItem['ia']) ? $rItem['ia']['defence'] : 0);
-	$iBody = /*(!empty($rItem['ib']) ? $rItem['ie']['isolation'] : 0) + */(!empty($rItem['ia']) ? $rItem['ia']['isolation'] : 0);
-	$wBody = (!empty($rItem['ib']) ? $rItem['ib']['weight'] : 0) + (!empty($rItem['ia']) ? $rItem['ia']['weight'] : 0);
-	$dHand = (!empty($rItem['ih']) ? $rItem['ih']['defence'] : 0);
-	$iHand = (!empty($rItem['ih']) ? $rItem['ih']['isolation'] : 0);
-	$wHand = (!empty($rItem['ih']) ? $rItem['ih']['weight'] : 0);
-	$dFooter = (!empty($rItem['if']) ? $rItem['if']['defence'] : 0) + (!empty($rItem['is']) ? $rItem['is']['defence'] : 0);
-	$iFooter = (!empty($rItem['if']) ? $rItem['if']['isolation'] : 0) + (!empty($rItem['is']) ? $rItem['is']['isolation'] : 0);
-	$wFooter = (!empty($rItem['if']) ? $rItem['if']['weight'] : 0) + (!empty($rItem['is']) ? $rItem['is']['weight'] : 0);
+	//append values mods
+	$amods = array();
+	for ($i = 0; $i < count($item); $i++)
+		$amods[$item[$i]] = array(14 => 0, 16 => 0, 17 => 0, 18 => 0, 19 => 0, 21 => 0, 22 => 0);
+
+	for ($i = 0; $i < count($_POST['url']); $i++)
+	{
+		if (!empty($modsId[$item[$i]]) && count($modsId[$item[$i]]) > 0)
+		{
+			for ($j = 0; $j < count($modsId[$item[$i]]); $j++)
+			{
+				switch ($modsId[$item[$i]][$j]['id'])
+				{
+				  case 14:
+				    $amods[$item[$i]][14] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['damage']);
+				    break;
+				  case 16:
+				    $amods[$item[$i]][16] = $modsId[$item[$i]][$j]['values'];
+				    break;
+				  case 17:
+				    $amods[$item[$i]][17] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['dispersion']);
+				    break;
+				  case 18:
+				    $amods[$item[$i]][18] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['rate']);
+				    break;
+				  case 19:
+				    $amods[$item[$i]][19] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['weight']);
+				    break;
+				  case 21:
+				    $amods[$item[$i]][21] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['distances']);
+				    break;
+				  case 22:
+				    $amods[$item[$i]][22] = $modsId[$item[$i]][$j]['values'];;
+				    break;
+				}
+			}
+		}
+	}
+//echo count($modsId[$item[$i]]);
+	$dHead = (!empty($rItem['ie']) ? ($rItem['ie']['defence'] + $amods['ie'][16]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['defence'] + $amods['im'][16]) : 0);
+	$iHead = (!empty($rItem['ie']) ? ($rItem['ie']['isolation'] + $amods['ie'][22]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['isolation'] + $amods['im'][22]) : 0);
+	$wHead = (!empty($rItem['ie']) ? ($rItem['ie']['weight'] - $amods['ie'][19]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['weight'] - $amods['im'][19]) : 0);
+	$dBody = /*(!empty($rItem['ib']) ? $rItem['ie']['defence'] : 0) + */(!empty($rItem['ia']) ? ($rItem['ia']['defence'] + $amods['ia'][16]) : 0);
+	$iBody = /*(!empty($rItem['ib']) ? $rItem['ie']['isolation'] : 0) + */(!empty($rItem['ia']) ? ($rItem['ia']['isolation'] + $amods['ia'][22]) : 0);
+	$wBody = (!empty($rItem['ib']) ? ($rItem['ib']['weight'] - $amods['ib'][19]) : 0) + (!empty($rItem['ia']) ? ($rItem['ia']['weight'] - $amods['ia'][19]) : 0);
+	$dHand = (!empty($rItem['ih']) ? ($rItem['ih']['defence']  + $amods['ih'][16]) : 0);
+	$iHand = (!empty($rItem['ih']) ? ($rItem['ih']['isolation'] + $amods['ih'][22]) : 0);
+	$wHand = (!empty($rItem['ih']) ? ($rItem['ih']['weight'] - $amods['ih'][19]) : 0);
+	$dFooter = (!empty($rItem['if']) ? ($rItem['if']['defence'] + $amods['if'][16]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['defence'] + $amods['is'][16]) : 0);
+	$iFooter = (!empty($rItem['if']) ? ($rItem['if']['isolation'] + $amods['if'][22]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['isolation'] + $amods['is'][22]) : 0);
+	$wFooter = (!empty($rItem['if']) ? ($rItem['if']['weight'] - $amods['if'][19]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['weight'] - $amods['is'][19]) : 0);
 	$dGeneral = $dHead + $dBody + $dHand + $dFooter;
 	$iGeneral = $iHead + $iBody + $iHand + $iFooter;
-	$wGeneral = $wHead + $wBody + $wHand + $wFooter;
+	$wGeneral = $wHead + $wBody + $wHand + $wFooter + (!empty($rItem['iw']) ? ($rItem['iw']['weight'] - $amods['iw'][19]) : 0);
 
 	$title = "<table class='tooltipBodyUser'>";
 	$title .= "<tr><td colspan='2' align='center'>".$uiloc['weapon']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['oneslot']."</td><td style='color:".getColorNameItem(getCountMods($_POST['url']['iw'])).";'>".(!empty($rItem['iw']) ? $itemloc[$rItem['iw']['locale']] : $uiloc['empty'])."</td></tr>";
-	$title .= "<tr><td>".$uiloc['damage']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['damage'] : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['damage']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['damage']+$amods['iw'][14]) : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['piercing']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['sighting']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['stoppower']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['piercing'] : 0)."</td></tr>";
-	$title .= "<tr><td>".$uiloc['dispersion']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['dispersion'] : 0)."</td></tr>";
-	$title .= "<tr><td>".$uiloc['distance']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['distance'] : 0)."</td></tr>";
-	$title .= "<tr><td>".$uiloc['rate']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['rate'] : 0)."</td></tr>";
-	$title .= "<tr><td>".$uiloc['weight']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['weight'] : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['dispersion']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['dispersion'] - $amods['iw'][17]) : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['distance']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['distance'] + $amods['iw'][21]) : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['rate']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['rate'] + $amods['iw'][18]) : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['weight']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['weight'] - $amods['iw'][19]) : 0)."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ie'])).";'>".$uiloc['head']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dHead."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iHead."</td></tr>";

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 105
+ * @revision 138
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,8 +22,8 @@
  **/
 
 	@include_once("../maincore.php");
-	$font = "Arial.ttf";
-	$fontsize = 12;
+	$font = "calibri.ttf";
+	$fontsize = 16;
 	$text = $locale[$_GET["type"]];
 
 	$bg = ImageCreateFromPng("../images/user/slot.png");

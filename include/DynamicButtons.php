@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 111
+ * @revision 138
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,8 +21,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	@include_once("../maincore.php");
-	$font = "Arial.ttf";
-	$fontsize = 14;
+	$font = "calibri.ttf";
+	$fontsize = 16;
 	$text = $locale['equipment'];
 
 	$bg = ImageCreateFromPng("../images/user/button.png");

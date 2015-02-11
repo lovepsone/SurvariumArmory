@@ -1,9 +1,9 @@
 <?php
 /**
  * @package Survarium Armory
- * @version Release 1.3
+ * @version Release 2.0
  * @revision 133
- * @copyright (c) 2014 lovepsone
+ * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * This program is free software; you can redistribute it and/or modify
@@ -23,9 +23,24 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header.php';
 	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
-	
-	echo '<table class="tbl"><tr><td>'.$Config['welcome'].'</td></tr>';
-	echo '</table>';
+	$sWelcome = array('n'=>'welcome', 'v'=>'');
+	if (isset($_POST['savesettings']))
+	{
+		$sWelcome['v'] = $_POST['welcome'];
+		$STH = $DBH->prepare("UPDATE armory_settings SET settings_value=:v WHERE settings_name=:n");
+		$STH->execute($sWelcome);
+		Redirect(SELF);
+	}
+	$STH = $DBH->prepare("SELECT * FROM `armory_settings`");
+	$STH->execute();
+	while($row = $STH->fetch(PDO::FETCH_ASSOC))
+		$settings[$row['settings_name']] = $row['settings_value'];
+
+	echo '<form name="settingsform" method="post"><table class="tbl">';
+	echo '<tr><td colspan="2" align="center"><h2>'.$locadmin['settings'].'</h2></td></tr>';
+	echo '<tr><td align="right" with="200px">'.$locadmin['welcome'].'</td><td align="left" with="400px"><textarea id="txt" name="welcome">'.$settings['welcome'].'</textarea></td></tr>';
+	echo '<tr><td colspan="2" align="center"><input type="submit" name="savesettings"  class="button" value="accept"/></td></tr>';
+	echo '</table></form>';
 
 	echo '</td></tr></table>';//основная таблица
 	require_once THEMES.'footer.php';

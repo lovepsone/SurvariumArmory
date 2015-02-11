@@ -1,9 +1,9 @@
 <?php
 /**
  * @package Survarium Armory
- * @version Release 1.3
- * @revision 75
- * @copyright (c) 2014 lovepsone
+ * @version Release 2.0
+ * @revision 122
+ * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  * This program is free software; you can redistribute it and/or modify
@@ -20,17 +20,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	@include('template/header.php');
-	$fp = fopen('info/index.txt', 'r');
-	if ($fp) 
-	{
-		while (!feof($fp))
-		{
-			$mytext = fgets($fp, 999);
-			echo $mytext;
-		}
-	}
-	else echo "Error index!!!";
-	fclose($fp);
-	@include('template/footer.php');
+$locadmin = array();
+$locadmin['settings'] = 'Основные настройки';
+$locadmin['welcome'] = 'Приветствие: ';
 ?>

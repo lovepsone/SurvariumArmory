@@ -24,6 +24,20 @@
 	error_reporting(E_ALL);
 
 	$folder_level = ''; $i = 0;
+	function Redirect($location, $script = false)
+	{
+		if (!$script)
+		{
+			header("Location: ".str_replace("&amp;", "&", $location));
+			exit;
+		}
+		else
+		{
+			echo "<script type='text/javascript'>document.location.href='".str_replace("&amp;", "&", $location)."'</script>\n";
+			exit;
+		}
+	}
+
 	while (!file_exists($folder_level.'conf.php'))
 	{
 		$folder_level .= '../'; $i++;
@@ -33,6 +47,7 @@
 	require_once BASEDIR.'conf.php';
 	define("THEMES", BASEDIR."themes/default/");
 	define("INCLUDES", BASEDIR."include/");
+	define("SELF", basename($_SERVER['PHP_SELF']));
 
 	$DB = NULL;
 	if(!@include(INCLUDES.'class.DB.php'))
@@ -41,9 +56,14 @@
 
 	$DBH = new DB("mysql:host=".$Config['mysql']['hostname'].";dbname=".$Config['mysql']['dbname'], $Config['mysql']['username'], $Config['mysql']['password'], $Config['mysql']['charset']);
 	$DBH->error = $Config['mysql']['error'];
+	// load settings
+	$STH = $DBH->prepare("SELECT * FROM `armory_settings`");
+	$STH->execute();
+	while($row = $STH->fetch(PDO::FETCH_ASSOC))
+		$Config[$row['settings_name']] = $row['settings_value'];
 
 	if(!@include(BASEDIR.'locale/'.$Config['settings']['locale'].'/locale.php'))
 		die("<b>Error:</b> can not loaded locale!!!");
-
-	//include('themes/default/theme.php');
+	if(!@include(BASEDIR.'locale/'.$Config['settings']['locale'].'/locale_admin.php'))
+		die("<b>Error:</b> can not loaded admin locale!!!");
 ?>

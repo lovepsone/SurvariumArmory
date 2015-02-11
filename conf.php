@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 133
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,7 +24,7 @@
 # Survarium Armory configuration file #
 #######################################
 $Config = array();
-$WCFConfig['mysql'] = array();
+$Config['mysql'] = array();
 $Config['settings'] = array();
 ##############################################################################################
 # MySQL Database Configuration

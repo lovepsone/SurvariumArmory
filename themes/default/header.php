@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 132
+ * @revision 133
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -35,9 +35,26 @@
 	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
+	echo '<script type="text/javascript" src="include/js/tinymce/tinymce.min.js"></script>';
+?>
+<script>tinymce.init(
+{
+	selector:'textarea#txt',
+	language : 'ru',
+	theme: "modern",
+	width: 500,
+	height: 200,
+	plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste textcolor"
+	],
+	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons"
+});</script>
+<?php
 	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%;">';
 
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td class="head"></td>';
+	echo '<td class="head" align="right">&middot;<a href="index.php">Main</a>&middot;<a href="inventory.php">Armory</a></td>';
 	echo '</tr></table>';
 ?>

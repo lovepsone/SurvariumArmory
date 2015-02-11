@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 136
+ * @revision 139
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -25,6 +25,7 @@
 		global $locale;
 		echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
 		echo '<td class="head" align="right">';
+		echo '<a href="http://llgc.ru">&middot;Life Line</a>';
 		echo '<a href="index.php">&middot;'.$locale['main'].'</a>';
 		echo '<a href="inventory.php">&middot;'.$locale['inventory'].'</a>';
 		echo '<a href="changelog.php">&middot;'.$locale['changelog'].'</a></td>';

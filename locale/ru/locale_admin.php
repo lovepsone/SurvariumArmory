@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 122
+ * @revision 135
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,4 +23,5 @@
 $locadmin = array();
 $locadmin['settings'] = 'Основные настройки';
 $locadmin['welcome'] = 'Приветствие: ';
+$locadmin['changelog'] = 'Сhange log: ';
 ?>

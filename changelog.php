@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 135
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,17 +20,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	@include('template/header.php');
-	$fp = fopen('info/changelog.txt', 'r');
-	if ($fp) 
-	{
-		while (!feof($fp))
-		{
-			$mytext = fgets($fp, 999);
-			echo $mytext;
-		}
-	}
-	else echo "Error index!!!";
-	fclose($fp);
-	@include('template/footer.php');
+	require_once 'maincore.php';
+	require_once THEMES.'header.php';
+	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
+	
+	echo '<table class="tbl"><tr><td>'.$Config['changelog'].'</td></tr>';
+	echo '</table>';
+
+	echo '</td></tr></table>';//основная таблица
+	require_once THEMES.'footer.php';
 ?>

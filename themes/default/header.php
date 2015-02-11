@@ -31,6 +31,6 @@
 	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
 
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td class="head" align="right">&middot;<a href="index.php">Main</a>&middot;<a href="inventory.php">Armory</a></td>';
+	echo '<td class="head" align="right">&middot;<a href="index.php">Main</a>&middot;<a href="inventory.php">Armory</a>&middot;<a href="changelog.php">changelog</a></td>';
 	echo '</tr></table>';
 ?>

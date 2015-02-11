@@ -26,8 +26,16 @@
 	echo '<head>';
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 	echo '<title>Survarium Armory</title>';
+	echo '<link rel="stylesheet" href="inventory.css">';
 	echo '<link rel="stylesheet" href="themes/default/style.css">';
 	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.json.js"></script>';
+	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
+	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
+
 	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
 
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';

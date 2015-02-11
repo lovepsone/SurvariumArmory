@@ -28,6 +28,23 @@
 	echo '<title>Survarium Armory</title>';
 	echo '<link rel="stylesheet" href="themes/default/style.css">';
 	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
+	echo '<script type="text/javascript" src="include/js/tinymce/tinymce.min.js"></script>';
+?>
+<script>tinymce.init(
+{
+	selector:'textarea#txt',
+	language : 'ru',
+	theme: "modern",
+	width: 500,
+	height: 200,
+	plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+         "save table contextmenu directionality emoticons template paste textcolor"
+	],
+	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons"
+});</script>
+<?php
 	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
 
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';

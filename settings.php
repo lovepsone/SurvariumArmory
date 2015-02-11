@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 133
+ * @revision 134
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	require_once 'maincore.php';
-	require_once THEMES.'header.php';
+	require_once THEMES.'header_tinymse.php';
 	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
 	$sWelcome = array('n'=>'welcome', 'v'=>'');
 	if (isset($_POST['savesettings']))

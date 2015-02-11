@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 135
+ * @revision 136
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,6 +22,7 @@
  **/
 	require_once 'maincore.php';
 	require_once THEMES.'header_tinymse.php';
+	HeadMenu();
 	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
 	$sWelcome = array('n'=>'welcome', 'v'=>'');
 	$SChangelog = array('n'=>'changelog', 'v'=>'');

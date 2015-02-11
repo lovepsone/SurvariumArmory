@@ -20,15 +20,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	$body = array(1 => 'body1.png', 2 => 'body2.png', 3 => 'body3.png', 4 => 'body1.png');
-	echo '<!DOCTYPE html>';
-	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
-	echo '<head>';
-	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-	echo '<title>Survarium Armory</title>';
-	echo '<link rel="stylesheet" href="themes/default/style.css">';
-	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
-	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
-
-	require_once 'theme.php';
+	function HeadMenu()
+	{
+		global $locale;
+		echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
+		echo '<td class="head" align="right">';
+		echo '<a href="index.php">&middot;'.$locale['main'].'</a>';
+		echo '<a href="inventory.php">&middot;'.$locale['inventory'].'</a>';
+		echo '<a href="changelog.php">&middot;'.$locale['changelog'].'</a></td>';
+		echo '</tr></table>';
+	}
 ?>

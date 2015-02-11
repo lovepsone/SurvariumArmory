@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 122
+ * @revision 136
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -52,6 +52,9 @@ $locale['contextgold'] = 'Золотой предмет';
 $locale['contextsetting'] = 'Настройка предмета';
 
 $locale['equipment'] = 'Информация об экипировке';
+$locale['main'] = 'На главную';
+$locale['inventory'] = 'Инвентарь';
+$locale['changelog'] = 'История версий';
 
 $locale['iw'] = 'Оружие';
 $locale['ie'] = 'Шлем';

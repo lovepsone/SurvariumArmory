@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 134
+ * @revision 136
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,7 +22,7 @@
  **/
 	//footer
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td class="footer"></td>';
+	echo '<td class="footer" align="center"><b>Survsrium Armory v'.$Config['settings']['version'].'. Copyright &copy;2014-2015 by Lovepsone</td>';
 	echo '</tr></table>';
 	echo '</body></html>';
 ?>

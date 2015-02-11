@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 127
+ * @revision 140
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -128,7 +128,7 @@
 				    $amods[$item[$i]][19] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['weight']);
 				    break;
 				  case 21:
-				    $amods[$item[$i]][21] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['distances']);
+				    $amods[$item[$i]][21] = calcPerOfVal($modsId[$item[$i]][$j]['values'], $rItem[$item[$i]]['distance']);
 				    break;
 				  case 22:
 				    $amods[$item[$i]][22] = $modsId[$item[$i]][$j]['values'];;

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 132
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,14 +20,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
+	$body = array(1 => 'body1.png', 2 => 'body2.png', 3 => 'body3.png', 4 => 'body1.png');
 	echo '<!DOCTYPE html>';
-	//echo '<html xmlns="http://www.w3.org/1999/xhtml">';
-	echo '<html lang="en">';
+	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
 	echo '<head>';
-	//echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-	echo '<meta charset="UTF-8">';
+	echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 	echo '<title>Survarium Armory</title>';
 	echo '<link rel="stylesheet" href="inventory.css">';
+	echo '<link rel="stylesheet" href="themes/default/style.css">';
 	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.ui.custom.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/jquery.mousewheel.min.js"></script>';
@@ -35,9 +35,9 @@
 	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
-	echo '</head><body style="background-image: url(themes/default/body.png); background-size: 100% 100%;">';
+	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%;">';
 
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td style="background-image: url(themes/default/head.png); height: 51px; background-size: 100% 100%;"></td>';
+	echo '<td class="head"></td>';
 	echo '</tr></table>';
 ?>

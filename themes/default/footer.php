@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 132
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,7 +22,7 @@
  **/
 	//footer
 	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td style="background-image: url(themes/default/footer.jpg); height: 25px; background-size: 100% 100%;"></td>';
+	echo '<td class="footer"></td>';
 	echo '</tr></table>';
 	echo '</body></html>';
 ?>

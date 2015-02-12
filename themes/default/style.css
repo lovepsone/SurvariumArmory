@@ -2,6 +2,7 @@ body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; colo
 .body-main { height: 723px; width: 100%;}
 .head {background-image: url('head.png'); height: 51px; background-size: 100% 100%;}
 .footer {background-image: url('footer.jpg'); height: 25px; background-size: 100% 100%;}
-.tbl {height: 500px; width: 646px; background-image: url('tbl.png'); padding:15px;  vertical-align:text-top;}
+.tbl {width: 646px; background-image: url('tbl.png'); padding:15px;}
+.tbl td {vertical-align: top;}
 .head a { text-decoration: none; color: #ffffff; font-size: 14px; padding:10px;}
 .head a:hover { color: #ffcc00; text-decoration: underline;}

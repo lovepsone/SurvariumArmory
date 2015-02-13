@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 142
+ * @revision 144
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -59,8 +59,102 @@
 	{
 		$STH = $DBH->query("SELECT * FROM armory_items WHERE id=".$_POST['idItem']);
 		$STH->execute();
-		print_r($STH->fetch(PDO::FETCH_ASSOC));
+		$data = $STH->fetch(PDO::FETCH_ASSOC);
+		echo '<form name="setitemform" method="post"><table class="tbl">';
+		if ((int)$data['typeItem'] == 1)
+		{
+			if ($data['selector'] == 'ie')
+			{
+				echo '<tr><td>'.$locadmin['twoslots'].'</td><td><select name="typeweapon" class="textbox">';
+				if ($data['twoslots'] == 0)
+				{
+					echo '<option value="0" selected="selected">'.$locadmin['n'].'</option>';
+					echo '<option value="1">'.$locadmin['y'].'</option>';
+				}
+				else
+				{
+					echo '<option value="0">'.$locadmin['n'].'</option>';
+					echo '<option value="1" selected="selected">'.$locadmin['y'].'</option>';
+				}
+				echo '</select></td></tr>';
+			}
+			if ($data['selector'] == 'ib')
+			{
+				echo '<tr><td>'.$locadmin['typeib'].'</td><td><select name="typeweapon" class="textbox">';
+				if ($data['typeib'] == 0)
+				{
+					echo '<option value="0" selected="selected">'.$locadmin['n'].'</option>';
+					echo '<option value="1">'.$locadmin['y'].'</option>';
+				}
+				else
+				{
+					echo '<option value="0">'.$locadmin['n'].'</option>';
+					echo '<option value="1" selected="selected">'.$locadmin['y'].'</option>';
+				}
+				echo '</select></td></tr>';	
+			}
+			else
+			{
+				echo '<tr><td>'.$locale['defence'].'</td><td><input type="text" name="defence" value="'.$data['defence'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+				echo '<tr><td>'.$locale['isolation'].'</td><td><input type="text" name="isolation" value="'.$data['isolation'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			}
+			echo '<tr><td>'.$locale['weight'].'</td><td><input type="text" name="weight" value="'.$data['weight'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['lvl'].'</td><td><input type="text" name="level" value="'.$data['level'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locadmin['cost'].'</td><td><input type="text" name="cost" value="'.$data['cost'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td colspan="2" align="center"><input type="hidden" name="iditem"  class="button" value="'.$data['id'].'"/><input type="submit" name="selitem"  class="button" value="accept"/></td></tr>';
+		}
+		else if ((int)$data['typeItem'] == 2)
+		{
+			echo '<tr><td>'.$locadmin['typeweapon'].'</td><td><select name="typeweapon" class="textbox">';
+			if ($data['typeweapon'] == 0)
+			{
+				echo '<option value="0" selected="selected">'.$locadmin['tw0'].'</option>';
+				echo '<option value="1">'.$locadmin['tw1'].'</option>';
+			}
+			else
+			{
+				echo '<option value="0">'.$locadmin['tw0'].'</option>';
+				echo '<option value="1" selected="selected">'.$locadmin['tw1'].'</option>';
+			}
+			echo '</select></td></tr>';
+			echo '<tr><td>'.$locale['damage'].'</td><td><input type="text" name="damage" value="'.$data['damage'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['piercing'].'</td><td><input type="text" name="piercing" value="'.$data['piercing'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['sighting'].'</td><td><input type="text" name="sighting" value="'.$data['sighting'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['stoppower'].'</td><td><input type="text" name="stoppower" value="'.$data['stoppower'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['dispersion'].'</td><td><input type="text" name="dispersion" value="'.$data['dispersion'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['distance'].'</td><td><input type="text" name="distance" value="'.$data['distance'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['rate'].'</td><td><input type="text" name="rate" value="'.$data['rate'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['weight'].'</td><td><input type="text" name="weight" value="'.$data['weight'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locale['lvl'].'</td><td><input type="text" name="level" value="'.$data['level'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td>'.$locadmin['cost'].'</td><td><input type="text" name="cost" value="'.$data['cost'].'" maxlength="255" class="textbox" style="width:230px;"/></td></tr>';
+			echo '<tr><td colspan="2" align="center"><input type="hidden" name="iditem"  class="button" value="'.$data['id'].'"/><input type="submit" name="selitem"  class="button" value="accept"/></td></tr>';
+		}
+		echo '</table></form>';
 	}
-
+	if (isset($_POST['selitem']))
+	{
+		//echo $_POST['iditem'];
+		$data = array(
+		'id'=> $_POST['iditem'],
+		'twoslots'=> (isset($_POST['twoslots']) ? $_POST['twoslots'] : 0),
+		'defence'=> (isset($_POST['defence']) ? $_POST['defence'] : 0),
+		'isolation'=> (isset($_POST['isolation']) ? $_POST['isolation'] : 0),
+		'typeib'=> (isset($_POST['typeib']) ? $_POST['typeib'] : 0),
+		'typeweapon'=> (isset($_POST['typeweapon']) ? $_POST['typeweapon'] : 0),
+		'damage'=> (isset($_POST['damage']) ? $_POST['damage'] : 0),
+		'piercing'=> (isset($_POST['piercing']) ? $_POST['piercing'] : 0),
+		'sighting'=> (isset($_POST['sighting']) ? $_POST['sighting'] : 0),
+		'stoppower'=> (isset($_POST['stoppower']) ? $_POST['stoppower'] : 0),
+		'dispersion'=> (isset($_POST['dispersion']) ? $_POST['dispersion'] : 0),
+		'distance'=> (isset($_POST['distance']) ? $_POST['distance'] : 0),
+		'rate'=> (isset($_POST['rate']) ? $_POST['rate'] : 0),
+		'weight'=> (isset($_POST['weight']) ? $_POST['weight'] : 0),
+		'cost'=> (isset($_POST['cost']) ? $_POST['cost'] : 0),
+		'level'=> (isset($_POST['level']) ? $_POST['level'] : 0)
+		);
+		//print_r($data);
+		$STH = $DBH->prepare("UPDATE armory_items SET twoslots=:twoslots, defence=:defence, isolation=:isolation, typeib=:typeib, typeweapon=:typeweapon, damage=:damage, piercing=:piercing, sighting=:sighting, stoppower=:stoppower, dispersion=:dispersion, distance=:distance, rate=:rate, weight=:weight, cost=:cost, level=:level WHERE id=:id");
+		$STH->execute($data);
+	}
 	require_once THEMES.'footer.php';
 ?>

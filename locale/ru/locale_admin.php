@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 135
+ * @revision 144
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,4 +24,14 @@ $locadmin = array();
 $locadmin['settings'] = 'Основные настройки';
 $locadmin['welcome'] = 'Приветствие: ';
 $locadmin['changelog'] = 'Сhange log: ';
+$locadmin['typeitem'] = 'Выберите тип предмета';
+$locadmin['item'] = 'Выберите предмет';
+$locadmin['cost'] = 'Стоимость';
+$locadmin['typeweapon'] = 'Тип оружия';
+$locadmin['tw1'] = 'Снайперское';
+$locadmin['tw0'] = 'Штурмавое';
+$locadmin['y'] = 'Да';
+$locadmin['n'] = 'нет';
+$locadmin['twoslots'] = 'Шлем с двумя слотами?';
+$locadmin['typeib'] = 'Это кислародный балон?';
 ?>

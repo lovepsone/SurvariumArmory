@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 137
+ * @revision 142
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -40,7 +40,6 @@
 	echo '<li><a href="#" id="TypeMod3">'.$locale['contextgold'].'</a></li>';
 	echo '<li><a href="#" id="TypeMod4">'.$locale['contextsetting'].'</a></li></ul></div>';
 
-	echo '<table class="body-main" border="0px" align="center"><tr><td align="right">';//основная таблица
 	//таблица юзера
 	// ----------------------------------------------------------------------------------------------------
 	echo '<table class="b-user" border="0px">';
@@ -98,8 +97,6 @@
 	echo '<input type="radio" name="ItemSort" id="SortL" value="1" checked="checked"/>'.$locale['sortl'].'<input type="radio" name="ItemSort" id="SortP" value="2"/>'.$locale['sortp'];
 	echo '</td></tr>';
 	echo '</table>';
-	// ----------------------------------------------------------------------------------------------------
-	echo '</td></tr></table>';//основная таблица
 
 	require_once THEMES.'footer.php';
 ?>

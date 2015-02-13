@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 139
+ * @revision 142
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -21,8 +21,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
 	//footer
-	echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
-	echo '<td class="footer" align="center"><b>Survsrium Armory v'.$Config['settings']['version'].'. Copyright &copy; 2014-2015 by Lovepsone</td>';
-	echo '</tr></table>';
+	//echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
+	//echo '<td class="footer" align="center"><b>Survarium Armory v'.$Config['settings']['version'].'. Copyright &copy; 2014-2015 by Lovepsone</td>';
+	//echo '</tr></table>';
+	Footer();
 	echo '</body></html>';
 ?>

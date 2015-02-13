@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 141
+ * @revision 142
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,7 +23,7 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header_tinymse.php';
 	HeadMenu();
-	echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
+
 	$item = array(0=>'iw', 1=>'ie', 2=>'im', 3=>'ib', 4=>'ia', 5=>'ih', 6=>'is', 7=>'if');
 	$dataItemType = '';
 	for ($i = 0; $i < count($item); $i++)
@@ -62,6 +62,5 @@
 		print_r($STH->fetch(PDO::FETCH_ASSOC));
 	}
 
-	echo '</td></tr></table>';//основная таблица
 	require_once THEMES.'footer.php';
 ?>

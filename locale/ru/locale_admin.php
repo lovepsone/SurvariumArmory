@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 144
+ * @revision 145
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -34,4 +34,14 @@ $locadmin['y'] = 'Да';
 $locadmin['n'] = 'нет';
 $locadmin['twoslots'] = 'Шлем с двумя слотами?';
 $locadmin['typeib'] = 'Это кислародный балон?';
+$locadmin['editmods'] = 'Редактор стандартных модификаторов';
+$locadmin['subject'] = 'Предмет';
+$locadmin['mods'] = 'Модификатор';
+$locadmin['activity'] = 'Действие';
+$locadmin['addmods'] = 'Добавить мод';
+$locadmin['delmods'] = 'Удалить мод';
+$locadmin['delmodsucces'] = 'Модификатор успешно удален!';
+$locadmin['back'] = '<< Назад';
+$locadmin['nameItem'] = 'Название предмета:';
+$locadmin['value'] = 'Значение:';
 ?>

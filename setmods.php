@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 145
+ * @revision 146
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -33,7 +33,7 @@
 		'idMod'=>$_POST['mod'],
 		'value'=>$_POST['valuemod']
 		);
-		$STH = $DBH->prepare("INSERT INTO `armory_items_mods`(`idItem`, `idMod`, `value`) VALUES (:idItem,:mod,:valuemod)");
+		$STH = $DBH->prepare("INSERT INTO `armory_items_mods`(`idItem`, `idMod`, `value`) VALUES (:idItem, :idMod, :value)");
 		$STH->execute($data);
 		Redirect(SELF, true);
 	}
@@ -70,7 +70,7 @@
 	{
 		echo '<tr><td align="left">'.$locadmin['subject'].'</td><td align="left">'.$locadmin['mods'].'</td><td align="left">'.$locadmin['activity'].'</td></tr>';
 		echo '<tr><td colspan="3" align="center"><hr></td></tr>';
-		$STH = $DBH->prepare("SELECT * FROM armory_items_mods LEFT JOIN armory_mods ON armory_mods.`id` = armory_items_mods.`idMod` LEFT JOIN armory_items ON armory_items_mods.`idItem`=armory_items.`id` ORDER BY armory_items.`id`");
+		$STH = $DBH->prepare("SELECT * FROM armory_items_mods LEFT JOIN armory_mods ON armory_mods.`id` = armory_items_mods.`idMod` LEFT JOIN armory_items ON armory_items_mods.`idItem`=armory_items.`id` ORDER BY armory_items.`selector`, armory_items.`id`");
 		$STH->execute();
 		while($res = $STH->fetch(PDO::FETCH_ASSOC))
 		{

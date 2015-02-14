@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 142
+ * @revision 154
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -34,7 +34,7 @@
 		$STH->execute($sWelcome);
 		$STH = $DBH->prepare("UPDATE armory_settings SET settings_value=:v WHERE settings_name=:n");
 		$STH->execute($SChangelog);
-		Redirect(SELF);
+		Redirect(SELF, true);
 	}
 	$STH = $DBH->prepare("SELECT * FROM `armory_settings`");
 	$STH->execute();

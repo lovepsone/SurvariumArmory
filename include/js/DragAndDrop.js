@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 152
+ * @revision 155
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -24,8 +24,9 @@ function EmptySlot(Selector, typeItem){$('#'+Selector).append('<div class="last'
 
 function addToolTip(data, CountMod)
 {
-	var t, tmod, vmod = 0, color = "#c6c6c6", v14 = 0, v15 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v21 = 0, v22 = 0;
+	var t, tmod, vmod = 0, color = "#c6c6c6", v3 = 0, v14 = 0, v15 = 0, v16 = 0, v17 = 0, v18 = 0, v19 = parseFloat(data['weight']), v21 = 0, v22 = 0;
 	tmod = "<tr valign='bottom'><td colspan='2'><hr style='color:#ffffff;' width='90%'></td></tr>"
+	if (data['sighting'] != undefined) v3 =  parseFloat(data['sighting']);
 	if (data['damage'] != undefined) v14 =  parseFloat(data['damage']);
 	if (data['piercing'] != undefined) v15 =  parseFloat(data['piercing']);
 	if (data['defence'] != undefined) v16 =  parseInt(data['defence'], 10);
@@ -46,6 +47,9 @@ function addToolTip(data, CountMod)
 			data['localemod'][data['mods'][i]['localeMod']]+data['mods'][i]['mathsign']+data['mods'][i]['value']+data['mods'][i]['txtsign']+"</td></tr>";
 			switch (parseInt(data['mods'][i]['id'], 10))
 			{
+			  case 3:
+			    v3 -= calcPerOfVal(data['mods'][i]['value'], data['sighting']);
+			    break;
 			  case 14:
 			    v14 += calcPerOfVal(data['mods'][i]['value'], data['damage']);
 			    break;
@@ -86,7 +90,7 @@ function addToolTip(data, CountMod)
 	{
 		t += "<tr height='20px' valign='bottom'><td>&nbsp;&nbsp;"+data['localetxt']['damage']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v14.toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['piercing']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v15.toString()+"</td></tr>"+
-		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['sighting']+data['localetxt']['s']+"</td></tr>"+
+		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['sighting']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v3,2).toString()+data['localetxt']['s']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['stoppower']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+data['stoppower']+data['localetxt']['p']+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['dispersion']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+roundPlus(v17,2).toString()+"</td></tr>"+
 		"<tr><td>&nbsp;&nbsp;"+data['localetxt']['distance']+"</td><td style='color:#FFF0A0; font-weight:500;'>"+v21.toString()+data['localetxt']['m']+"</td></tr>"+

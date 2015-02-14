@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 120
+ * @revision 147
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,18 +20,20 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	@include('locale.php');
-	@include('itemList.php');
+	@include('../maincore.php');
 	header ("Content-type: image/png");
 	// настройка текста
 	$font = "Arial.ttf";
 	$fontsize = 12;
-	$text = $txt[$items[$_GET["id"]]['l']];
-	$idfraction = $items[$_GET["id"]]['fraction'];
+	$STH = $DBH->query("SELECT locale, fraction, images, cost, level FROM armory_items WHERE id=".$_GET["id"]);
+	$STH->execute();
+	$d = $STH->fetch(PDO::FETCH_ASSOC);
+	$text = $itemloc[$d['locale']];
+	$idfraction = $d['fraction'];
 
 	$bg = ImageCreateFromPng("images/bg.png");
 	imagesavealpha($bg, true);
-	$icon = ImageCreateFromPng("images/".$_GET["id"].".png");
+	$icon = ImageCreateFromPng("images/".$d["images"].".png");
 	imagesavealpha($icon, true);
 	$fraction = ImageCreateFromPng("images/fractions/".$idfraction.".png");
 	imagesavealpha($fraction, true);
@@ -51,10 +53,10 @@
 	$text_x = ($imagebg_x/2) - ($text_x/2);
 	imagettftext($bg, $fontsize, 0, $text_x/*x*/, 115/*y*/, $color, $font, $text);
 	// размещаем уровень
-	if ($items[$_GET["id"]]['lvl'] != 0)
-		imagettftext($bg, $fontsize, 0, 22, 18, $colorlvl, $font, $items[$_GET["id"]]['lvl']);
+	if ((int)$d["level"] != 0)
+		imagettftext($bg, $fontsize, 0, 22, 18, $colorlvl, $font, $d["level"]);
 
-	imagepng($bg, "../images/icon/green/".$items[$_GET["id"]]['fraction']."_".$_GET["id"].".png");
+	imagepng($bg, "../images/icon/green/".$d["images"].".png");
 	imagedestroy($icon);
 	imagedestroy($fraction);
 	imagedestroy($bg);

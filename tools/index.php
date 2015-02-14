@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 147
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,16 +20,19 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	@include('itemList.php');
+	@include('../maincore.php');
 
-	for ($i = 1; $i <= count($items); $i++)
+	$STH = $DBH->prepare("SELECT id FROM armory_items");
+	$STH->execute();
+	$i = 0;
+	while($res = $STH->fetch(PDO::FETCH_ASSOC))
 	{
-		$l = $i*100/count($items);
-		echo 'Loading... '.(int)$l.'%<br>';
-		echo '<img src="DynamicIconSimple.php?id='.$i.'" style="display: none">';
-		echo '<img src="DynamicIconBlue.php?id='.$i.'" style="display: none">';
-		echo '<img src="DynamicIconGreen.php?id='.$i.'" style="display: none">';
-		echo '<img src="DynamicIconGold.php?id='.$i.'" style="display: none">';
-		echo '<img src="DynamicIcon.php?id='.$i.'" style="display: none">';
+		echo '<img src="DynamicIconSimple.php?id='.$res['id'].'" style="display: none">';
+		echo '<img src="DynamicIconBlue.php?id='.$res['id'].'" style="display: none">';
+		echo '<img src="DynamicIconGreen.php?id='.$res['id'].'" style="display: none">';
+		echo '<img src="DynamicIconGold.php?id='.$res['id'].'" style="display: none">';
+		echo '<img src="DynamicIcon.php?id='.$res['id'].'" style="display: none">';
+		echo $i.'...<br>';
+		$i++;
 	}
 ?>

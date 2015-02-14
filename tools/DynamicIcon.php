@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 77
+ * @revision 147
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,18 +20,20 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	@include('locale.php');
-	@include('itemList.php');
+	@include('../maincore.php');
 	header ("Content-type: image/png");
 	// настройка текста
 	$font = "Arial.ttf";
 	$fontsize = 12;
-	$text = $txt[$items[$_GET["id"]]['l']];
-	$idfraction = $items[$_GET["id"]]['fraction'];
+	$STH = $DBH->query("SELECT locale, fraction, images, cost, level FROM armory_items WHERE id=".$_GET["id"]);
+	$STH->execute();
+	$d = $STH->fetch(PDO::FETCH_ASSOC);
+	$text = $itemloc[$d['locale']];
+	$idfraction = $d['fraction'];
 
 	$bg = ImageCreateFromPng("images/bg.png");
 	imagesavealpha($bg, true);
-	$icon = ImageCreateFromPng("images/".$_GET["id"].".png");
+	$icon = ImageCreateFromPng("images/".$d["images"].".png");
 	imagesavealpha($icon, true);
 	$fraction = ImageCreateFromPng("images/fractions/".$idfraction.".png");
 	imagesavealpha($fraction, true);
@@ -45,10 +47,10 @@
 	$imagebg_x = $sizeimgbg[0];
 	$imagebg_y = $sizeimgbg[1];
 	// вычисляем шерену текста для golds
-	$goldssize = imagettfbbox($fontsize, 0, $font, $items[$_GET["id"]]['p']);
+	$goldssize = imagettfbbox($fontsize, 0, $font, $d["cost"]);
 	$goldstext_x = $goldssize[4];
 	$goldstext_x = ($imagebg_x) - ($goldstext_x) - 5;
-	imagettftext($bg, $fontsize, 0, $goldstext_x/*x*/, 92/*y*/, $colorgolds, $font, $items[$_GET["id"]]['p']);
+	imagettftext($bg, $fontsize, 0, $goldstext_x/*x*/, 92/*y*/, $colorgolds, $font, $d["cost"]);
 	$golds_x = $goldstext_x - 4 - 11;
 	imagecopy($bg, $icon, 2, 10, 0, 0, 171, 90);
 	imagecopy($bg, $fraction, 2, 2, 0, 0, 20, 20);
@@ -60,10 +62,10 @@
 	$text_x = ($imagebg_x/2) - ($text_x/2);
 	imagettftext($bg, $fontsize, 0, $text_x/*x*/, 115/*y*/, $color, $font, $text);
 	// размещаем уровень
-	if ($items[$_GET["id"]]['lvl'] != 0)
-		imagettftext($bg, $fontsize, 0, 22, 18, $colorlvl, $font, $items[$_GET["id"]]['lvl']);
+	if ((int)$d["level"] != 0)
+		imagettftext($bg, $fontsize, 0, 22, 18, $colorlvl, $font, $d["level"]);
 
-	imagepng($bg, "../images/icon/".$items[$_GET["id"]]['fraction']."_".$_GET["id"].".png");
+	imagepng($bg, "../images/icon/".$d["images"].".png");
 	//imagepng($bg);
 	imagedestroy($golds);
 	imagedestroy($icon);

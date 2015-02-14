@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 125
+ * @revision 152
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -39,28 +39,28 @@ function addUrlMods(typeitem, tmp)
 	switch (typeitem)
 	{
 	  case 'iw':
-	    history.replaceState(1, "Title 2", 'index.php?'+tmp+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?'+tmp+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'ie':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&'+tmp+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&'+tmp+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'im':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&'+tmp+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&'+tmp+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'ib':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&'+tmp+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&'+tmp+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'ia':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&'+tmp+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&'+tmp+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'ih':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&'+tmp+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&'+tmp+'&is='+getUrls()["is"]+'&if='+getUrls()["if"]);
 	    break;
 	  case 'is':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&'+tmp+'&if='+getUrls()["if"]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&'+tmp+'&if='+getUrls()["if"]);
 	    break;
 	  case 'if':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&'+tmp);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+getUrls()["iw"]+'&ie='+getUrls()["ie"]+'&im='+getUrls()["im"]+'&ib='+getUrls()["ib"]+'&ia='+getUrls()["ia"]+'&ih='+getUrls()["ih"]+'&is='+getUrls()["is"]+'&'+tmp);
 	    break;
 	}
 }

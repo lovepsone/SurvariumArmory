@@ -1,7 +1,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 151
+ * @revision 152
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -195,28 +195,28 @@ function GetUrlReplaceState(gTypeItem, gidItem)
 	switch (gTypeItem)
 	{
 	  case 'iw':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+gidItem+':0-0:0-0:0-0:'+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+gidItem+':0-0:0-0:0-0:'+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ie':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+gidItem+':0-0:0-0:0-0&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+gidItem+':0-0:0-0:0-0&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'im':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+gidItem+':0-0:0-0:0-0&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+gidItem+':0-0:0-0:0-0&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ib':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+gidItem+':0-0:0-0:0-0&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+gidItem+':0-0:0-0:0-0&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ia':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+gidItem+':0-0:0-0:0-0&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+gidItem+':0-0:0-0:0-0&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'ih':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+gidItem+':0-0:0-0:0-0&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+gidItem+':0-0:0-0:0-0&is='+di[7]+dm[7]+'&if='+di[8]+dm[8]);
 	    break;
 	  case 'is':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+gidItem+':0-0:0-0:0-0&if='+di[8]+dm[8]);
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+gidItem+':0-0:0-0:0-0&if='+di[8]+dm[8]);
 	    break;
 	  case 'if':
-	    history.replaceState(1, "Title 2", 'index.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+gidItem+':0-0:0-0:0-0');
+	    history.replaceState(1, "Title 2", 'inventory.php?iw='+di[0]+dm[0]+di[1]+dm[1]+'&ie='+di[2]+dm[2]+'&im='+di[3]+dm[3]+'&ib='+di[4]+dm[4]+'&ia='+di[5]+dm[5]+'&ih='+di[6]+dm[6]+'&is='+di[7]+dm[7]+'&if='+gidItem+':0-0:0-0:0-0');
 	    break;
 	}
 }

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 136
+ * @revision 150
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -113,6 +113,12 @@ $uiloc['general'] = 'Общие характеристики';
 $itemloc[1111] = 'Карабин Мосина';
 $itemloc[1112] = 'ППШ-41';
 $itemloc[1113] = 'ТТ-33';
+$itemloc[1114] = 'ПП-19-01 Витязь';
+$itemloc[1115] = 'АК-74h';
+$itemloc[1116] = 'СР-3М Вихрь';
+$itemloc[1117] = 'SOCOM-16';
+$itemloc[1118] = 'МР-27М Ланкастер';
+$itemloc[1119] = 'ВСС Виторез';
 
 $itemloc[1121] = 'ТОЗ-34';
 $itemloc[1122] = 'ТОЗ-122';
@@ -136,6 +142,8 @@ $itemloc[1145] = 'РПД';
 $itemloc[1146] = 'АК-74М';
 $itemloc[1147] = 'АС Вал';
 $itemloc[1148] = 'А-545';
+$itemloc[1149] = 'АК-12';
+$itemloc[1150] = 'СВД';
 
 $itemloc[1151] = 'СКС';
 $itemloc[1152] = 'АПС';
@@ -146,6 +154,9 @@ $itemloc[1156] = 'Вепр';
 $itemloc[1157] = 'РПК-74М';
 $itemloc[1158] = '9А-91';
 $itemloc[1159] = 'ВСК-94';
+$itemloc[1160] = 'АШ-12';
+$itemloc[1161] = 'ВССК Выхлоп';
+$itemloc[1162] = 'ПП-2000';
 // item armory
 $itemloc[21] = 'Телогрейка';
 $itemloc[22] = 'Сапоги Химзащиты';
@@ -252,4 +263,5 @@ $itemloc[532] = 'Контейнер Пилигрим';
 $itemloc[533] = 'Штаны Пилигрим';
 $itemloc[534] = 'Перчатки Пилигрим';
 $itemloc[535] = 'Сопоги Пилигрим';
+
 ?>

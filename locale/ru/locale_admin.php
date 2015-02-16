@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 145
+ * @revision 157
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -44,4 +44,9 @@ $locadmin['delmodsucces'] = 'Модификатор успешно удален!
 $locadmin['back'] = '<< Назад';
 $locadmin['nameItem'] = 'Название предмета:';
 $locadmin['value'] = 'Значение:';
+$locadmin['wpa'] = 'Добро пожаловать в панель Администратора';
+$locadmin['setmain'] = 'Основные настройки';
+$locadmin['setitems'] = 'Панель предметов';
+$locadmin['setmods'] = 'Панель модификации';
+$locadmin['exit'] = 'На главную';
 ?>

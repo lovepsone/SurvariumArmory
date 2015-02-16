@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 144
+ * @revision 159
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,6 +23,9 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header_tinymse.php';
 	HeadMenu();
+
+	if (isset($_SESSION['gmlevel']) && $_SESSION['gmlevel'] > 2)
+		Redirect(BASEDIR.'index.php', true);
 
 	$item = array(0=>'iw', 1=>'ie', 2=>'im', 3=>'ib', 4=>'ia', 5=>'ih', 6=>'is', 7=>'if');
 	$dataItemType = '';

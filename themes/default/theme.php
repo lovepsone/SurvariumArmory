@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 142
+ * @revision 159
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -22,14 +22,19 @@
  **/
 	function HeadMenu()
 	{
-		global $locale;
+		global $locale, $_SESSION;
 		echo '<table cellpadding="0" cellspacing="0" width="100%"><tr>';
 		echo '<td class="head" align="right">';
 		echo '<a href="http://llgc.ru">&middot;Life Line</a>';
 		echo '<a href="index.php">&middot;'.$locale['main'].'</a>';
 		echo '<a href="inventory.php">&middot;'.$locale['inventory'].'</a>';
-		echo '<a href="changelog.php">&middot;'.$locale['changelog'].'</a></td>';
-		echo '</tr></table>';
+		echo '<a href="changelog.php">&middot;'.$locale['changelog'].'</a>';
+		if (!isset($_SESSION['id']))
+			echo '<a href="auth.php">&middot;'.$locale['auth'].'</a>';
+		else if (isset($_SESSION['gmlevel']) && $_SESSION['gmlevel'] > 2)
+			echo '<a href="admin.php">&middot;'.$locale['admin'].'</a>';
+
+		echo '</td></tr></table>';
 
 		echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
 	}

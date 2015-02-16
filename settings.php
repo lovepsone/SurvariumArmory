@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 154
+ * @revision 159
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,6 +23,8 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header_tinymse.php';
 	HeadMenu();
+	if (isset($_SESSION['gmlevel']) && $_SESSION['gmlevel'] > 2)
+		Redirect(BASEDIR.'index.php', true);
 
 	$sWelcome = array('n'=>'welcome', 'v'=>'');
 	$SChangelog = array('n'=>'changelog', 'v'=>'');

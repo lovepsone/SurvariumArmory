@@ -6,5 +6,5 @@ html, body { height: 100%; margin: 0; font-family: Verdana, Arial, Helvetica, sa
 .tbl td {vertical-align: top;}
 .head a { text-decoration: none; color: #ffffff; font-size: 14px; padding:10px;}
 .head a:hover { color: #ffcc00; text-decoration: underline;}
-.editmod a { text-decoration: none; color: #ffffff; padding:2px;}
-.editmod a:hover { color: #ffcc00; text-decoration: underline;}
+a { text-decoration: none; color: #ffffff; padding:2px;}
+a:hover { color: #ffcc00; text-decoration: underline;}

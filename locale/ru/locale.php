@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 150
+ * @revision 159
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -45,6 +45,13 @@ $locale['s'] = 'c';
 $locale['m'] = 'м';
 $locale['p'] = '%';
 $locale['k'] = 'кг';
+$locale['reg'] = 'Регистрация';
+$locale['auth'] = 'Авторизация';
+$locale['login'] = 'Логин: ';
+$locale['pass1'] = 'Пароль: ';
+$locale['pass2'] = 'Повторите пароль: ';
+$locale['mail'] = 'e-mail: ';
+$locale['admin'] = 'Панель управления';
 
 $locale['contextblue'] = 'Синий предмет';
 $locale['contextgreen'] = 'Зеленый предмет';

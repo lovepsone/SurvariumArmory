@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 146
+ * @revision 159
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,6 +23,8 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header_tinymse.php';
 	HeadMenu();
+	if (isset($_SESSION['gmlevel']) && $_SESSION['gmlevel'] > 2)
+		Redirect(BASEDIR.'index.php', true);
 
 	echo '<form name="settypeitemform" method="post"><table class="tbl">';
 	echo '<tr><td colspan="3" align="center"><h2>'.$locadmin['editmods'].'</h2></td></tr>';

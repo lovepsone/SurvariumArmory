@@ -1,4 +1,4 @@
-html, body { height: 100%; margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; background-color: #000000; background-position: 50% 50%}
+html, body { height: 100%; margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; background-color: #000000;}
 .body-main { height: 91%; width: 100%;}
 .head {background-image: url('head.png'); height: 51px; background-size: 100% 100%;}
 .footer {background-image: url('footer.jpg'); height: 25px; background-size: 100% 100%;}

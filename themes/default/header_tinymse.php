@@ -45,7 +45,7 @@
 	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons"
 });</script>
 <?php
-	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat; background-position: 50% 50%;">';
+	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
 
 	require_once 'theme.php';
 ?>

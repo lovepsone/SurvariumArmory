@@ -28,7 +28,7 @@
 	echo '<title>Survarium Armory</title>';
 	echo '<link rel="stylesheet" href="themes/default/style.css">';
 	echo '<script type="text/javascript" src="include/js/jquery.min.js"></script>';
-	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;background-position: 50% 50%;">';
+	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;">';
 
 	require_once 'theme.php';
 ?>

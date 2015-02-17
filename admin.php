@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 157
+ * @revision 161
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -23,6 +23,8 @@
 	require_once 'maincore.php';
 	require_once THEMES.'header.php';
 	HeadMenu();
+	if (isset($_SESSION['gmlevel']) && $_SESSION['gmlevel'] < 2)
+		Redirect(BASEDIR.'index.php', true);
 
 	echo '<table class="tbl"><tr><td colspan="2" align="center"><h2>'.$locadmin['wpa'].'</h2></td></tr>';
 	echo '<tr><td align="left" class="editmod"><a href="settings.php">'.$locadmin['setmain'].'</a></td></tr>';

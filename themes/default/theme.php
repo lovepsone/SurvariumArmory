@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 159
+ * @revision 160
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -36,7 +36,9 @@
 
 		echo '</td></tr></table>';
 
-		echo '<table class="body-main" border="0px" align="center"><tr><td align="center">';//основная таблица
+		$body = array(1 => 'body1.png', 2 => 'body2.png', 3 => 'body3.png', 4 => 'body1.png');
+		$style = 'background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat;background-position: 50% 50%;';
+		echo '<table class="body-main" border="0px" align="center" style="'.$style.'"><tr><td align="center">';//основная таблица
 	}
 
 	function Footer()

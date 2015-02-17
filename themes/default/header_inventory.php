@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 136
+ * @revision 160
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -20,7 +20,6 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  **/
-	$body = array(1 => 'body1.png', 2 => 'body2.png', 3 => 'body3.png', 4 => 'body1.png');
 	echo '<!DOCTYPE html>';
 	echo '<html xmlns="http://www.w3.org/1999/xhtml">';
 	echo '<head>';
@@ -35,7 +34,7 @@
 	echo '<script type="text/javascript" src="include/js/jquery.qtip.min.js"></script>';
 	echo '<script type="text/javascript" src="include/js/armory.js"></script>';
 	echo '<script type="text/javascript" src="include/js/DragAndDrop.js"></script>';
-	echo '</head><body style="background-image: url(themes/default/'.$body[rand(1, count($body))].'); background-size: 100% 100%; background-repeat: no-repeat; background-position: 50% 50%;">';
+	echo '</head><body>';
 
 	require_once 'theme.php';
 ?>

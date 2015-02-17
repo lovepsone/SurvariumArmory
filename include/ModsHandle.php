@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 126
+ * @revision 162
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -32,6 +32,22 @@
 	$Tmods['ih'] = array(1 => 3, 2 => 4, 3 => 8, 4 => 12, 5 => 13, 6 => 19, 7 => 20);
 	$Tmods['is'] = array(1 => 6, 2 => 7, 3 => 10, 4 => 11, 5 => 16, 6 => 19, 7 => 20, 8 => 22, 9 => 23);
 	$Tmods['if'] = array(1 => 6, 2 => 7, 3 => 16, 4 => 19, 5 => 20, 6 => 22);
+	$data = array();
+	// проверка на v24
+	$STH = $DBH->query("SELECT selector, typeweapon, typeib FROM armory_items WHERE id=".$idItem);
+	$STH->execute();
+	$data = $STH->fetch(PDO::FETCH_ASSOC);
+	if (!$data['typeweapon'] && $data['selector'] == 'iw')
+	{
+		unset($Tmods['iw'][11]);
+		sort($Tmods['iw']);
+	}
+	// проверка на v25
+	if (!$data['typeib'] && $data['selector'] == 'ib')
+	{
+		unset($Tmods['ib'][4]);
+		sort($Tmods['ib']);
+	}
 
 	function ParseModValues($val)
 	{

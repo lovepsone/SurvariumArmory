@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 140
+ * @revision 163
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -137,22 +137,27 @@
 			}
 		}
 	}
-//echo count($modsId[$item[$i]]);
+
 	$dHead = (!empty($rItem['ie']) ? ($rItem['ie']['defence'] + $amods['ie'][16]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['defence'] + $amods['im'][16]) : 0);
 	$iHead = (!empty($rItem['ie']) ? ($rItem['ie']['isolation'] + $amods['ie'][22]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['isolation'] + $amods['im'][22]) : 0);
 	$wHead = (!empty($rItem['ie']) ? ($rItem['ie']['weight'] - $amods['ie'][19]) : 0) + (!empty($rItem['im']) ? ($rItem['im']['weight'] - $amods['im'][19]) : 0);
+	$cHead = (!empty($rItem['ie']) ? $rItem['ie']['cost'] : 0) + (!empty($rItem['im']) ? $rItem['im']['cost'] : 0);
 	$dBody = /*(!empty($rItem['ib']) ? $rItem['ie']['defence'] : 0) + */(!empty($rItem['ia']) ? ($rItem['ia']['defence'] + $amods['ia'][16]) : 0);
 	$iBody = /*(!empty($rItem['ib']) ? $rItem['ie']['isolation'] : 0) + */(!empty($rItem['ia']) ? ($rItem['ia']['isolation'] + $amods['ia'][22]) : 0);
 	$wBody = (!empty($rItem['ib']) ? ($rItem['ib']['weight'] - $amods['ib'][19]) : 0) + (!empty($rItem['ia']) ? ($rItem['ia']['weight'] - $amods['ia'][19]) : 0);
+	$cBody = (!empty($rItem['ib']) ? $rItem['ib']['cost'] : 0) + (!empty($rItem['ia']) ? $rItem['ia']['cost'] : 0);
 	$dHand = (!empty($rItem['ih']) ? ($rItem['ih']['defence']  + $amods['ih'][16]) : 0);
 	$iHand = (!empty($rItem['ih']) ? ($rItem['ih']['isolation'] + $amods['ih'][22]) : 0);
 	$wHand = (!empty($rItem['ih']) ? ($rItem['ih']['weight'] - $amods['ih'][19]) : 0);
+	$cHand = (!empty($rItem['ih']) ? $rItem['ih']['cost'] : 0);
 	$dFooter = (!empty($rItem['if']) ? ($rItem['if']['defence'] + $amods['if'][16]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['defence'] + $amods['is'][16]) : 0);
 	$iFooter = (!empty($rItem['if']) ? ($rItem['if']['isolation'] + $amods['if'][22]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['isolation'] + $amods['is'][22]) : 0);
 	$wFooter = (!empty($rItem['if']) ? ($rItem['if']['weight'] - $amods['if'][19]) : 0) + (!empty($rItem['is']) ? ($rItem['is']['weight'] - $amods['is'][19]) : 0);
+	$cFooter = (!empty($rItem['if']) ? $rItem['if']['cost'] : 0) + (!empty($rItem['is']) ? $rItem['is']['cost'] : 0);
 	$dGeneral = $dHead + $dBody + $dHand + $dFooter;
 	$iGeneral = $iHead + $iBody + $iHand + $iFooter;
 	$wGeneral = $wHead + $wBody + $wHand + $wFooter + (!empty($rItem['iw']) ? ($rItem['iw']['weight'] - $amods['iw'][19]) : 0);
+	$cGeneral = $cHead + $cBody + $cHand + $cFooter + (!empty($rItem['iw']) ? $rItem['iw']['cost'] : 0);
 
 	$title = "<table class='tooltipBodyUser'>";
 	$title .= "<tr><td colspan='2' align='center'>".$uiloc['weapon']."</td></tr>";
@@ -165,26 +170,32 @@
 	$title .= "<tr><td>".$uiloc['distance']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['distance'] + $amods['iw'][21]) : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['rate']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['rate'] + $amods['iw'][18]) : 0)."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".(!empty($rItem['iw']) ? ($rItem['iw']['weight'] - $amods['iw'][19]) : 0)."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".(!empty($rItem['iw']) ? $rItem['iw']['cost'] : 0)."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ie'])).";'>".$uiloc['head']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dHead."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iHead."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wHead."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".$cHead."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ia'])).";'>".$uiloc['body']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dBody."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iBody."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wBody."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".$cBody."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['ih'])).";'>".$uiloc['hand']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dHand."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iHand."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wHand."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".$cHand."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center' style='color:".getColorNameItem(getCountMods($_POST['url']['is'])).";'>".$uiloc['footer']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iFooter."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wFooter."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".$cFooter."</td></tr>";
 	$title .= "<tr><td colspan='2' align='center'>".$uiloc['general']."</td></tr>";
 	$title .= "<tr><td>".$uiloc['defence']."</td><td>".$dGeneral."</td></tr>";
 	$title .= "<tr><td>".$uiloc['isolation']."</td><td>".$iGeneral."</td></tr>";
 	$title .= "<tr><td>".$uiloc['weight']."</td><td>".$wGeneral."</td></tr>";
+	$title .= "<tr><td>".$uiloc['cost']."</td><td>".$cGeneral."</td></tr>";
 	$title .= "</table>";
 	echo '<img src="include/DynamicButtons.php" class="userBotton" title="'.$title.'"/>';
 ?>

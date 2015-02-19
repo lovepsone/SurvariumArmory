@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 161
+ * @revision 164
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -68,7 +68,7 @@
 		{
 			if ($data['selector'] == 'ie')
 			{
-				echo '<tr><td>'.$locadmin['twoslots'].'</td><td><select name="typeweapon" class="textbox">';
+				echo '<tr><td>'.$locadmin['twoslots'].'</td><td><select name="twoslots" class="textbox">';
 				if ($data['twoslots'] == 0)
 				{
 					echo '<option value="0" selected="selected">'.$locadmin['n'].'</option>';
@@ -83,7 +83,7 @@
 			}
 			if ($data['selector'] == 'ib')
 			{
-				echo '<tr><td>'.$locadmin['typeib'].'</td><td><select name="typeweapon" class="textbox">';
+				echo '<tr><td>'.$locadmin['typeib'].'</td><td><select name="typeib" class="textbox">';
 				if ($data['typeib'] == 0)
 				{
 					echo '<option value="0" selected="selected">'.$locadmin['n'].'</option>';
@@ -136,7 +136,6 @@
 	}
 	if (isset($_POST['selitem']))
 	{
-		//echo $_POST['iditem'];
 		$data = array(
 		'id'=> $_POST['iditem'],
 		'twoslots'=> (isset($_POST['twoslots']) ? $_POST['twoslots'] : 0),
@@ -155,7 +154,6 @@
 		'cost'=> (isset($_POST['cost']) ? $_POST['cost'] : 0),
 		'level'=> (isset($_POST['level']) ? $_POST['level'] : 0)
 		);
-		//print_r($data);
 		$STH = $DBH->prepare("UPDATE armory_items SET twoslots=:twoslots, defence=:defence, isolation=:isolation, typeib=:typeib, typeweapon=:typeweapon, damage=:damage, piercing=:piercing, sighting=:sighting, stoppower=:stoppower, dispersion=:dispersion, distance=:distance, rate=:rate, weight=:weight, cost=:cost, level=:level WHERE id=:id");
 		$STH->execute($data);
 	}

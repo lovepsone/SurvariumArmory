@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 162
+ * @revision 164
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -32,6 +32,7 @@
 	$Tmods['ih'] = array(1 => 3, 2 => 4, 3 => 8, 4 => 12, 5 => 13, 6 => 19, 7 => 20);
 	$Tmods['is'] = array(1 => 6, 2 => 7, 3 => 10, 4 => 11, 5 => 16, 6 => 19, 7 => 20, 8 => 22, 9 => 23);
 	$Tmods['if'] = array(1 => 6, 2 => 7, 3 => 16, 4 => 19, 5 => 20, 6 => 22);
+	sort($Tmods[$typeItem]);
 	$data = array();
 	// проверка на v24
 	$STH = $DBH->query("SELECT selector, typeweapon, typeib FROM armory_items WHERE id=".$idItem);
@@ -39,13 +40,13 @@
 	$data = $STH->fetch(PDO::FETCH_ASSOC);
 	if (!$data['typeweapon'] && $data['selector'] == 'iw')
 	{
-		unset($Tmods['iw'][11]);
+		unset($Tmods['iw'][10]);
 		sort($Tmods['iw']);
 	}
 	// проверка на v25
 	if (!$data['typeib'] && $data['selector'] == 'ib')
 	{
-		unset($Tmods['ib'][4]);
+		unset($Tmods['ib'][3]);
 		sort($Tmods['ib']);
 	}
 
@@ -54,14 +55,16 @@
 		$data = explode("/", $val);
 		return $data[rand(0, count($data)-1)];
 	}
+
 	for ($i = 0; $i < $countMods; $i++)
 	{
-		$rint = rand(1, count($Tmods[$typeItem]));
+		$rint = rand(0, count($Tmods[$typeItem]));
 		$idMod = $Tmods[$typeItem][$rint];
 		$STH = $DBH->query("SELECT * FROM armory_mods WHERE id=".$idMod);
 		$STH->execute();
 		$data = $STH->fetch(PDO::FETCH_ASSOC);
 		$result[$i] = array('id'=>$idMod, 'val' => ParseModValues($data['values']));
+		$a[$i] = $idMod;
 		unset($Tmods[$typeItem][$rint]); 
 		sort($Tmods[$typeItem]);
 	}

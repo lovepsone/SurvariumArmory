@@ -58,14 +58,9 @@
 .tooltipBodyUser { background: url(images/tooltip/tooltipBody.png); font-size: 14px; color: #ffffff; width: 376px; padding:15px;}
 .tooltipBody { background: url(images/tooltip/tooltipBody.png); width: 196px; font-size: 10px; color: #ffffff;}
 .tooltipHead { width: 100%; background-color: #000000; }
-.ContextMenuMod {
-position: absolute;
-display: none;
-background-color: #000000;
-border: 2px solid #333;
-z-index:1000;
-}
+
+.ContextMenuMod {position: absolute;display: none;border: 2px solid #333;z-index:9999;}
 .ContextMenuMod ul { list-style: none; margin: 0; padding: 0; }
-.ContextMenuMod  ul li { margin: 0; padding: 0; background: url(images/tooltip/tooltipBody.png); background-color: #000000; display: block; }
-.ContextMenuMod  ul li a { color: #333; text-decoration: none; font-size: 12px; display: block; padding: 5px; }
-.ContextMenuMod  ul li a:hover { background-color: #eee; }  
+.ContextMenuMod  ul li { margin: 0; padding: 0; background-image: url('images/body-cm.png');background-repeat: no-repeat; background-size: 100% 100%; display: block; }
+.ContextMenuMod  ul li a { color: #ffffff; text-decoration: none; font-size: 12px; display: block; padding: 5px; }
+.ContextMenuMod  ul li a:hover { background-color: #333; color:#ffd700; }

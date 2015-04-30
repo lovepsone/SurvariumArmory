@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 130
+ * @revision 168
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -45,7 +45,12 @@
 	}
 	define("BASEDIR", $folder_level);
 	require_once BASEDIR.'conf.php';
-	define("THEMES", BASEDIR."themes/default/");
+	// theme
+	if (file_exists(BASEDIR."themes/".$Config['settings']['theme']))
+		define("THEMES", BASEDIR."themes/".$Config['settings']['theme']."/");
+	else
+		define("THEMES", BASEDIR."themes/default/");
+
 	define("INCLUDES", BASEDIR."include/");
 	define("SELF", basename($_SERVER['PHP_SELF']));
 

@@ -2,7 +2,7 @@
 /**
  * @package Survarium Armory
  * @version Release 2.0
- * @revision 153
+ * @revision 168
  * @copyright (c) 2014 - 2015 lovepsone
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -54,5 +54,6 @@ $Config['mysql']['prefix'] = 'armory_';
 $Config['mysql']['error'] = true;
 
 $Config['settings']['locale'] = 'ru';
+$Config['settings']['theme'] = 'like';
 $Config['settings']['version'] = '0.2.1';
 ?>

@@ -1,0 +1,10 @@
+html, body { height: 100%; margin: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; background-color: #000000;}
+.body-main { height: 91%; width: 100%;}
+.head {background-image: url('head.png'); height: 51px; background-size: 100% 100%;}
+.footer {background-image: url('footer.jpg'); height: 25px; background-size: 100% 100%;}
+.tbl {width: 646px; background-image: url('tbl.png'); padding:15px;}
+.tbl td {vertical-align: top;}
+.head a { text-decoration: none; color: #ffffff; font-size: 14px; padding:10px;}
+.head a:hover { color: #ffcc00; text-decoration: underline;}
+a { text-decoration: none; color: #ffffff; padding:2px;}
+a:hover { color: #ffcc00; text-decoration: underline;}
